@@ -1,0 +1,1 @@
+If you prefer in-person communication, you could book an appointment with the manager at your local bank branch. Face-to-face is often the most engaging and rewarding method of interaction we have, so starting a conversation with a fossil bank in this way is particularly powerful.

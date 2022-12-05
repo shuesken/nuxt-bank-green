@@ -1,0 +1,2 @@
+-   You will need to pay off any credit card or other debts associated with your old account before you can close it. Make a plan for doing this.
+-   In cases where you might hold other financial products with your bank, speak with your representative about how closing your account might affect them and make a plan to address this.

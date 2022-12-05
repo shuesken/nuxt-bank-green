@@ -1,0 +1,85 @@
+<template>
+    <div class="page">
+        <div class="page-fade-in overflow-hidden max-w-screen">
+            <div class="bg-gradient-to-b from-sushi-50 to-sushi-100 pt-28">
+                <div class="contain flex flex-col justify-center items-center pb-4 lg:pb-0 mb-4">
+                    <h1 class="max-w-3xl text-2xl font-semibold whitespace-pre-line mb-8 text-center"
+                        v-text="$t('PLEDGE_TITLE')" />
+                    <div class="max-w-6xl flex flex-col-reverse lg:flex-row items-center">
+                        <div ref="signUpForm" class="w-full lg:w-3/5 relative z-10">
+                            <PledgeSignup />
+                        </div>
+                        <div class="w-full lg:w-2/5  mt-8 lg:mt-0 lg:ml-8">
+                            <p class="prose md:text-lg whitespace-pre-wrap" v-text="$t('PLEDGE DESC_1')"></p>
+                            <CheckList class="my-6 md:text-lg" :list="checkList" />
+                        </div>
+                    </div>
+                </div>
+                <Swoosh />
+            </div>
+        </div>
+
+        <div class="contain max-w-6xl flex flex-col md:flex-row md:items-center mt-12 pb-16 ">
+            <div class="md:max-w-lg prose md:text-lg whitespace-pre-wrap md:mr-8 mb-12 md:mt-0">
+                <p v-text="$t('PLEDGE DESC_2')"></p>
+                <div class="w-full flex justify-center mt-12">
+                    <button @click="scrollToForm" class="button-green max-w-md md:w-max">
+                        {{ $t('TAKE_THE_PLEDGE') }}
+                    </button>
+                </div>
+            </div>
+            <LazyImage src="/img/illustrations/pledge.png" imgClass="w-full" :useImageTag="true" />
+        </div>
+    </div>
+</template>
+
+<script>
+import LazyImage from '../components/LazyImage.vue'
+import markup from '@/utils/directives/markup'
+import Swoosh from '@/components/Swoosh.vue'
+import PledgeSignup from '@/components/forms/PledgeSignup.vue'
+import CheckList from '@/components/CheckList.vue'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+export default {
+    components: {
+        LazyImage,
+        Swoosh,
+        PledgeSignup,
+        CheckList,
+    },
+    directives: { markup },
+
+    setup() {
+        const { t } = useI18n({ useScope: 'global' })
+        useHead({
+            title: t('PLEDGE_SEO_TITLE'),
+            description: t('PLEDGE_SEO_DESC'),
+        })
+
+        const signUpForm = ref()
+        const scrollToForm = () => {
+            if (!signUpForm.value) return
+            window.scrollTo({
+                top: signUpForm.value.offsetTop - 100,
+                behavior: 'smooth',
+            })
+        }
+
+        return {
+            signUpForm,
+            scrollToForm,
+        }
+    },
+    computed: {
+        checkList() {
+            return [
+                this.$t('SEND_A_MESSAGE_TO_YOUR_BANK'),
+                this.$t('JOIN_A_FAST_GROWING_MOVEMENT'),
+                this.$t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
+            ]
+        },
+    },
+}
+</script>

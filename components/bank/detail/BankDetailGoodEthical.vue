@@ -1,0 +1,71 @@
+<template>
+    <div class="page">
+        <div class="contain py-16 lg:pt-6 lg:pb-6 sm:text-center">
+            <template v-if="details.fromTheWebsite">
+                <h2
+                    class="font-semibold text-2xl text-gray-800 mb-8 sm:text-4xl sm:mb-4"
+                >
+                    {{ $t('FROM_X_WEBSITE', { name: details.name }) }}
+                </h2>
+                <p
+                    class="whitespace-pre-line text-gray-500 sm:text-xl max-w-xl mx-auto"
+                >
+                    {{ details.fromTheWebsite }}
+                </p>
+            </template>
+
+            <EthicalFeatures
+                :details="details"
+                class="mt-16 max-w-xl mx-auto text-left"
+            />
+        </div>
+
+        <Swoosh color="text-blue-100" direction="up" />
+        <div class="bg-blue-100 pt-16">
+            <div class="contain">
+                <div
+                    class="max-w-xl mx-auto bg-primary-dark text-gray-100 rounded-xl shadow-xl p-8"
+                >
+                    <div
+                        class="text-lg lg:text-xl font-medium mb-8 sm:px-16 lg:px-0"
+                    >
+                        {{ $t('COUNTING_DISCLAIMER', { name: details.name }) }}
+                    </div>
+                    <a
+                        :href="details.website"
+                        target="_blank"
+                        class="button-green inline-block mx-auto"
+                        >{{ $t('VISIT_X', { name: details.name }) }}</a
+                    >
+                    <app-link
+                        to="/pledge"
+                        class="block text-gray-200 hover:underline cursor-pointer font-bold mt-4 text-center"
+                    >
+                        {{ $t('PLEDGE_TO_SWITCH_LATER') }}
+                    </app-link>
+                </div>
+            </div>
+            <div
+                v-if="details.rating === 'great'"
+                class="flex items-end justify-end pointer-events-none"
+            >
+                <div class="w-11/12">
+                    <LottiePlayer path="/anim/wind_2_without_bg.json" />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import EthicalFeatures from '@/components/bank/detail/features/EthicalFeatures'
+import LottiePlayer from '@/components/LottiePlayer.vue'
+import Swoosh from '@/components/Swoosh.vue'
+
+export default {
+    components: { EthicalFeatures, LottiePlayer, Swoosh },
+    props: {
+        details: Object,
+    },
+}
+</script>
