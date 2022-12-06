@@ -2,10 +2,7 @@
     <div class="page">
         <div class="bg-gradient-to-b from-sushi-50 to-sushi-100">
             <div class="page-fade-in contain max-w-3xl pt-28 pb-8">
-                <h1 class="text-2xl font-semibold whitespace-pre-line mb-4" v-t="'CONTACT'" />
-                <p class="text-gray-600 mb-12 whitespace-pre-line">
-                    <PrismicRichText :field="contact.data.description" />
-                </p>
+                <PrismicRichText class="text-gray-600 mb-12 whitespace-pre-line" :field="contact.data.description" />
                 <form class=" flex flex-col justify-center items-center" @submit.prevent.stop="onSend">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                         <TextField class="col-span-1" v-model="firstName" name="firstName" type="text"
