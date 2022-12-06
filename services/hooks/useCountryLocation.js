@@ -1,4 +1,3 @@
-import { ref, onMounted, watch, computed } from 'vue'
 import { getCountry } from '@/api/banks'
 import storage from '@/utils/storage'
 

@@ -1,4 +1,3 @@
-import { ref, onMounted, onUnmounted } from 'vue'
 
 /**
  * Responsible for knowing the maximum container size

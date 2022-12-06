@@ -1,169 +1,88 @@
 <template>
-    <div
-        @click="toggleFilters"
+    <div @click="toggleFilters"
         class="bg-white hover:bg-gray-50 px-5 py-4 md:py-0 md:px-0 md:bg-transparent md:hover:bg-transparent cursor-pointer md:cursor-auto flex items-center"
         :class="{
             'rounded-xl': !showFilters,
             'rounded-t-xl': showFilters,
-        }"
-    >
+        }">
         <h4 class="font-semibold text-left md:text-xl">Filter</h4>
 
-        <button
-            v-if="isFilterDirty"
-            @click="setDefaultFilter"
-            class="ml-6 text-sm text-sushi-500 hover:text-sushi-600 font-semibold focus:outline-none"
-        >
+        <button v-if="isFilterDirty" @click="setDefaultFilter"
+            class="ml-6 text-sm text-sushi-500 hover:text-sushi-600 font-semibold focus:outline-none">
             Reset
         </button>
     </div>
 
-    <div
-        class="flex flex-col bg-gray-50 md:bg-transparent px-5 py-4 md:py-0 md:px-0"
-        v-show="showFilters"
-    >
+    <div class="flex flex-col bg-gray-50 md:bg-transparent px-5 py-4 md:py-0 md:px-0" v-show="showFilters">
         <h5 class="text-xs uppercase font-semibold md:mt-6 mb-2">Location</h5>
         <div class="flex flex-col space-y-1">
-            <CheckboxSection
-                class="col-span-full"
-                v-model="searchByLocation"
-                name="local_branches"
-            >
-                Local branches</CheckboxSection
-            >
-            <RegionSearch
-                v-if="searchByLocation"
-                class="pb-4 md:max-w-sm md:mx-auto z-30"
-                ref="regionPicker"
-                @select="onSelectLocation"
-            />
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.location.online_only"
-                name="online_only"
-            >
-                Online only</CheckboxSection
-            >
+            <CheckboxSection class="col-span-full" v-model="searchByLocation" name="local_branches">
+                Local branches</CheckboxSection>
+            <RegionSearch v-if="searchByLocation" class="pb-4 md:max-w-sm md:mx-auto z-30" ref="regionPicker"
+                @select="onSelectLocation" />
+            <CheckboxSection class="col-span-full" v-model="filterPayload.location.online_only" name="online_only">
+                Online only</CheckboxSection>
         </div>
 
         <h5 class="text-xs uppercase font-semibold mt-6 mb-2">
             Fossil Free Alliance
         </h5>
-        <CheckboxSection
-            class="col-span-full"
-            v-model="filterPayload.fossilFreeAlliance"
-            name="fossilFreeAlliance"
-        >
-            Fossil Free Alliance</CheckboxSection
-        >
+        <CheckboxSection class="col-span-full" v-model="filterPayload.fossilFreeAlliance" name="fossilFreeAlliance">
+            Fossil Free Alliance</CheckboxSection>
 
         <h5 class="text-xs uppercase font-semibold mt-6 mb-2">Convenience</h5>
         <div class="flex flex-col space-y-1">
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.convenience.online_account_opening"
-                name="online_account_opening"
-            >
-                Online account opening</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.convenience.online_banking"
-                name="online_banking"
-            >
-                Mobile banking</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.convenience.free_atm_withdrawal"
-                name="free_atm_withdrawal"
-            >
-                Free ATM network</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.convenience.no_overdraft_fee"
-                name="no_overdraft_fee"
-            >
-                No overdraft fee</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.convenience.no_account_maintenance_fee"
-                name="no_account_maintenance_fee"
-            >
-                No account maintenance fees</CheckboxSection
-            >
+            <CheckboxSection class="col-span-full" v-model="filterPayload.convenience.online_account_opening"
+                name="online_account_opening">
+                Online account opening</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.convenience.online_banking"
+                name="online_banking">
+                Mobile banking</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.convenience.free_atm_withdrawal"
+                name="free_atm_withdrawal">
+                Free ATM network</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.convenience.no_overdraft_fee"
+                name="no_overdraft_fee">
+                No overdraft fee</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.convenience.no_account_maintenance_fee"
+                name="no_account_maintenance_fee">
+                No account maintenance fees</CheckboxSection>
         </div>
 
         <h5 class="text-xs uppercase font-semibold mt-6 mb-2">Bank Accounts</h5>
         <div class="flex flex-col space-y-1">
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.checking"
-                name="checking"
-            >
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.checking" name="checking">
                 {{
-                    isUK ? 'Current accounts' : 'Checking accounts'
-                }}</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.saving"
-                name="saving"
-            >
-                Savings accounts</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.interest_rates"
-                name="interest_rates"
-            >
-                Interest rates</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.business_accounts"
-                name="business_accounts"
-            >
-                Business accounts</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.small_business_lending"
-                name="small_business_lending"
-            >
-                Small business lending</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.credit_cards"
-                name="credit_cards"
-            >
-                Credit cards</CheckboxSection
-            >
-            <CheckboxSection
-                class="col-span-full"
-                v-model="filterPayload.bankAccounts.mortgage_or_loans"
-                name="mortgage_or_loans"
-            >
+                        isUK ? 'Current accounts' : 'Checking accounts'
+                }}</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.saving" name="saving">
+                Savings accounts</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.interest_rates"
+                name="interest_rates">
+                Interest rates</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.business_accounts"
+                name="business_accounts">
+                Business accounts</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.small_business_lending"
+                name="small_business_lending">
+                Small business lending</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.credit_cards"
+                name="credit_cards">
+                Credit cards</CheckboxSection>
+            <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.mortgage_or_loans"
+                name="mortgage_or_loans">
                 Mortgage or loan options
             </CheckboxSection>
         </div>
 
         <h5 class="text-xs uppercase font-semibold mt-6 mb-2">Security</h5>
-        <CheckboxSection
-            class="col-span-full"
-            v-model="filterPayload.security.deposit_protection"
-            name="deposit_protection"
-        >
-            Deposit protection</CheckboxSection
-        >
+        <CheckboxSection class="col-span-full" v-model="filterPayload.security.deposit_protection"
+            name="deposit_protection">
+            Deposit protection</CheckboxSection>
     </div>
 </template>
 
 <script>
-import { computed, onMounted, ref, watch } from 'vue'
 import CheckboxSection from '@/components/forms/CheckboxSection.vue'
 import RegionSearch from '@/components/forms/RegionSearch.vue'
 import useCountryLocation from '@/services/hooks/useCountryLocation'

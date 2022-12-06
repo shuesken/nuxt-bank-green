@@ -31,7 +31,6 @@
 import markup from '@/utils/directives/markup'
 import AccordionItem from '@/components/AccordionItem.vue'
 import SignupBox from '@/components/forms/SignupBox.vue'
-import { ref, onMounted, computed, watchEffect } from 'vue'
 import { getFAQ } from '@/api/faq'
 import Swoosh from '@/components/Swoosh.vue'
 import { useRoute } from 'vue-router'

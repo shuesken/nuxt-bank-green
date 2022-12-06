@@ -17,4 +17,7 @@ export default defineNuxtConfig({
     },
   },
   css: ["@/styles/style.css"],
+  routeRules: {
+    "/sustainable-ethical-banks": { redirect: "/sustainable-eco-banks" },
+  },
 });

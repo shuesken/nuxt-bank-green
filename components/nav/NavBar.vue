@@ -42,7 +42,6 @@
                     </app-link>
                 </div>
             </div>
-            <AnnouncementBanner />
         </nav>
 
         <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 -translate-y-1"

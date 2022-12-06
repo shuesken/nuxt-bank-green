@@ -39,7 +39,6 @@ import intro from './intro.md'
 import detail from './detail.md'
 import AccordionItem from '@/components/AccordionItem.vue'
 import markup from '@/utils/directives/markup'
-import { ref, onMounted, computed } from 'vue'
 import { getCertifiedFAQ } from '@/api/certified'
 export default {
     components: {

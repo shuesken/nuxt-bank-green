@@ -1,5 +1,4 @@
 import lottie from 'lottie-web/build/player/lottie_light'
-import { onMounted, onUnmounted, ref } from '@vue/runtime-core'
 
 export default function useLottie({ path, actions }) {
     const container = ref(null)

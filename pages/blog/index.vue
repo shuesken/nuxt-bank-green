@@ -22,7 +22,6 @@
 <script>
 import BlogCard from '@/components/blog/BlogCard.vue'
 import { getBlogs } from '@/api/blog'
-import { onMounted, ref } from 'vue'
 import { removeTags } from '@/utils/remoeTags'
 
 export default {

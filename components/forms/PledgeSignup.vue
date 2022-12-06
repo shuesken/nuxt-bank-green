@@ -72,7 +72,6 @@ import DateField from '@/components/forms/DateField.vue'
 import useContactForm from '@/services/contact/useContactForm'
 import { ref } from 'vue'
 import markup from '@/utils/directives/markup'
-import { computed } from '@vue/runtime-core'
 
 export default {
     props: {

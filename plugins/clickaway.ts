@@ -1,5 +1,5 @@
 import { defineNuxtPlugin } from "#app";
-import { DirectiveBinding, VNode } from "@vue/runtime-core";
+import { DirectiveBinding, VNode } from "vue";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("clickaway", {
