@@ -16,13 +16,5 @@ export default defineNuxtConfig({
       },
     },
   },
-  // remove this when i18n is removed
-  vite: {
-    resolve: {
-      alias: {
-        "vue-i18n": "vue-i18n/dist/vue-i18n.runtime.esm-bundler.js",
-      },
-    },
-  },
   css: ["@/styles/style.css"],
 });

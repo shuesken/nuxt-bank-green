@@ -36,7 +36,6 @@ export default function getFeatures(item) {
     })
 
     for (let bankFeature of item.bankFeatures) {
-        // console.log("bankFeature", bankFeature)
         if (featureDict[bankFeature.feature.name]) {
             // it's a feature we're interested in
             const displayFeature = getDisplayFeature(bankFeature)

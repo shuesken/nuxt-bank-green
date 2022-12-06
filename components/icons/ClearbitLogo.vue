@@ -1,11 +1,5 @@
 <template>
-    <LazyImage
-        :width="size"
-        :height="size"
-        srcset=""
-        :imgClass="imgClass"
-        :src="src"
-    />
+    <LazyImage :width="size" :height="size" srcset="" :imgClass="imgClass" :src="src" />
 </template>
 
 <script>
@@ -53,9 +47,7 @@ export default {
             if (url) {
                 if (url.indexOf('http') === -1) url = `https://${url}`
                 if (url.indexOf('.') > -1) {
-                    const a = document.createElement('a')
-                    a.href = url
-                    return a.hostname
+                    return new URL(url).hostname
                 }
             }
             return ''

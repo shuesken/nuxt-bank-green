@@ -10,12 +10,11 @@ if (process?.env?.VUE_APP_ENV == 'staging') {
 
 
 async function callBackend(query, variables) {
-    const queryParam = window.encodeURIComponent(query)
-    const variablesParam = window.encodeURIComponent(JSON.stringify(variables))
+    const queryParam = encodeURIComponent(query)
+    const variablesParam = encodeURIComponent(JSON.stringify(variables))
     const url = `${gqlUrl}?query=${queryParam}&variables=${variablesParam}`
-    const res = await window.fetch(url, options)
-    const json = await res.json()
-    return json
+    const res = await $fetch(url, options)
+    return res
 }
 
 const commentaryFields = `{

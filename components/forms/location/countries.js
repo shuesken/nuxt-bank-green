@@ -1,6 +1,9 @@
 
 import Fuse from 'fuse.js'
 
+import locales from '~~/lang/en.json' assert {type: 'json'};
+const get = k => locales[`COUNTRY_${k}`]
+
 export const fullCountriesList = [
     'AF',
     'AL',
@@ -333,7 +336,7 @@ const countryNames = fullCountriesList
         code,
         // title: t(`COUNTRY_${code}`),
         // FIXME
-        tite: code
+        title: get(code)
     }))
     .sort((a, b) => (a.title > b.title ? 1 : -1))
 

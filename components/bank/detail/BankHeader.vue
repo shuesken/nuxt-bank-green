@@ -5,8 +5,10 @@
             <div
                 class="relative col-span-2 md:col-span-1 md:row-span-2 flex flex-row justify-center md:justify-start md:mt-8">
                 <div class="flex flex-col items-center justify-start">
-                    <BankCircle class="max-w-sm" :rating="details.rating" />
-                    <SocialSharer class="text-sushi-500" :hashtags="['climatecrisis', 'fossilbanks']" />
+                    <ClientOnly>
+                        <BankCircle class="max-w-sm" :rating="details.rating" />
+                        <SocialSharer class="text-sushi-500" :hashtags="['climatecrisis', 'fossilbanks']" />
+                    </ClientOnly>
                 </div>
             </div>
             <div class="col-span-2 md:col-span-1">
