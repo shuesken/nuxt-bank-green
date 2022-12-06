@@ -3,8 +3,10 @@
         <div class="bg-gradient-to-b from-sushi-50 to-sushi-100">
             <div class="page-fade-in contain max-w-3xl pt-28 pb-8">
                 <h1 class="text-2xl font-semibold whitespace-pre-line mb-4" v-t="'CONTACT'" />
-                <p class="text-gray-600 mb-12 whitespace-pre-line" v-text="$t('CONTACT_DESC')"></p>
-                <form class="flex flex-col justify-center items-center" @submit.prevent.stop="onSend">
+                <p class="text-gray-600 mb-12 whitespace-pre-line">
+                    <PrismicRichText :field="contact.data.description" />
+                </p>
+                <form class=" flex flex-col justify-center items-center" @submit.prevent.stop="onSend">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                         <TextField class="col-span-1" v-model="firstName" name="firstName" type="text"
                             :title="$t('FIRST_NAME_OPTIONAL')" :placeholder="$t('FIRST_NAME_PLACEHOLDER')" />
@@ -48,8 +50,7 @@
     </div>
 </template>
 
-<script>
-import markup from '@/utils/directives/markup'
+<script setup>
 import CheckboxSection from '../components/forms/CheckboxSection.vue'
 import TextField from '../components/forms/TextField.vue'
 import useContactForm from '@/services/contact/useContactForm'
@@ -58,63 +59,41 @@ import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
 import Swoosh from '@/components/Swoosh.vue'
 
-export default {
-    components: {
-        TextField,
-        CheckboxSection,
-        Swoosh,
-    },
-    directives: { markup },
-    setup() {
-        const { t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: t('CONTACT_TITLE'),
-            description: t('CONTACT_DESC'),
-        })
 
-        let extras = ref({ isAgreeMarketing: false })
+const { t } = useI18n({ useScope: 'global' })
 
-        const {
-            firstName,
-            email,
-            subject,
-            message,
-            isAgreeTerms,
-            isAgreeMarketing,
-            isSent,
-            showWarnings,
-            warningsMap,
-            hasWarnings,
-            send,
-            busy,
-        } = useContactForm(
-            'contact page form',
-            ['email', 'isAgreeTerms'],
-            extras
-        ) // tag used specifically for GTM
+useHead({
+    title: t('CONTACT_TITLE'),
+    description: t('CONTACT_DESC'),
+})
 
-        return {
-            firstName,
-            email,
-            subject,
-            message,
-            isAgreeTerms,
-            isAgreeMarketing,
-            isSent,
-            showWarnings,
-            warningsMap,
-            hasWarnings,
-            send,
-            busy,
-            extras,
-        }
-    },
-    methods: {
-        async onSend() {
-            if (await this.send()) {
-                this.$router.push('/thanks-contact')
-            }
-        },
-    },
+const p = usePrismic()
+const { data: contact } = await useAsyncData('contact', () => p.client.getSingle('contact'))
+
+let extras = ref({ isAgreeMarketing: false })
+
+const {
+    firstName,
+    email,
+    subject,
+    message,
+    isAgreeTerms,
+    isAgreeMarketing,
+    isSent,
+    showWarnings,
+    warningsMap,
+    hasWarnings,
+    send,
+    busy,
+} = useContactForm(
+    'contact page form',
+    ['email', 'isAgreeTerms'],
+    extras
+) // tag used specifically for GTM
+
+async function onSend() {
+    if (await this.send()) {
+        this.$router.push('/thanks-contact')
+    }
 }
 </script>
