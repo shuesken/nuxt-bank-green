@@ -38,12 +38,17 @@
 
         <div v-if="details.rating === 'great'" class="flex items-end justify-end pointer-events-none">
             <div class="w-11/12">
-                <LottiePlayer path="/anim/wind_2_without_bg.json" />
+                <ClientOnly>
+                    <LottiePlayer path="/anim/wind_2_without_bg.json" />
+                </ClientOnly>
             </div>
         </div>
 
         <div v-else class="flex flex-row items-center justify-center">
-            <LottiePlayer path="/anim/money_smoke.json" class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+            <ClientOnly>
+                <LottiePlayer path="/anim/money_smoke.json"
+                    class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+            </ClientOnly>
         </div>
     </div>
 </template>

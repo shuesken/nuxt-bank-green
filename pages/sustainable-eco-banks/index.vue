@@ -165,7 +165,9 @@
         </div>
         <div class="flex items-end justify-end pointer-events-none">
             <div class="w-11/12">
-                <LottiePlayer path="/anim/wind_2_without_bg.json" />
+                <ClientOnly>
+                    <LottiePlayer path="/anim/wind_2_without_bg.json" />
+                </ClientOnly>
             </div>
         </div>
     </div>

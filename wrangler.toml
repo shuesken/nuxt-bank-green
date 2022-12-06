@@ -1,9 +1,9 @@
-name = "playground"
+name = "bank-green"
 main = "./.output/server/index.mjs"
 workers_dev = true
 compatibility_date = "2022-09-10"
-account_id = "<the account_id you obtained (optional)>"
-route = "<mainly useful when you want to setup custom domains (optional too)>"
+account_id = "9ba52192e6bf2e5785e83c2ccb0d68ae"
+route = ""
 
 [site]
 bucket = ".output/public"

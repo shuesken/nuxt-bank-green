@@ -21,7 +21,10 @@
             </div>
         </div>
         <div class="flex flex-row items-center justify-center">
-            <LottiePlayer path="/anim/money_smoke.json" class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+            <ClientOnly>
+                <LottiePlayer path="/anim/money_smoke.json"
+                    class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+            </ClientOnly>
         </div>
     </div>
 </template>

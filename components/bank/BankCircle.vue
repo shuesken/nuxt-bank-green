@@ -72,7 +72,9 @@
             <div class="absolute inset-x-0 mx-auto text-center font-extrabold text-gray-900 text-3xl" :style="{
                 bottom: `${circleSize * 0.07}px`,
             }">
-                <LottieFile class="mx-auto w-28 h-28" :path="emojiForRating" />
+                <ClientOnly>
+                    <LottieFile class="mx-auto w-28 h-28" :path="emojiForRating" />
+                </ClientOnly>
             </div>
         </div>
     </div>

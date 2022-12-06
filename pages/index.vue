@@ -67,8 +67,10 @@
                     {{ $t('FP_DESC_2') }}
                 </p>
             </div>
-            <LottiePlayer :placeholderHeight="480" :placeholderWidth="426" class="md:w-2/5 max-w-full md:ml-24"
-                path="/anim/atm_without_bg.json" alt="" />
+            <ClientOnly>
+                <LottiePlayer :placeholderHeight="480" :placeholderWidth="426" class="md:w-2/5 max-w-full md:ml-24"
+                    path="/anim/atm_without_bg.json" alt="" />
+            </ClientOnly>
         </div>
         <div class="bg-blue-100 text-gray-800">
             <div class="overflow-hidden">
@@ -92,8 +94,10 @@
                 </div>
             </div>
             <div class="flex flex-row items-center justify-center">
-                <LottiePlayer path="/anim/money_smoke.json"
-                    class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+                <ClientOnly>
+                    <LottiePlayer path="/anim/money_smoke.json"
+                        class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+                </ClientOnly>
             </div>
         </div>
     </div>
