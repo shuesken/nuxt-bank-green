@@ -3,7 +3,9 @@
 import useCountryLocation from '../hooks/useCountryLocation'
 
 export default function getFeatures(item) {
-    const { isUK } = useCountryLocation()
+    // const { isUK } = useCountryLocation()
+    // FIXME
+    const isUK = { value: true }
 
     if (!item) {
         return {}
@@ -25,7 +27,7 @@ export default function getFeatures(item) {
         credit_cards: 'Credit Cards',
         mortgage_or_loans: 'Mortgage or Loan Options',
 
-        free_checking: 'Free Checking Account Available',
+        free_checking: isUK.value ? 'Free Checking Account Available' : 'Free Current Account Available',
         deposit_protection: 'Deposit Protection',
     }
 

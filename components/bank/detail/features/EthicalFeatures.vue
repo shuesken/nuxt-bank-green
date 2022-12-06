@@ -11,16 +11,16 @@
     </div>
 </template>
 
-<script>
-import FeaturesList from './FeaturesList.vue'
+<script setup>
 import getFeatures from '@/services/ethical/getFeatures'
+import FeaturesList from '@/components/bank/detail/features/FeaturesList.vue'
 
 export default {
-    props: {
-        details: Object,
-    },
     components: {
         FeaturesList,
+    },
+    props: {
+        details: Object,
     },
     computed: {
         features() {
