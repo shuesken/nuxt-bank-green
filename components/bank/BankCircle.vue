@@ -78,87 +78,68 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import useResize from '@/services/circle/useResize'
-import { computed, ref } from 'vue'
 import LottieFile from '@/components/LottieFile'
 
-export default {
-    components: { LottieFile },
-    props: {
-        rating: String,
-    },
-    setup(props) {
-        const initialRotation = ref(-120)
-        const { container, diameter } = useResize()
+const props = defineProps({
+    rating: String,
+})
 
-        const circleSize = computed(() => {
-            return Math.min(diameter.value, 420)
-        })
-        const outerCircleStyles = computed(() => {
-            return {
-                width: `${circleSize.value}px`,
-                height: `${circleSize.value}px`,
-            }
-        })
-        const firstColoredCircleStyles = computed(() => {
-            return {
-                width: `${circleSize.value * 0.8}px`,
-                height: `${circleSize.value * 0.8}px`,
-            }
-        })
+const initialRotation = ref(-120)
+const { container, diameter } = useResize()
 
-        const rotation = computed(() => {
-            switch (props.rating) {
-                case 'great':
-                    return 90
-                case 'ok':
-                    return 45
-                case 'bad':
-                    return -45
-                case 'worst':
-                    return -90
-                default:
-                    return 0
-            }
-        })
+const circleSize = computed(() => {
+    return Math.min(diameter.value, 420)
+})
+const outerCircleStyles = computed(() => {
+    return {
+        width: `${circleSize.value}px`,
+        height: `${circleSize.value}px`,
+    }
+})
+const firstColoredCircleStyles = computed(() => {
+    return {
+        width: `${circleSize.value * 0.8}px`,
+        height: `${circleSize.value * 0.8}px`,
+    }
+})
 
-        const emojiForRating = computed(() => {
-            let emoji = 'Shrug'
-            switch (props.rating) {
-                case 'great':
-                    emoji = 'Heart Eyes'
-                    break
-                case 'ok':
-                    emoji = 'Happy'
-                    break
-                case 'bad':
-                    emoji = 'Sad Tear'
-                    break
-                case 'worst':
-                    emoji = 'Cussing'
-                    break
-            }
-            return `/anim/emoji/${emoji}/JSON Files/${emoji}_Flat.json`
-        })
+const rotation = computed(() => {
+    switch (props.rating) {
+        case 'great':
+            return 90
+        case 'ok':
+            return 45
+        case 'bad':
+            return -45
+        case 'worst':
+            return -90
+        default:
+            return 0
+    }
+})
 
-        return {
-            container,
-            diameter,
-            circleSize,
-            outerCircleStyles,
-            firstColoredCircleStyles,
-            initialRotation,
-            rotation,
-            emojiForRating,
-        }
-    },
-    mounted() {
-        this.initialRotation = null
-    },
-}
+const emojiForRating = computed(() => {
+    let emoji = 'Shrug'
+    switch (props.rating) {
+        case 'great':
+            emoji = 'Heart Eyes'
+            break
+        case 'ok':
+            emoji = 'Happy'
+            break
+        case 'bad':
+            emoji = 'Sad Tear'
+            break
+        case 'worst':
+            emoji = 'Cussing'
+            break
+    }
+    return `/anim/emoji/${emoji}/JSON Files/${emoji}_Flat.json`
+})
+
+onMounted(() => {
+    initialRotation.value = null
+})
 </script>
-
-<style>
-
-</style>

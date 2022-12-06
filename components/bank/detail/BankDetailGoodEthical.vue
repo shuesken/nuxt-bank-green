@@ -40,15 +40,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import EthicalFeatures from '@/components/bank/detail/features/EthicalFeatures'
 import LottiePlayer from '@/components/LottiePlayer.vue'
 import Swoosh from '@/components/Swoosh.vue'
 
-export default {
-    components: { EthicalFeatures, LottiePlayer, Swoosh },
-    props: {
-        details: Object,
-    },
-}
+defineProps({
+    details: Object,
+})
 </script>

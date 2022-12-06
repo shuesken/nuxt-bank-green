@@ -15,17 +15,10 @@
 import getFeatures from '@/services/ethical/getFeatures'
 import FeaturesList from '@/components/bank/detail/features/FeaturesList.vue'
 
-export default {
-    components: {
-        FeaturesList,
-    },
-    props: {
-        details: Object,
-    },
-    computed: {
-        features() {
-            return getFeatures(this.details)
-        },
-    },
-}
+const props = defineProps({
+    details: Object,
+})
+
+const features = computed(() => getFeatures(props.details))
+
 </script>

@@ -5,8 +5,8 @@
             <PiggybankAnimation />
         </RenderWhenVisibleInViewPort>
         <div class="md:w-1/2">
-            <div v-if="this.details.details" class="text-lg md:text-2xl whitespace-pre-line text-gray-900"
-                v-html="this.details.details"></div>
+            <div v-if="details.details" class="text-lg md:text-2xl whitespace-pre-line text-gray-900"
+                v-html="details.details"></div>
             <p v-else class="text-lg md:text-2xl whitespace-pre-line text-gray-900" v-text="piggyText"></p>
             <div class="mt-8 flex items-center">
                 <div v-if="
@@ -64,61 +64,41 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { useI18n } from 'vue-i18n'
 import RenderWhenVisibleInViewPort from '@/components/func/RenderWhenVisibleInViewPort.vue'
-import { defineAsyncComponent } from 'vue'
-import markup from '@/utils/directives/markup'
 import LottiePlayer from '@/components/LottiePlayer.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import CallToAction from '@/components/CallToAction.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
+import PiggybankAnimation from '../PiggybankAnimation.vue'
 
-const PiggybankAnimation = defineAsyncComponent(() =>
-    import('@/components/bank/PiggybankAnimation.vue')
-)
+const { t } = useI18n()
+const props = defineProps({
+    details: Object,
+})
 
-export default {
-    props: {
-        details: Object,
-    },
-    components: {
-        PiggybankAnimation,
-        RenderWhenVisibleInViewPort,
-        LottiePlayer,
-        Swoosh,
-        CallToAction,
-        ArrowDownBounce,
-    },
+const formattedTotal = computed(() => props?.details.amountFinancedSince2016 ?? 'large amounts')
 
-    directives: { markup },
+const checkList = [
+    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
+    t('JOIN_A_FAST_GROWING_MOVEMENT'),
+    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
+]
 
-    computed: {
-        formattedTotal() {
-            return this.details.amountFinancedSince2016 ?? 'large amounts'
-        },
-        checkList() {
-            return [
-                this.$t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-                this.$t('JOIN_A_FAST_GROWING_MOVEMENT'),
-                this.$t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-            ]
-        },
-        piggyText() {
-            return (
-                this.$t(
-                    this.details.subsidiary
-                        ? 'BANK_DETAIL_EXPLAIN_1_PARENT'
-                        : 'BANK_DETAIL_EXPLAIN_1',
-                    {
-                        total: this.formattedTotal,
-                        name: this.details.name,
-                    }
-                ) +
-                (this.details.uniqueStatement
-                    ? `\n\n*${this.details.uniqueStatement}*`
-                    : '')
-            )
-        },
-    },
-}
+const piggyText = computed(() => {
+    t(
+        props?.details.subsidiary
+            ? 'BANK_DETAIL_EXPLAIN_1_PARENT'
+            : 'BANK_DETAIL_EXPLAIN_1',
+        {
+            total: formattedTotal.value,
+            name: props?.details.name,
+        }
+    ) +
+        (props?.details.uniqueStatement
+            ? `\n\n*${props?.details.uniqueStatement}*`
+            : '')
+})
+
 </script>

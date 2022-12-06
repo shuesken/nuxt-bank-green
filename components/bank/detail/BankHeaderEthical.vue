@@ -33,23 +33,15 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import BankCircle from '@/components/bank/BankCircle.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import SocialSharer from '@/components/SocialSharer.vue'
 import BankHeaderHeadline from './BankHeaderHeadline.vue'
 
-export default {
-    props: {
-        details: Object,
-    },
-    components: {
-        BankCircle,
-        ArrowDownBounce,
-        Swoosh,
-        BankHeaderHeadline,
-        SocialSharer,
-    },
-}
+defineProps({
+    details: Object,
+})
+
 </script>

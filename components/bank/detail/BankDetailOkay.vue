@@ -48,29 +48,24 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import CheckList from '@/components/CheckList.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import SignupBox from '@/components/forms/SignupBox.vue'
 import LottiePlayer from '@/components/LottiePlayer.vue'
-import markup from '@/utils/directives/markup'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
+import { useI18n } from 'vue-i18n'
 
-export default {
-    components: { CheckList, SignupBox, LottiePlayer, Swoosh, ArrowDownBounce },
-    directives: { markup },
+const { t } = useI18n()
 
-    props: {
-        details: Object,
-    },
-    computed: {
-        checkList() {
-            return [
-                this.$t('LEARN_ABOUT_THE_ISSUES'),
-                this.$t('JOIN_OUR_CAMPAIGNS_TAKE_ACTION'),
-                this.$t('DISCOVER_WAYS_TO_DIVEST'),
-            ]
-        },
-    },
-}
+defineProps({
+    details: Object,
+})
+
+const checkList = [
+    t('LEARN_ABOUT_THE_ISSUES'),
+    t('JOIN_OUR_CAMPAIGNS_TAKE_ACTION'),
+    t('DISCOVER_WAYS_TO_DIVEST'),
+]
+
 </script>

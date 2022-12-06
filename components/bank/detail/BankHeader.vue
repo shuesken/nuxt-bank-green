@@ -86,31 +86,17 @@
 }
 </style>
 
-<script>
+<script setup>
 import BankCircle from '@/components/bank/BankCircle.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import BankHeaderHeadline from './BankHeaderHeadline.vue'
 import SocialSharer from '@/components/SocialSharer.vue'
-import markup from '@/utils/directives/markup'
 import fossilBanks from '/data/fossilbanks.json'
 
-export default {
-    props: {
-        details: Object,
-    },
-    directives: { markup },
-    components: {
-        BankCircle,
-        ArrowDownBounce,
-        Swoosh,
-        BankHeaderHeadline,
-        SocialSharer,
-    },
-    computed: {
-        isFossilBank() {
-            return fossilBanks.includes(this.details.tag)
-        },
-    },
-}
+const props = defineProps({
+    details: Object,
+})
+
+const isFossilBank = computed(() => fossilBanks.includes(this.details.tag))
 </script>
