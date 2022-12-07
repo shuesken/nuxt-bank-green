@@ -5,10 +5,10 @@
             <div
                 class="relative col-span-2 md:col-span-1 md:row-span-2 flex flex-row justify-center md:justify-start md:mt-8">
                 <div class="flex flex-col items-center justify-start">
-                    <ClientOnly>
-                        <BankCircle class="max-w-sm" :rating="details.rating" />
-                        <SocialSharer class="text-sushi-500" :hashtags="['climatecrisis', 'fossilbanks']" />
-                    </ClientOnly>
+
+                    <BankCircle class="max-w-sm" :rating="details.rating" />
+                    <SocialSharer class="text-sushi-500" :hashtags="['climatecrisis', 'fossilbanks']" />
+
                 </div>
             </div>
             <div class="col-span-2 md:col-span-1">
@@ -87,12 +87,9 @@
 </style>
 
 <script setup>
-import BankCircle from '@/components/bank/BankCircle.vue'
-import Swoosh from '@/components/Swoosh.vue'
-import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
-import BankHeaderHeadline from './BankHeaderHeadline.vue'
-import SocialSharer from '@/components/SocialSharer.vue'
 import fossilBanks from '/data/fossilbanks.json'
+import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
+
 
 const props = defineProps({
     details: Object,

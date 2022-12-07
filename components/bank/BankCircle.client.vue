@@ -72,9 +72,7 @@
             <div class="absolute inset-x-0 mx-auto text-center font-extrabold text-gray-900 text-3xl" :style="{
                 bottom: `${circleSize * 0.07}px`,
             }">
-                <ClientOnly>
-                    <LottieFile class="mx-auto w-28 h-28" :path="emojiForRating" />
-                </ClientOnly>
+                <LottieFile class="mx-auto w-28 h-28" :path="emojiForRating" />
             </div>
         </div>
     </div>
@@ -82,7 +80,6 @@
 
 <script setup>
 import useResize from '@/services/circle/useResize'
-import LottieFile from '@/components/LottieFile'
 
 const props = defineProps({
     rating: String,

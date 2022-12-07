@@ -47,9 +47,7 @@
             </p>
         </div>
         <div class="w-full -mt-24 sm:-mt-16 lg:-mt-32 pointer-events-none overflow-hidden">
-            <ClientOnly>
-                <LottiePlayer class="-mx-5/6 sm:mx-0 sm:w-full" path="/anim/fishes.json" />
-            </ClientOnly>
+            <LottiePlayer class="-mx-5/6 sm:mx-0 sm:w-full" path="/anim/fishes.json" />
         </div>
     </div>
     <div class="bg-blue-100 pb-8 pt-8">

@@ -1,9 +1,9 @@
 <template>
     <div class="contain py-10">
         <div class="text-center relative">
-            <ClientOnly>
-                <LottiePlayer class="absolute -top-28 inset-x-0 w-64 mx-auto" path="/anim/pop.json" />
-            </ClientOnly>
+
+            <LottiePlayer class="absolute -top-28 inset-x-0 w-64 mx-auto" path="/anim/pop.json" />
+
             <svg class="mx-auto relative z-1" width="119" height="51" viewBox="0 0 119 51" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <circle cx="62.5" cy="25.0222" r="25" fill="#87B448" />

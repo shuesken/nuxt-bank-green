@@ -7,17 +7,17 @@
                     <h2 class="text-center text-2xl font-semibold text-gray-800 sm:text-5xl">
                         {{ $t('MAIN_TITLE') }}
                     </h2>
-                    <ClientOnly>
-                        <div
-                            class="flex flex-col md:flex-row items-stretch md:items-center space-y-2 md:space-y-0 md:space-x-4 mt-8 md:mt-10 md:mb-10">
-                            <LocationSearch class="md:w-1/2 flex-initial" ref="locationPicker" v-model="location" />
-                            <BankSearch class="md:w-1/2 flex-initial" ref="bankSearch" :disabled="!location"
-                                :country="location" v-model="bank" />
-                            <app-link :to="`/banks/${bank?.tag}`" class="flex-initial md:w-48 button-green"
-                                :class="{ disabled: !bank }" @click="onCheckBankClick">{{ $t('CHECK_MY_BANK')
-                                }}</app-link>
-                        </div>
-                    </ClientOnly>
+
+                    <div
+                        class="flex flex-col md:flex-row items-stretch md:items-center space-y-2 md:space-y-0 md:space-x-4 mt-8 md:mt-10 md:mb-10">
+                        <LocationSearch class="md:w-1/2 flex-initial" ref="locationPicker" v-model="location" />
+                        <BankSearch class="md:w-1/2 flex-initial" ref="bankSearch" :disabled="!location"
+                            :country="location" v-model="bank" />
+                        <app-link :to="`/banks/${bank?.tag}`" class="flex-initial md:w-48 button-green"
+                            :class="{ disabled: !bank }" @click="onCheckBankClick">{{ $t('CHECK_MY_BANK')
+                            }}</app-link>
+                    </div>
+
                     <div class="flex flex-col items-center md:flex-row w-full pt-10 md:pt-8 md:pb-16">
                         <h3 class="text-center text-2xl md:text-xl font-semibold whitespace-nowrap mb-6 md:mb-0 md:mr-2 lg:mr-12"
                             style="font-family: serif">
@@ -67,10 +67,10 @@
                     {{ $t('FP_DESC_2') }}
                 </p>
             </div>
-            <ClientOnly>
-                <LottiePlayer :placeholderHeight="480" :placeholderWidth="426" class="md:w-2/5 max-w-full md:ml-24"
-                    path="/anim/atm_without_bg.json" alt="" />
-            </ClientOnly>
+
+            <LottiePlayer :placeholderHeight="480" :placeholderWidth="426" class="md:w-2/5 max-w-full md:ml-24"
+                path="/anim/atm_without_bg.json" alt="" />
+
         </div>
         <div class="bg-blue-100 text-gray-800">
             <div class="overflow-hidden">
@@ -94,10 +94,10 @@
                 </div>
             </div>
             <div class="flex flex-row items-center justify-center">
-                <ClientOnly>
-                    <LottiePlayer path="/anim/money_smoke.json"
-                        class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
-                </ClientOnly>
+
+                <LottiePlayer path="/anim/money_smoke.json"
+                    class="w-full md:max-w-2xl h-42 object-cover object-bottom" />
+
             </div>
         </div>
     </div>
