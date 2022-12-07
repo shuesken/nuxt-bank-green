@@ -1,13 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "NITRO_PRESET=cloudflare nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "npx wrangler dev .output/server/index.mjs --site .output/public --local",
     "postinstall": "nuxt prepare",
     "clean": "nuxt clean",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "publish": "npx wrangler publish"
   },
   "devDependencies": {
     "@nuxtjs/i18n": "^8.0.0-beta.6",
