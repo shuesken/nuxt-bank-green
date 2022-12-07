@@ -1,3 +1,5 @@
+Running at https://nuxt.bank.green
+
 # Setup
 
 We need `wrangler`, the Cloudflare worker CLI.
@@ -24,6 +26,10 @@ Preview the server with local wrangler
 
 Publish to `nuxt.bank.green`
 `npm run publish`
+
+# Prismic
+
+Check out `contact.vue` for an integration of Prismic; go to https://bank-green.prismic.io to make changes to the topmost field there.
 
 # Known issues
 
