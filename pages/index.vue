@@ -103,62 +103,38 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
-import markup from '@/utils/directives/markup'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import useCountryLocation from '@/services/hooks/useCountryLocation'
 import { useGtm } from 'vue-gtm'
-import Swoosh from '@/components/Swoosh.vue'
-import CallToAction from '@/components/CallToAction.vue'
 import { useI18n } from 'vue-i18n'
 
+const bank = ref(null)
+const { t } = useI18n({ useScope: 'global' })
+useHead({
+    title: t('INDEX_TITLE'),
+    description: t('INDEX_DESC'),
+})
 
-export default {
-    components: {
-        LocationSearch,
-        BankSearch,
-        ArrowDownBounce,
-        Swoosh,
-        CallToAction,
-    },
-    directives: { markup },
-    setup() {
-        const { t: $t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: $t('INDEX_TITLE'),
-            description: $t('INDEX_DESC'),
-        })
-
-        const gtm = useGtm()
-        const onCheckBankClick = () => {
-            gtm.trackEvent({ event: 'onBankCheckClick' })
-        }
-
-        const { location, locationPicker } = useCountryLocation()
-        // FIXME have to click twice on a country (and bank) to properly select
-        return { location, locationPicker, onCheckBankClick }
-    },
-    data() {
-        return {
-            bank: null,
-        }
-    },
-    computed: {
-        checkList() {
-            const { t: $t } = useI18n({ useScope: 'global' })
-            return [
-                $t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-                $t('JOIN_A_FAST_GROWING_MOVEMENT'),
-                $t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-            ]
-        },
-    },
-    watch: {
-        location() {
-            this.bank = null
-        },
-    },
+const gtm = useGtm()
+const onCheckBankClick = () => {
+    gtm.trackEvent({ event: 'onBankCheckClick' })
 }
+
+const { location, locationPicker } = useCountryLocation()
+// FIXME have to click twice on a country (and bank) to properly select
+
+const checkList = [
+        t('SEND_A_MESSAGE_TO_YOUR_BANK'),
+        t('JOIN_A_FAST_GROWING_MOVEMENT'),
+        t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
+    ]
+
+watch(location, loc => {
+    console.log('location changed', loc)
+    bank.value = null 
+    
+})
 </script>

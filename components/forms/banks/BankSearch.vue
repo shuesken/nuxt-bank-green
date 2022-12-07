@@ -83,6 +83,7 @@ export default {
             search: '',
             isShowing: false,
             highlightBank: '',
+            selectedItem: null
         }
     },
     computed: {
@@ -103,7 +104,7 @@ export default {
             }
         },
         search() {
-            if (this.modelValue) {
+            if (this.modelValue && this.search !== this.selectedItem) {
                 this.$emit('update:modelValue', null)
             }
             this.$emit('searchInputChange', this.search)
@@ -137,6 +138,7 @@ export default {
             this.$emit('update:modelValue', null)
             await this.$nextTick()
             this.search = item.name
+            this.selectedItem = item.name
             this.$emit('update:modelValue', item)
             this.isShowing = false
         },

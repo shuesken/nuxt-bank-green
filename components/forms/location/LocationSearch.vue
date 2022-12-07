@@ -28,64 +28,53 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import LocationSearchItem from './LocationSearchItem.vue'
 import PinIcon from './PinIcon.vue'
 import { findCountries } from './countries'
 import SearchInput from '@/components/forms/input/SearchInput'
 import ListPicker from '@/components/forms/ListPicker'
+import { useI18n } from 'vue-i18n'
 
-export default {
-    props: {
-        modelValue: String,
-    },
-    components: {
-        PinIcon,
-        LocationSearchItem,
-        SearchInput,
-        ListPicker,
-    },
-    data() {
-        let search = ''
-        if (this.modelValue && this.$te(`COUNTRY_${this.modelValue}`)) {
-            search = this.$t(`COUNTRY_${this.modelValue}`)
-        }
-        return {
-            search,
-            isShowing: false,
-        }
-    },
-    computed: {
-        filteredCountries() {
-            return findCountries(this.search)
-        },
-    },
+const { t, te } = useI18n()
+const props = defineProps({
+    modelValue: String,
+})
 
-    watch: {
-        search() {
-            if (this.modelValue) {
-                this.$emit('update:modelValue', '')
-            }
-        },
-    },
-    methods: {
-        showList() {
-            this.isShowing = true
-        },
-        hideList() {
-            this.isShowing = false
-        },
-        async onSelectCountry(code) {
-            this.$emit('update:modelValue', '')
-            await this.$nextTick()
-            this.search = this.$t(`COUNTRY_${code}`)
-            this.$emit('update:modelValue', code)
-            this.isShowing = false
-        },
-        onCloseClick() {
-            this.search = ''
-            this.$emit('update:modelValue', '')
-        },
-    },
+const emit = defineEmits(['update:modelValue'])
+
+const search = ref('')
+if (props.modelValue && te(`COUNTRY_${props.modelValue}`)) {
+    search.value = t(`COUNTRY_${props.modelValue}`)
 }
+const isShowing = ref(false)
+const selectedCode = ref(null)
+
+const filteredCountries = computed(() => findCountries(search.value))
+
+watch(search, () => {
+    if (props.modelValue && search.value !== t(`COUNTRY_${selectedCode.value}`)) {
+        emit('update:modelValue', '')
+    }
+})
+
+function showList() {
+    isShowing.value = true
+}
+function hideList() {
+    isShowing.value = false
+}
+
+async function onSelectCountry(code) {
+    selectedCode.value = code
+    search.value = t(`COUNTRY_${code}`)
+    emit('update:modelValue', code)
+    isShowing.value = false
+}
+
+function onCloseClick() {
+    search.value = ''
+    emit('update:modelValue', '')
+}
+
 </script>
