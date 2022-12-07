@@ -1,42 +1,32 @@
-# Nuxt 3 Minimal Starter
+# Setup
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+We need `wrangler`, the Cloudflare worker CLI.
+Install wrangler:
+`npm i -g wrangler`
 
-## Setup
+Login:
+`wrangler login`
 
-Make sure to install the dependencies:
+Install dependencies:
+`npm i`
 
-```bash
-# yarn
-yarn install
+# Development
 
-# npm
-npm install
+`npm run dev`
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+# Deployment
 
-## Development Server
+Build the server with wrangler
+`npm run build`
 
-Start the development server on http://localhost:3000
+Preview the server with local wrangler
+`npm run preview`
 
-```bash
-npm run dev
-```
+Publish to `nuxt.bank.green`
+`npm run publish`
 
-## Production
+# Known issues
 
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Have to click twice on a bank in the search form (likely due to new `clickaway.ts`)
+- Using `node_compat = true` in `wrangler.toml`
+- Pages using markdown were moved because I didn't want to migrate the markdown renderer, we'll use Prismic for these anyway, and storing the `.md` files next to the `.vue` files confuses Nuxt and messes up the build.
