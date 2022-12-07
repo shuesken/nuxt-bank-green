@@ -110,7 +110,6 @@ import markup from '@/utils/directives/markup'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import useCountryLocation from '@/services/hooks/useCountryLocation'
 import { useGtm } from 'vue-gtm'
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import CallToAction from '@/components/CallToAction.vue'
 import { useI18n } from 'vue-i18n'
@@ -121,7 +120,6 @@ export default {
         LocationSearch,
         BankSearch,
         ArrowDownBounce,
-        LottiePlayer,
         Swoosh,
         CallToAction,
     },

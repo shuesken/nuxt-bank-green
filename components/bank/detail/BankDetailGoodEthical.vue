@@ -42,7 +42,6 @@
 
 <script setup>
 import EthicalFeatures from '@/components/bank/detail/features/EthicalFeatures'
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import Swoosh from '@/components/Swoosh.vue'
 
 defineProps({

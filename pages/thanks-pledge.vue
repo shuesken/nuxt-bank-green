@@ -33,13 +33,11 @@
 </template>
 
 <script>
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import SocialSharer from '@/components/SocialSharer.vue'
 import markup from '@/utils/directives/markup'
 
 export default {
     components: {
-        LottiePlayer,
         SocialSharer,
     },
     directives: { markup },

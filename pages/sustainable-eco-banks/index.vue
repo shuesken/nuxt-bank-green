@@ -185,7 +185,6 @@ import { useI18n } from 'vue-i18n'
 
 import AccordionItem from '@/components/AccordionItem.vue'
 import EthicalFAQ from '../../components/ethical/EthicalFAQ.vue'
-import LottiePlayer from '@/components/LottiePlayer.vue'
 
 export default {
     components: {
@@ -194,7 +193,6 @@ export default {
         EthicalBankFilters,
         AccordionItem,
         EthicalFAQ,
-        LottiePlayer,
     },
 
     setup() {

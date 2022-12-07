@@ -57,7 +57,6 @@
 import CheckList from '@/components/CheckList.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import SignupBox from '@/components/forms/SignupBox.vue'
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import { useI18n } from 'vue-i18n'
 

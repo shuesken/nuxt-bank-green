@@ -59,14 +59,13 @@
     </div>
 </template>
 <script>
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import SubmitBank from '@/components/forms/SubmitBank.vue'
 import markup from '@/utils/directives/markup'
 import CheckList from '@/components/CheckList.vue'
 import Swoosh from '@/components/Swoosh.vue'
 
 export default {
-    components: { LottiePlayer, SubmitBank, CheckList, Swoosh },
+    components: { SubmitBank, CheckList, Swoosh },
 
     directives: { markup },
 

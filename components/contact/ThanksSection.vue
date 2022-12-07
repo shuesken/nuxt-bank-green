@@ -34,12 +34,10 @@
 
 <script>
 import TopEthicalBanksWidget from '@/components/bank/TopEthicalBanksWidget'
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import Swoosh from '@/components/Swoosh.vue'
 
 export default {
     components: {
-        LottiePlayer,
         TopEthicalBanksWidget,
         Swoosh,
     },

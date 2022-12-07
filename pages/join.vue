@@ -31,14 +31,13 @@
 
 <script>
 import CheckList from '@/components/CheckList.vue'
-import LottiePlayer from '@/components/LottiePlayer.vue'
 import SignupBox from '@/components/forms/SignupBox'
 import markup from '@/utils/directives/markup'
 import { useI18n } from 'vue-i18n'
 
 
 export default {
-    components: { CheckList, LottiePlayer, SignupBox },
+    components: { CheckList, SignupBox },
     directives: { markup },
     setup() {
         const { t } = useI18n({ useScope: 'global' })
