@@ -2,13 +2,6 @@ Running at https://nuxt.bank.green
 
 # Setup
 
-We need `wrangler`, the Cloudflare worker CLI.
-Install wrangler:
-`npm i -g wrangler`
-
-Login:
-`wrangler login`
-
 Install dependencies:
 `npm i`
 
@@ -17,6 +10,13 @@ Install dependencies:
 `npm run dev`
 
 # Deployment
+
+We need `wrangler`, the Cloudflare worker CLI.
+Install wrangler:
+`npm i -g wrangler`
+
+Login:
+`wrangler login`
 
 Build the server with wrangler
 `npm run build`
