@@ -3,10 +3,6 @@ import storage from '@/utils/storage'
 
 let gqlUrl = 'https://data.bank.green/graphql'
 let options = {}
-if (process?.env?.VUE_APP_ENV == 'staging') {
-    gqlUrl = 'https://nocache.data.bank.green/graphql'
-    options = { cache: "no-store" }
-}
 
 
 async function callBackend(query, variables) {
