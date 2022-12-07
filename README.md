@@ -33,8 +33,7 @@ Check out `contact.vue` for an integration of Prismic; go to https://bank-green.
 
 # Known issues
 
-- Have to click twice on a bank in the search form (likely due to new `clickaway.ts`)
-- Using `node_compat = true` in `wrangler.toml`
+- Using `node_compat = true` in `wrangler.toml`; this can be removed once i18n is removed
 - Pages using markdown (e.g.. `blog/`) were moved because I didn't want to migrate the markdown renderer, we'll use Prismic for these anyway, and storing the `.md` files next to the `.vue` files confuses Nuxt and messes up the build.
 - `isUK`, our variable for homegrown localization, is not used properly
 - wrangler throws some error related to particularities of i18N, which I believe we will remove anyway
