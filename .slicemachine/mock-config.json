@@ -7,6 +7,47 @@
           "blocks": 1
         }
       }
+    },
+    "blogpost": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
+  },
+  "slices": {
+    "BlogImage": {},
+    "TextBlock": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "VideoBlock": {},
+    "EmbedBlock": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ImageBlock": {
+      "default": {
+        "primary": {
+          "caption": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   }
 }

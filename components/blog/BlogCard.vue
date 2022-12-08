@@ -1,14 +1,9 @@
 <template>
     <router-link
         class="bg-white rounded-xl shadow-soft border hover:bg-gray-50 transition duration-150 ease-in-out hover:border-sushi-500 overflow-hidden"
-        :to="link"
-    >
+        :to="`/blog/${slug}`">
         <div v-if="image" class="relative w-full minimal h-52 sm:h-64">
-            <LazyImage
-                :src="image"
-                :useImageTag="true"
-                imgClass="w-full h-full object-cover"
-            />
+            <LazyImage :src="image" :useImageTag="true" imgClass="w-full h-full object-cover" />
         </div>
         <div class="p-4">
             <p class="text-sm text-gray-500">
@@ -23,9 +18,7 @@
                 </p>
             </span>
             <div class="mt-3">
-                <span
-                    class="text-base font-semibold text-sushi-600 hover:text-sushi-500"
-                >
+                <span class="text-base font-semibold text-sushi-600 hover:text-sushi-500">
                     Read full story
                 </span>
             </div>
@@ -33,19 +26,15 @@
     </router-link>
 </template>
 
-<script>
+<script setup>
 import LazyImage from '@/components/LazyImage.vue'
 
-export default {
-    components: {
-        LazyImage,
-    },
-    props: {
-        date: String,
-        title: String,
-        description: String,
-        link: String,
-        image: String,
-    },
-}
+defineProps({
+    date: String,
+    title: String,
+    description: String,
+    image: String,
+    slug: String,
+})
+
 </script>
