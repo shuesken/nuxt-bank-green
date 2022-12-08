@@ -65,7 +65,7 @@ useHead({
 })
 
 const p = usePrismic()
-const { data: contact } = await useAsyncData('contact', () => p.client.getSingle('contact'))
+const { data: contact } = await useAsyncData('contact', () => p.client.getSingle('contactpage'))
 
 let extras = ref({ isAgreeMarketing: false })
 

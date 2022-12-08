@@ -1,0 +1,12 @@
+{
+  "_cts": {
+    "contactpage": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
+  }
+}
