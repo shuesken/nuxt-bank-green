@@ -96,7 +96,7 @@
                                     ? 'opacity-50 pointer-events-none'
                                     : '',
                             ]" class="transition">
-                                <EthicalBankCards :list="banks" :isUK="isUK" :isNoCredit="isNoCredit" />
+                                <EthicalBankCards :list="banks" :isNoCredit="isNoCredit" />
                             </div>
 
                             <div v-else-if="!loading" class="mt-20">
@@ -202,7 +202,7 @@ export default {
             description: t('ETHICAL_BANKS_INDEX_DESC'),
         })
 
-        const { location, locationPicker, isUK } = useCountryLocation()
+        const { location, locationPicker } = useCountryLocation()
 
         const banks = ref([])
         const loading = ref(false)
@@ -252,7 +252,6 @@ export default {
             location,
             locationPicker,
             loading,
-            isUK,
             isNoCredit,
             applyFilter,
         }

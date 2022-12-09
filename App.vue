@@ -7,6 +7,19 @@
         </transition>
         <CookieBanner />
         <NavBar />
+        <ClientOnly>
+            <div>
+                <p>
+                    useLocale: {{ useLocale().value }}
+                </p>
+                <p>
+                    useCountry: {{ useCountry().value }}
+                </p>
+                <p>
+                    isBE: {{ isBE() }}
+                </p>
+            </div>
+        </ClientOnly>
         <RouterView v-slot="{ Component }">
             <transition enter-active-class="route-enter-active-class" enter-from-class="route-enter-from-class"
                 enter-to-class="route-enter-to-class">

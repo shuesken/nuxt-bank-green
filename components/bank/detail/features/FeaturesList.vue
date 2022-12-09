@@ -26,6 +26,5 @@
 <script setup>
 defineProps({
     features: Object,
-    isUK: Boolean
 })
 </script>

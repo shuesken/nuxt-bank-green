@@ -42,7 +42,7 @@
             leave-active-class="duration-100 transform-gpu origin-top ease-in" leave-from-class="opacity-100 scale-100"
             leave-to-class="opacity-0 scale-95">
             <div v-if="Object.keys(features).length" class="py-4 px-7 flex flex-wrap">
-                <FeaturesList :features="features" :isUK="isUK" />
+                <FeaturesList :features="features" />
             </div>
         </transition>
     </NuxtLink>
@@ -57,7 +57,6 @@ import getFeatures from '@/services/ethical/getFeatures'
 export default {
     props: {
         item: Object,
-        isUK: Boolean,
         isNoCredit: Boolean,
     },
     components: {

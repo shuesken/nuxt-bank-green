@@ -3,9 +3,6 @@
 import useCountryLocation from '../hooks/useCountryLocation'
 
 export default function getFeatures(item) {
-    // const { isUK } = useCountryLocation()
-    // FIXME
-    const isUK = { value: true }
 
     if (!item) {
         return {}
@@ -19,7 +16,7 @@ export default function getFeatures(item) {
         no_overdraft_fee: 'No Overdraft Fee',
         no_account_maintenance_fee: 'No Account Maintenance Fees',
 
-        checking: isUK.value ? 'Current Accounts' : 'Checking Accounts',
+        checking: isBE() ? 'Current Accounts' : 'Checking Accounts',
         saving: 'Savings Accounts',
         interest_rates: 'Interest Rates',
         business_accounts: 'Business Accounts',
@@ -27,7 +24,7 @@ export default function getFeatures(item) {
         credit_cards: 'Credit Cards',
         mortgage_or_loans: 'Mortgage or Loan Options',
 
-        free_checking: isUK.value ? 'Free Checking Account Available' : 'Free Current Account Available',
+        free_checking: isBE() ? 'Free Checking Account Available' : 'Free Current Account Available',
         deposit_protection: 'Deposit Protection',
     }
 

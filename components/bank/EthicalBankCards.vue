@@ -4,7 +4,7 @@
         leave-active-class="transform-gpu transition ease-in duration-190" leave-from-class="opacity-100"
         leave-to-class="opacity-0">
         <li class="list-none" v-for="i in list.length" :key="i">
-            <EthicalBankCard :item="list[i - 1]" :isUK="isUK" :isNoCredit="isNoCredit" />
+            <EthicalBankCard :item="list[i - 1]" :isNoCredit="isNoCredit" />
         </li>
     </transition-group>
 </template>
@@ -14,7 +14,6 @@ import EthicalBankCard from "~~/components/bank/EthicalBankCard.vue"
 export default {
     props: {
         list: Array,
-        isUK: Boolean,
         isNoCredit: Boolean,
     },
     components: {

@@ -86,7 +86,6 @@ export default {
     components: { EthicalBankTableHeaderItem, EthicalTableFeatureResult },
     props: {
         list: Array,
-        isUK: Boolean,
         isNoCredit: Boolean,
         loaded: Boolean,
     },

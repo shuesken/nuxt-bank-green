@@ -22,13 +22,8 @@ export default function useCountryLocation() {
         }
     })
 
-    const isUK = computed(() => {
-        return location.value === 'GB'
-    })
-
     return {
         location,
         locationPicker,
-        isUK,
     }
 }

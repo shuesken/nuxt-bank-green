@@ -53,7 +53,7 @@
         <div class="flex flex-col space-y-1">
             <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.checking" name="checking">
                 {{
-                        isUK ? 'Current accounts' : 'Checking accounts'
+                        isBE() ? 'Current accounts' : 'Checking accounts'
                 }}</CheckboxSection>
             <CheckboxSection class="col-span-full" v-model="filterPayload.bankAccounts.saving" name="saving">
                 Savings accounts</CheckboxSection>
@@ -208,8 +208,6 @@ export default {
             forceShowMobile.value = !forceShowMobile.value
         }
 
-        const { isUK } = useCountryLocation()
-
         return {
             searchByLocation,
             onSelectLocation,
@@ -222,7 +220,6 @@ export default {
             toggleFilters,
 
             setDefaultFilter,
-            isUK,
         }
     },
 }
