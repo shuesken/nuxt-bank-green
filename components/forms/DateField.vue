@@ -1,26 +1,10 @@
 <template>
-    <BaseField
-        :title="title"
-        :description="description"
-        :name="name"
-        :show-warning="warning"
-        :dark="dark"
-    >
-        <input
-            :id="name"
-            ref="input"
-            :name="name"
-            type="date"
+    <BaseField :title="title" :description="description" :name="name" :show-warning="warning" :dark="dark">
+        <input :id="name" ref="input" :name="name" type="date"
             class="inline-flex appearance-none w-full text-sm leading-5 border-gray-50 rounded-2xl focus:border-sushi-300 focus:ring focus:ring-sushi-200 focus:ring-opacity-50 bg-white shadow-soft"
-            :class="[inputClasses, inputIsEmptyClass]"
-            :value="modelValue"
-            :step="step"
-            :aria-invalid="!!warning"
-            :required="required"
-            :disabled="disabled"
-            placeholder="dd/mm/yyyy"
-            @input="$emit('update:modelValue', $event.target.value)"
-        />
+            :class="[inputClasses, inputIsEmptyClass]" :value="modelValue" :step="step" :aria-invalid="!!warning"
+            :required="required" :disabled="disabled" placeholder="dd/mm/yyyy"
+            @input="$emit('update:modelValue', $event.target.value)" />
     </BaseField>
 </template>
 
@@ -42,6 +26,8 @@ export default {
         warning: [String, Boolean],
         dark: Boolean,
         placeholder: String,
+        currencyLabel: String,
+        step: String
     },
     computed: {
         inputClasses() {

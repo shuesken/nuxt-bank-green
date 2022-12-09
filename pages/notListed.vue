@@ -9,9 +9,9 @@
                 <h1 class="text-2xl md:text-4xl text-center text-gray-800 font-semibold whitespace-pre-line mb-8"
                     v-t="'SORRY_NOT_LISTED'" />
                 <i18n-t keypath="NOT_LISTED" tag="p">
-                    <router-link to="/contact" class="font-bold text-sushi-500 hover:underline">
+                    <NuxtLink to="/contact" class="font-bold text-sushi-500 hover:underline">
                         {{ $t('NOT_LISTED_LINK') }}
-                    </router-link>
+                    </NuxtLink>
                 </i18n-t>
             </div>
             <Swoosh />

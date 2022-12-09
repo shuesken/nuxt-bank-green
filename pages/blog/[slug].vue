@@ -38,7 +38,7 @@
     </div>
     <div v-else-if="error" class="w-full h-screen flex items-center justify-center flex flex-col items-center">
         <p class="text-4xl font-bold">No blog found</p>
-        <router-link class="mt-2 border-b border-primary-dark" to="/blog">Go back to Blogs</router-link>
+        <NuxtLink class="mt-2 border-b border-primary-dark" to="/blog">Go back to Blogs</NuxtLink>
     </div>
     <div v-else class="w-full h-screen flex items-center justify-center">
         <span>

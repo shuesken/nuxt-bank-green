@@ -6,80 +6,49 @@
                     <div class="table-cell pt-8 pb-4 w-32 md:w-48 lg:w-64">
                         &nbsp;
                     </div>
-                    <div
-                        v-for="i in cardsCount"
-                        :key="i"
-                        class="table-cell pt-8 pb-4 px-1 text-center overflow-hidden truncate"
-                    >
+                    <div v-for="i in cardsCount" :key="i"
+                        class="table-cell pt-8 pb-4 px-1 text-center overflow-hidden truncate">
                         <EthicalBankTableHeaderItem :item="list[i - 1]" />
                     </div>
                 </div>
 
-                <transition-group
-                    enter-active-class="transform-gpu ease-out duration-300 transition"
-                    enter-from-class="-translate-y-2 opacity-0"
-                    enter-to-class="translate-y-0 opacity-100"
-                    leave-active-class="transform-gpu transition ease-in duration-190"
-                    leave-from-class="opacity-100"
-                    leave-to-class="opacity-0"
-                >
-                    <div
-                        v-for="i in featuresCount"
-                        :key="i"
-                        class="table-row alternate-rows"
-                    >
+                <transition-group enter-active-class="transform-gpu ease-out duration-300 transition"
+                    enter-from-class="-translate-y-2 opacity-0" enter-to-class="translate-y-0 opacity-100"
+                    leave-active-class="transform-gpu transition ease-in duration-190" leave-from-class="opacity-100"
+                    leave-to-class="opacity-0">
+                    <div v-for="i in featuresCount" :key="i" class="table-row alternate-rows">
                         <div
-                            class="table-cell w-32 md:w-48 lg:w-64 text-right text-gray-500 font-bold text-sm pr-2 py-4 align-middle"
-                        >
-                            <transition
-                                enter-active-class="duration-200 transform-gpu origin-top ease-out"
-                                enter-from-class="opacity-0 scale-y-95"
-                                enter-to-class="opacity-100 scale-y-100"
+                            class="table-cell w-32 md:w-48 lg:w-64 text-right text-gray-500 font-bold text-sm pr-2 py-4 align-middle">
+                            <transition enter-active-class="duration-200 transform-gpu origin-top ease-out"
+                                enter-from-class="opacity-0 scale-y-95" enter-to-class="opacity-100 scale-y-100"
                                 leave-active-class="duration-100 transform-gpu origin-top ease-in"
-                                leave-from-class="opacity-100 scale-y-100"
-                                leave-to-class="opacity-0 scale-y-95"
-                                mode="out-in"
-                            >
-                                <span
-                                    v-if="!allFeatures[i - 1]"
-                                    class="text-gray-300"
-                                >
+                                leave-from-class="opacity-100 scale-y-100" leave-to-class="opacity-0 scale-y-95"
+                                mode="out-in">
+                                <span v-if="!allFeatures[i - 1]" class="text-gray-300">
                                     loading...
                                 </span>
                                 <span v-else-if="$te(allFeatures[i - 1])">{{
-                                    mapFeatureName($t(allFeatures[i - 1]))
+                                        mapFeatureName($t(allFeatures[i - 1]))
                                 }}</span>
                                 <span v-else>{{
-                                    mapFeatureName(
-                                        translateFeatureName(allFeatures[i - 1])
-                                    )
+                                        mapFeatureName(
+                                            translateFeatureName(allFeatures[i - 1])
+                                        )
                                 }}</span>
                             </transition>
                         </div>
-                        <div
-                            v-for="j in cardsCount"
-                            :key="j"
-                            class="table-cell text-center align-middle p-4 w-1/4"
-                        >
-                            <transition
-                                enter-active-class="duration-200 transform-gpu origin-top ease-out"
-                                enter-from-class="opacity-0 scale-y-95"
-                                enter-to-class="opacity-100 scale-y-100"
+                        <div v-for="j in cardsCount" :key="j" class="table-cell text-center align-middle p-4 w-1/4">
+                            <transition enter-active-class="duration-200 transform-gpu origin-top ease-out"
+                                enter-from-class="opacity-0 scale-y-95" enter-to-class="opacity-100 scale-y-100"
                                 leave-active-class="duration-100 transform-gpu origin-top ease-in"
-                                leave-from-class="opacity-100 scale-y-100"
-                                leave-to-class="opacity-0 scale-y-95"
-                                mode="out-in"
-                            >
+                                leave-from-class="opacity-100 scale-y-100" leave-to-class="opacity-0 scale-y-95"
+                                mode="out-in">
                                 <div v-if="!allFeatures[i - 1]">...</div>
-                                <EthicalTableFeatureResult
-                                    v-else
-                                    class="text-center mx-auto"
-                                    :feature="
-                                        bankToFeature[list[j - 1].tag][
-                                            allFeatures[i - 1]
-                                        ]
-                                    "
-                                />
+                                <EthicalTableFeatureResult v-else class="text-center mx-auto" :feature="
+                                    bankToFeature[list[j - 1].tag][
+                                    allFeatures[i - 1]
+                                    ]
+                                " />
                             </transition>
                         </div>
                     </div>
@@ -89,25 +58,17 @@
                     <div class="table-cell py-8 w-32 md:w-48 lg:w-64">
                         &nbsp;
                     </div>
-                    <div
-                        v-for="i in cardsCount"
-                        :key="i"
-                        class="table-cell text-center px-4 py-8"
-                    >
-                        <router-link
-                            :to="
-                                list[i - 1]
-                                    ? `/sustainable-eco-banks/${
-                                          list[i - 1].tag
-                                      }`
-                                    : ''
-                            "
-                            class="block hover:bg-green-50"
-                        >
+                    <div v-for="i in cardsCount" :key="i" class="table-cell text-center px-4 py-8">
+                        <NuxtLink :to="
+                            list[i - 1]
+                                ? `/sustainable-eco-banks/${list[i - 1].tag
+                                }`
+                                : ''
+                        " class="block hover:bg-green-50">
                             <div class="button-green py-2 text-sm">
                                 {{ $t('VIEW_BANK') }}
                             </div>
-                        </router-link>
+                        </NuxtLink>
                     </div>
                 </div>
             </div>

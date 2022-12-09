@@ -1,5 +1,5 @@
 <template>
-    <router-link
+    <NuxtLink
         class="bg-white rounded-xl shadow-soft border hover:bg-gray-50 transition duration-150 ease-in-out hover:border-sushi-500 overflow-hidden"
         :to="`/blog/${slug}`">
         <div v-if="image" class="relative w-full minimal h-52 sm:h-64">
@@ -23,7 +23,7 @@
                 </span>
             </div>
         </div>
-    </router-link>
+    </NuxtLink>
 </template>
 
 <script setup>
