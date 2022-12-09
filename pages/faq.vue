@@ -33,7 +33,6 @@ import AccordionItem from '@/components/AccordionItem.vue'
 import SignupBox from '@/components/forms/SignupBox.vue'
 import { getFAQ } from '@/api/faq'
 import Swoosh from '@/components/Swoosh.vue'
-import { useRoute } from 'vue-router'
 import convertToSlug from '@/utils/text/convertStringToSlug'
 import { useI18n } from 'vue-i18n'
 
