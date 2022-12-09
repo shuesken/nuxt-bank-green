@@ -8,7 +8,7 @@ export default function useCountryLocation() {
     const location = ref(storage.getItem('bg.country') ?? '')
     const country = useCountry()
     if (country.value && !location.value)
-        location.value = country
+        location.value = country.value
     const locationPicker = ref(null)
 
     watch(location, (loc) => {
