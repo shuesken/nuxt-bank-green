@@ -1,12 +1,9 @@
 <template>
-  <section class="section">
-    <PrismicRichText :field="slice.primary.title" class="title" />
-    <PrismicRichText :field="slice.primary.description" />
-  </section>
+  <PrismicRichText :field="slice.primary.text" />
 </template>
 
 <script>
-import { getSliceComponentProps } from "@prismicio/vue/components";
+import { getSliceComponentProps } from "@prismicio/vue";
 
 export default {
   name: "TextBlock",
@@ -22,6 +19,7 @@ export default {
   padding: 4em;
   text-align: center;
 }
+
 .title {
   margin-bottom: 2em;
 }
