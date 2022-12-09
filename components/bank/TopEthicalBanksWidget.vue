@@ -4,8 +4,8 @@
         <EthicalBankList :loaded="loaded" :list="banks" />
     </div>
     <div v-if="banks.length" class="sm:text-center">
-        <app-link to="/sustainable-eco-banks" class="mt-6 button-green sm:inline-block sm:w-64">{{ $t('SHOW_MORE')
-        }}</app-link>
+        <NuxtLink to="/sustainable-eco-banks" class="mt-6 button-green sm:inline-block sm:w-64">{{ $t('SHOW_MORE')
+        }}</NuxtLink>
     </div>
 </template>
 

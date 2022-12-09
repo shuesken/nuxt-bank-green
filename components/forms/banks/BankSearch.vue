@@ -19,11 +19,11 @@
                     'bg-gray-100': !filteredBanks.length,
                 }">
                     <slot v-if="filteredBanks.length === 0" name="not-listed">
-                        <app-link to="/not-listed">
+                        <NuxtLink to="/not-listed">
                             <div class="text-gray-500 text-center p-4 shadow-lg underline">
                                 {{ $t('NO_BANKS_FOUND') }}
                             </div>
-                        </app-link>
+                        </NuxtLink>
                     </slot>
                     <ListPicker ref="listPicker" v-else :items="filteredBanks" v-slot="{ item }"
                         @selectItem="onSelectBank">

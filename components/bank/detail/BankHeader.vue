@@ -55,13 +55,13 @@
                         details.rating === 'worst' ||
                         details.rating === 'bad'
                     " class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center mt-8">
-                        <app-link to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY') }}
-                        </app-link>
+                        <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY') }}
+                        </NuxtLink>
                         <div class="text-xs text-gray-500 mx-4 uppercase">
                             {{ $t('OR') }}
                         </div>
-                        <app-link to="/pledge" class="underline">{{ $t('PLEDGE_TO_MOVE_IT') }}
-                        </app-link>
+                        <NuxtLink to="/pledge" class="underline">{{ $t('PLEDGE_TO_MOVE_IT') }}
+                        </NuxtLink>
                     </div>
                     <div v-else></div>
                     <div class="relative flex-grow md:flex-none md:-right-10 text-center">

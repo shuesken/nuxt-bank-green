@@ -8,15 +8,17 @@
                         {{ $t('MAIN_TITLE') }}
                     </h2>
 
+
                     <div
                         class="flex flex-col md:flex-row items-stretch md:items-center space-y-2 md:space-y-0 md:space-x-4 mt-8 md:mt-10 md:mb-10">
                         <LocationSearch class="md:w-1/2 flex-initial" ref="locationPicker" v-model="location" />
                         <BankSearch class="md:w-1/2 flex-initial" ref="bankSearch" :disabled="!location"
                             :country="location" v-model="bank" />
-                        <app-link :to="`/banks/${bank?.tag}`" class="flex-initial md:w-48 button-green"
+                        <NuxtLink :to="`/banks/${bank?.tag}`" class="flex-initial md:w-48 button-green"
                             :class="{ disabled: !bank }" @click="onCheckBankClick">{{ $t('CHECK_MY_BANK')
-                            }}</app-link>
+                            }}</NuxtLink>
                     </div>
+
 
                     <div class="flex flex-col items-center md:flex-row w-full pt-10 md:pt-8 md:pb-16">
                         <h3 class="text-center text-2xl md:text-xl font-semibold whitespace-nowrap mb-6 md:mb-0 md:mr-2 lg:mr-12"
@@ -46,7 +48,7 @@
                                 </div>
                             </a>
                         </div>
-                        <app-link to="/partners" class="underline mt-2 text-sm">{{ $t('SEE_OUR_PARTNERS') }}</app-link>
+                        <NuxtLink to="/partners" class="underline mt-2 text-sm">{{ $t('SEE_OUR_PARTNERS') }}</NuxtLink>
                     </div>
                     <div class="mt-16">
                         <div class="mt-12 text-lg text-gray-700 text-center leading-4">
@@ -124,17 +126,16 @@ const onCheckBankClick = () => {
 }
 
 const { location, locationPicker } = useCountryLocation()
-// FIXME have to click twice on a country (and bank) to properly select
 
 const checkList = [
-        t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-        t('JOIN_A_FAST_GROWING_MOVEMENT'),
-        t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-    ]
+    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
+    t('JOIN_A_FAST_GROWING_MOVEMENT'),
+    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
+]
 
 watch(location, loc => {
     console.log('location changed', loc)
-    bank.value = null 
-    
+    bank.value = null
+
 })
 </script>

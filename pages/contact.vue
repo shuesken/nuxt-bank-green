@@ -20,9 +20,9 @@
                         <CheckboxSection class="md:col-span-2" v-model="isAgreeTerms" name="isAgreeTerms"
                             :warning="warningsMap['isAgreeTerms']">
                             <i18n-t keypath="AGREE_PRIVACY">
-                                <app-link to="/privacy" class="link">{{
+                                <NuxtLink to="/privacy" class="link">{{
                                         $t('PRIVACY_POLICY')
-                                }}</app-link>
+                                }}</NuxtLink>
                             </i18n-t>
                         </CheckboxSection>
                     </div>

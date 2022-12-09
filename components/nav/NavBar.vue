@@ -2,9 +2,9 @@
     <div v-clickaway="closePopup">
         <nav class="fixed z-50 top-0 p-4 contain inset-x-0">
             <div class="relative z-50 bg-primary-dark rounded-xl flex items-center justify-between pr-4">
-                <app-link to="/" class="py-4 px-6" @click="isOpen = false">
+                <NuxtLink to="/" class="py-4 px-6" @click="isOpen = false">
                     <img class="mt-1 h-5" src="/img/logo.svg" alt="Bank.Green" />
-                </app-link>
+                </NuxtLink>
 
                 <button type="button"
                     class="lg:hidden bg-sushi-900 bg-opacity-10 rounded-md p-2 inline-flex items-center justify-center text-white hover:text-sushi-400 hover:bg-sushi-500 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sushi-500"
@@ -31,15 +31,15 @@
                 </button>
 
                 <div class="hidden lg:block py-2 space-x-2">
-                    <app-link v-for="link in headerLinks" :key="link.href" :to="link.href"
+                    <NuxtLink v-for="link in headerLinks" :key="link.href" :to="link.href"
                         activeClass="bg-primary-light" inactiveClass="hover:bg-primary-light"
                         class="px-4 py-2 text-base text-white font-medium rounded-xl" @click="isOpen = false">{{
                                 link.short_title || link.title
-                        }}</app-link>
-                    <app-link to="/take-action" activeClass="bg-sushi-600"
+                        }}</NuxtLink>
+                    <NuxtLink to="/take-action" activeClass="bg-sushi-600"
                         class="inline w-auto px-4 py-2 font-medium bg-sushi-500 hover:bg-sushi-600 text-white text-center w-full rounded-xl shadow-green capitalize">
                         {{ $t('TAKE_ACTION') }}
-                    </app-link>
+                    </NuxtLink>
                 </div>
             </div>
         </nav>
@@ -49,14 +49,14 @@
             leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-1">
             <div v-if="isOpen"
                 class="fixed z-50 top-0 mt-14 inset-x-0 contain p-4 transition transform-gpu origin-top-center">
-                <app-link v-for="link in headerLinks" :key="link.href" :to="link.href" activeClass="bg-primary-light"
+                <NuxtLink v-for="link in headerLinks" :key="link.href" :to="link.href" activeClass="bg-primary-light"
                     inactiveClass="hover:bg-primary-light"
                     class="block py-2 px-6 md:py-4 md:px-6 mt-0.5 md:mt-1 text-white text-sm font-medium bg-primary-dark rounded-xl"
-                    @click="isOpen = false">{{ link.title }}</app-link>
-                <app-link to="/take-action"
+                    @click="isOpen = false">{{ link.title }}</NuxtLink>
+                <NuxtLink to="/take-action"
                     class="block w-full text-left py-2 px-6 md:py-4 md:px-6 mt-0.5 md:mt-1 text-sm font-medium bg-primary-dark text-white rounded-xl bg-sushi-500 hover:bg-sushi-600">
                     {{ $t('TAKE_ACTION') }}
-                </app-link>
+                </NuxtLink>
             </div>
         </transition>
     </div>

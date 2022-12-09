@@ -13,13 +13,13 @@
             <CheckList class="md:w-1/2 my-6 md:text-xl" :list="checkListItems" />
         </div>
         <div class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center mt-8">
-            <app-link to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY_TODAY') }}
-            </app-link>
+            <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY_TODAY') }}
+            </NuxtLink>
             <div class="text-xs text-gray-500 mx-4 uppercase">
                 {{ $t('OR') }}
             </div>
-            <app-link to="/pledge" class="underline text-white">{{ $t('PLEDGE_TO_MOVE_IT') }}
-            </app-link>
+            <NuxtLink to="/pledge" class="underline text-white">{{ $t('PLEDGE_TO_MOVE_IT') }}
+            </NuxtLink>
         </div>
     </div>
 </template>

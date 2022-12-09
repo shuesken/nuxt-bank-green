@@ -5,19 +5,19 @@
                 <h2 class="w-full text-center font-semibold text-2xl tracking-wider mb-4 text-gray-100">
                     Did we get something wrong?
                 </h2>
-                <app-link to="/contact" class="button-green inline-block w-max">{{ $t('CONTACT') }}
-                </app-link>
+                <NuxtLink to="/contact" class="button-green inline-block w-max">{{ $t('CONTACT') }}
+                </NuxtLink>
             </div>
 
             <div class="w-full flex flex-col items-center p-6 md:p-8">
                 <h2 class="w-full text-center font-semibold text-2xl tracking-wider mb-4 text-gray-100">
                     How do we derive our results?
                 </h2>
-                <app-link :to="{
+                <NuxtLink :to="{
                     path: '/faq',
                     hash: '#how-do-you-know-what-my-bank-funds',
                 }" class="button-green inline-block w-max">{{ $t('HOW_WE_DERIVE_THE_RESULTS') }}
-                </app-link>
+                </NuxtLink>
             </div>
         </div>
     </div>

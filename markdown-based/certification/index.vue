@@ -10,10 +10,10 @@
                     <section v-html="intro"></section>
 
                     <div class="flex justify-center py-20">
-                        <app-link to="/sustainable-eco-banks" class="button-green w-max">{{
+                        <NuxtLink to="/sustainable-eco-banks" class="button-green w-max">{{
                                 $t('VIEW_FOSSIL_FREE_ALLIANCE_MEMBERS')
                         }}
-                        </app-link>
+                        </NuxtLink>
                     </div>
 
                     <section v-html="detail"></section>

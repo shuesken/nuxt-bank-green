@@ -12,18 +12,18 @@
                 <div v-if="
                     details.rating === 'worst' || details.rating === 'bad'
                 " class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center w-auto">
-                    <app-link to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY') }}
-                    </app-link>
+                    <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY') }}
+                    </NuxtLink>
                     <div class="text-xs text-gray-500 mx-4 uppercase">
                         {{ $t('OR') }}
                     </div>
-                    <app-link to="/pledge" class="underline">{{ $t('PLEDGE_TO_MOVE_IT') }}
-                    </app-link>
+                    <NuxtLink to="/pledge" class="underline">{{ $t('PLEDGE_TO_MOVE_IT') }}
+                    </NuxtLink>
                 </div>
-                <app-link v-else to="/pledge" class="button-green inline-block w-auto">{{
+                <NuxtLink v-else to="/pledge" class="button-green inline-block w-auto">{{
                         $t('PLEDGE_TO_MOVE_YOUR_MONEY')
                 }}
-                </app-link>
+                </NuxtLink>
                 <div class="flex md:hidden flex-grow justify-center">
                     <ArrowDownBounce class="inline-block w-10" />
                 </div>

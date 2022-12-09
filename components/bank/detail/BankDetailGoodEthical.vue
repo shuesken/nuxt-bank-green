@@ -23,10 +23,10 @@
                     <a :href="details.website" target="_blank" class="button-green inline-block mx-auto">{{
                             $t('VISIT_X', { name: details.name })
                     }}</a>
-                    <app-link to="/pledge"
+                    <NuxtLink to="/pledge"
                         class="block text-gray-200 hover:underline cursor-pointer font-bold mt-4 text-center">
                         {{ $t('PLEDGE_TO_SWITCH_LATER') }}
-                    </app-link>
+                    </NuxtLink>
                 </div>
             </div>
             <div v-if="details.rating === 'great'" class="flex items-end justify-end pointer-events-none">
