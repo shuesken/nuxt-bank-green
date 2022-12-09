@@ -6,6 +6,9 @@ import storage from '@/utils/storage'
  */
 export default function useCountryLocation() {
     const location = ref(storage.getItem('bg.country') ?? '')
+    const country = useCountry()
+    if (country.value && !location.value)
+        location.value = country
     const locationPicker = ref(null)
 
     watch(location, (loc) => {
