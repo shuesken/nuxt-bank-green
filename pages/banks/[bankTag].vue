@@ -21,7 +21,7 @@ const bankTag = router.currentRoute.value.params.bankTag;
 const details = ref(await getBankDetail(bankTag))
 const { t } = useI18n({ useScope: 'global' })
 
-useHeadHelper((details.value ? t('BANK_DETAIL_TITLE', { name: details.value.name }) : ''))
+useHeadHelper((details.value?.name ? t('BANK_DETAIL_TITLE', { name: details.value.name }) : ''))
 
 const isBadBank = computed(() => {
     switch (details.value.rating) {
