@@ -197,10 +197,7 @@ export default {
 
     setup() {
         const { t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: t('ETHICAL_BANKS_INDEX_TITLE'),
-            description: t('ETHICAL_BANKS_INDEX_DESC'),
-        })
+        useHeadHelper(t('ETHICAL_BANKS_INDEX_TITLE'), t('ETHICAL_BANKS_INDEX_DESC'))
 
         const { location, locationPicker } = useCountryLocation()
 

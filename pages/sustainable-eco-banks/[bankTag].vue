@@ -20,9 +20,7 @@ if (!bankTag)
     throw new Error("no banktag supplied: " + JSON.stringify(router.currentRoute.value))
 const details = await getBankDetail(bankTag)
 
-useHead({
-    title: t('ETHICAL_BANK_DETAIL_TITLE', {
-        name: details.name,
-    })
-})
+useHeadHelper(t('ETHICAL_BANK_DETAIL_TITLE', {
+    name: details.name,
+}))
 </script>

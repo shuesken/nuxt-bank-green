@@ -63,26 +63,17 @@ const error = ref(false)
 const { client } = usePrismic()
 const { t } = useI18n({ useScope: 'global' })
 const slug = route.path.split('/').at(-1)
-console.log('slug', slug)
 const { data: post } = await useAsyncData(slug, () => client.getByUID('blogpost', slug))
 
 const comps = ref(defineSliceZoneComponents({
-    blog_image: ImageBlock, // FIXME shoul be image_block
+    blog_image: ImageBlock, // FIXME should be image_block
     text_block: TextBlock,
     video_block: EmbedBlock
 }))
 
-useHead({
-    title: computed(
-        () => 'title'
-    ),
-    description: computed(
-        () => 'description'
-    ),
-    image: computed(
-        () => 'image'
-    ),
-})
+useHeadHelper(post?.data?.title ?? "Blog Post", post?.data?.description)
+
+// FIXME add image header and pull title properly
 
 const checkList = [
     t('SEND_A_MESSAGE_TO_YOUR_BANK'),
