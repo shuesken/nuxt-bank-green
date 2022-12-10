@@ -75,14 +75,11 @@ export default {
             )
 
             this.observer.observe(this.$el)
-            console.log("observe")
         } else {
             this.hasBeenInViewport = true
-            console.log("setting to true")
         }
     },
     unmounted() {
-        console.log("unmounted")
         if (this.observer) {
             this.observer.disconnect()
         }

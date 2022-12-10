@@ -123,19 +123,19 @@ const emojiForRating = computed(() => {
     let emoji = 'Shrug'
     switch (props.rating) {
         case 'great':
-            emoji = 'Heart Eyes'
+            emoji = 'Heart_Eyes'
             break
         case 'ok':
             emoji = 'Happy'
             break
         case 'bad':
-            emoji = 'Sad Tear'
+            emoji = 'Sad_Tear'
             break
         case 'worst':
             emoji = 'Cussing'
             break
     }
-    return `/anim/emoji/${emoji}/JSON Files/${emoji}_Flat.json`
+    return `/anim/emoji/${emoji}_Flat.json`
 })
 
 onMounted(() => {
