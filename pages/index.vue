@@ -120,10 +120,11 @@ const { t } = useI18n({ useScope: 'global' })
 useHeadHelper(t('INDEX_TITLE'), t('INDEX_DESC'))
 
 
-const gtm = useGtm()
-const onCheckBankClick = () => {
-    gtm.trackEvent({ event: 'onBankCheckClick' })
-}
+// const gtm = useGtm()
+// const onCheckBankClick = () => {
+//     gtm.trackEvent({ event: 'onBankCheckClick' })
+// }
+// FIXME enable gtm
 
 const { location, locationPicker } = useCountryLocation()
 
