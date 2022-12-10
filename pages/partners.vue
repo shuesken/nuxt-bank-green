@@ -127,10 +127,7 @@ export default {
             },
         ]
         const { t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: t('PARTNERS_SEO_TITLE'),
-            description: t('PARTNERS_DESC'),
-        })
+        useHeadHelper(t('PARTNERS_SEO_TITLE'), t('PARTNERS_DESC'))
         return { partners }
     },
 }

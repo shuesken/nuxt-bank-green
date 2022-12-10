@@ -8,16 +8,8 @@
     </div>
 </template>
 
-<script>
-import ThanksSection from '@/components/contact/ThanksSection'
+<script setup>
 
-export default {
-    components: {
-        ThanksSection,
-    },
+useHeadHelper("Thank you")
 
-    setup() {
-        useHead({ title: 'Thank you' })
-    },
-}
 </script>

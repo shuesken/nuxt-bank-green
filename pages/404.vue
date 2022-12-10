@@ -15,11 +15,6 @@
     </div>
 </template>
 
-<script>
-
-export default {
-    setup() {
-        useHead({ title: '404' })
-    },
-}
+<script setup>
+useHeadHelper('404')
 </script>

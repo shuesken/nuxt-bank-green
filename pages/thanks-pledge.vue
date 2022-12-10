@@ -33,5 +33,5 @@
 </template>
 
 <script setup>
-useHead({ title: 'Thank you' })
+useHeadHelper("Thank you")
 </script>

@@ -59,10 +59,9 @@ import Swoosh from '@/components/Swoosh.vue'
 
 const { t } = useI18n({ useScope: 'global' })
 
-useHead({
-    title: t('CONTACT_TITLE'),
-    description: t('CONTACT_DESC'),
-})
+useHeadHelper(t('CONTACT_TITLE'), t('CONTACT_DESC'))
+
+
 
 const p = usePrismic()
 const { data: contact } = await useAsyncData('contact', () => p.client.getSingle('contactpage'))

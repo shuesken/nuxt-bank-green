@@ -12,18 +12,16 @@ import { getBankDetail } from '@/api/banks'
 import { computed, defineAsyncComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const route = useRoute()
-const details = ref(await getBankDetail(route.params.bankTag))
+// const route = useRoute()
+// FIXME this is a workaround for an upstream Vue router bug; when seeing this the next time,
+// check if it works with useRoute() by now
+// I think this issue is relevant: https://github.com/nuxt/framework/issues/8731
+const router = useRouter();
+const bankTag = router.currentRoute.value.params.bankTag;
+const details = ref(await getBankDetail(bankTag))
 const { t } = useI18n({ useScope: 'global' })
 
-useHead({
-    title: computed(() => {
-        if (!details.value) {
-            return ''
-        }
-        return t('BANK_DETAIL_TITLE', { name: details.value.name })
-    }),
-})
+useHeadHelper((details.value ? t('BANK_DETAIL_TITLE', { name: details.value.name }) : ''))
 
 const isBadBank = computed(() => {
     switch (details.value.rating) {

@@ -53,10 +53,7 @@ export default {
 
     setup() {
         const { t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: t('PLEDGE_SEO_TITLE'),
-            description: t('PLEDGE_SEO_DESC'),
-        })
+        useHeadHelper(t('PLEDGE_SEO_TITLE'), t('PLEDGE_SEO_DESC'))
 
         const signUpForm = ref()
         const scrollToForm = () => {

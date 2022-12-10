@@ -8,15 +8,8 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import ThanksSection from '@/components/contact/ThanksSection.vue'
 
-export default {
-    components: {
-        ThanksSection,
-    },
-    setup() {
-        useHead({ title: 'Thank you' })
-    },
-}
+useHeadHelper('Thank you')
 </script>

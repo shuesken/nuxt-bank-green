@@ -117,10 +117,8 @@ import { useI18n } from 'vue-i18n'
 
 const bank = ref(null)
 const { t } = useI18n({ useScope: 'global' })
-useHead({
-    title: t('INDEX_TITLE'),
-    description: t('INDEX_DESC'),
-})
+useHeadHelper(t('INDEX_TITLE'), t('INDEX_DESC'))
+
 
 const gtm = useGtm()
 const onCheckBankClick = () => {

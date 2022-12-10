@@ -40,10 +40,7 @@ export default {
     directives: { markup },
     setup() {
         const { t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: t('JOIN_TITLE'),
-            description: t('JOIN_DESCRIPTION'),
-        })
+        useHeadHelper(t('JOIN_TITLE'), t('JOIN_DESCRIPTION'))
     },
     computed: {
         checkList() {

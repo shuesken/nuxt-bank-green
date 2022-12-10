@@ -80,7 +80,7 @@ export default {
     },
 
     setup() {
-        useHead({ title: 'Not listed' })
+        useHeadHelper('Not listed')
     },
 }
 </script>

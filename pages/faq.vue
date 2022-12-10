@@ -44,10 +44,7 @@ export default {
     setup() {
         const route = useRoute()
         const { t } = useI18n({ useScope: 'global' })
-        useHead({
-            title: t('FAQ_SEO_TITLE'),
-            description: t('FAQ_DESC'),
-        })
+        useHeadHelper(title = t('FAQ_SEO_TITLE'), description = t('FAQ_DESC'))
 
         const FAQrefs = ref([])
         const FAQs = ref([])
