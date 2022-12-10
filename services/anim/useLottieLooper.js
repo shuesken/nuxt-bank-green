@@ -18,8 +18,7 @@ export default function useLottie({ path }) {
         })
     }
 
-    onMounted(loadAnimation)
-    watch(path, loadAnimation)
+    onUpdated(loadAnimation)
 
     return {
         container,

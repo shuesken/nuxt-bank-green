@@ -1,14 +1,10 @@
 <template>
-    <transition
-        enter-active-class="transition transform-gpu duration-200 ease-out"
-        enter-from-class="opacity-0 scale-95"
-        enter-to-class="opacity-100 scale-100"
-        leave-active-class="transition transform-gpu duration-100 ease-in"
-        leave-from-class="opacity-100 scale-100"
-        leave-to-class="opacity-0 scale-95"
-        appear
-    >
+    <transition enter-active-class="transition transform-gpu duration-200 ease-out"
+        enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100"
+        leave-active-class="transition transform-gpu duration-100 ease-in" leave-from-class="opacity-100 scale-100"
+        leave-to-class="opacity-0 scale-95" appear>
         <div :style="styles" ref="observer">
+            <div>{{ hasBeenInViewport }}</div>
             <slot v-if="hasBeenInViewport" />
         </div>
     </transition>
@@ -50,23 +46,29 @@ export default {
         },
     },
     mounted() {
+        console.log("mounted RenderWhen")
         if (!('IntersectionObserver' in window)) {
+            console.log("no intersection observer")
             // no support for IntersectionObserver, just show right away, instead of loading polyfills
             this.hasBeenInViewport = true
             return
         }
 
         if (this.hasBeenInViewport) {
+            console.log("has been in viewport")
             return
         }
 
         if (this.$refs.observer) {
             this.observer = new window.IntersectionObserver(
                 (entries) => {
+                    console.log("getting entries", entries)
                     const image = entries[0]
                     if (image.intersectionRatio > 0) {
+                        console.log("setting to true")
                         this.hasBeenInViewport = true
                         if (this.observer) {
+                            console.log("disconnecting")
                             this.observer.disconnect()
                         }
                     }
@@ -80,11 +82,14 @@ export default {
             )
 
             this.observer.observe(this.$el)
+            console.log("observe")
         } else {
             this.hasBeenInViewport = true
+            console.log("setting to true")
         }
     },
     unmounted() {
+        console.log("unmounted")
         if (this.observer) {
             this.observer.disconnect()
         }

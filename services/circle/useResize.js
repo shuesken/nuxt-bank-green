@@ -7,7 +7,8 @@ export default function useResize() {
   const diameter = ref(window.innerWidth || 320)
 
   const onResize = () => {
-    diameter.value = container.value.clientWidth
+    if (container.value)
+      diameter.value = container.value.clientWidth
   }
 
   onMounted(() => {
