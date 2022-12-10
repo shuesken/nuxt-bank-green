@@ -3,8 +3,7 @@
         <div class="bg-gradient-to-b from-sushi-50 to-sushi-100 pt-28">
             <div class="page-fade-in relative z-10 contain max-w-4xl flex flex-col justify-center items-center">
 
-                <LottiePlayer class="w-20 h-20 mb-4 md:mb-6"
-                    :path="'/anim/emoji/Sad Tear/JSON Files/Sad Tear_Flat.json'" />
+                <LottiePlayer class="w-20 h-20 mb-4 md:mb-6" :path="'/anim/emoji/Sad_Tear_Flat.json'" />
 
                 <h1 class="text-2xl md:text-4xl text-center text-gray-800 font-semibold whitespace-pre-line mb-8"
                     v-t="'SORRY_NOT_LISTED'" />
