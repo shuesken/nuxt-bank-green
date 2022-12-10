@@ -21,7 +21,12 @@ const bankTag = router.currentRoute.value.params.bankTag;
 const details = ref(await getBankDetail(bankTag))
 const { t } = useI18n({ useScope: 'global' })
 
-useHeadHelper((details.value?.name ? t('BANK_DETAIL_TITLE', { name: details.value.name }) : ''))
+useHeadHelper((details.value?.name ? t('BANK_DETAIL_TITLE', { name: details.value.name }) : ''), 'Find and compare the service offerings of ethical and sustainable banks.',
+)
+
+const { rating } = details.value
+if (rating)
+    useHeadRating(rating)
 
 const isBadBank = computed(() => {
     switch (details.value.rating) {
