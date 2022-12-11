@@ -1,15 +1,15 @@
 {
   "slices": {
     "components": {
-      "video_block": {
+      "embed_slice": {
         "library": "slices",
-        "id": "video_block",
-        "name": "EmbedBlock",
+        "id": "embed_slice",
+        "name": "EmbedSlice",
         "description": "VideoBlock",
         "model": {
-          "id": "video_block",
+          "id": "embed_slice",
           "type": "SharedSlice",
-          "name": "EmbedBlock",
+          "name": "EmbedSlice",
           "description": "VideoBlock",
           "variations": [
             {
@@ -54,7 +54,7 @@
                 "version": "1.0"
               }
             },
-            "slice_type": "video_block"
+            "slice_type": "embed_slice"
           }
         },
         "meta": {
@@ -63,15 +63,15 @@
         },
         "screenshotPaths": {}
       },
-      "blog_image": {
+      "image_slice": {
         "library": "slices",
-        "id": "blog_image",
-        "name": "ImageBlock",
+        "id": "image_slice",
+        "name": "ImageSlice",
         "description": "BlogImage",
         "model": {
-          "id": "blog_image",
+          "id": "image_slice",
           "type": "SharedSlice",
-          "name": "ImageBlock",
+          "name": "ImageSlice",
           "description": "BlogImage",
           "variations": [
             {
@@ -129,7 +129,7 @@
                 }
               ]
             },
-            "slice_type": "blog_image"
+            "slice_type": "image_slice"
           }
         },
         "meta": {
@@ -138,23 +138,23 @@
         },
         "screenshotPaths": {}
       },
-      "text_block": {
+      "text_slice": {
         "library": "slices",
-        "id": "text_block",
-        "name": "TextBlock",
-        "description": "TextBlock",
+        "id": "text_slice",
+        "name": "TextSlice",
+        "description": "TextSlice",
         "model": {
-          "id": "text_block",
+          "id": "text_slice",
           "type": "SharedSlice",
-          "name": "TextBlock",
-          "description": "TextBlock",
+          "name": "TextSlice",
+          "description": "TextSlice",
           "variations": [
             {
               "id": "default",
               "name": "Default",
               "docURL": "...",
               "version": "sktwi1xtmkfgx8626",
-              "description": "TextBlock",
+              "description": "TextSlice",
               "primary": {
                 "text": {
                   "type": "StructuredText",
@@ -187,7 +187,7 @@
                 }
               ]
             },
-            "slice_type": "text_block"
+            "slice_type": "text_slice"
           }
         },
         "meta": {

@@ -4,71 +4,74 @@ import type * as prismicT from "@prismicio/types";
 import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = {
-    [KeyType in keyof T]: T[KeyType];
+  [KeyType in keyof T]: T[KeyType];
 };
 /** Content for BlogPost documents */
 interface BlogpostDocumentData {
-    /**
-     * Title field in *BlogPost*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blogpost.title
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title: prismicT.KeyTextField;
-    /**
-     * Author field in *BlogPost*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blogpost.author
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    author: prismicT.KeyTextField;
-    /**
-     * PublicationDate field in *BlogPost*
-     *
-     * - **Field Type**: Date
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blogpost.publicationdate
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/date
-     *
-     */
-    publicationdate: prismicT.DateField;
-    /**
-     * Description field in *BlogPost*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blogpost.description
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
-    /**
-     * Slice Zone field in *BlogPost*
-     *
-     * - **Field Type**: Slice Zone
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blogpost.slices[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-     *
-     */
-    slices: prismicT.SliceZone<BlogpostDocumentDataSlicesSlice>;
+  /**
+   * Title field in *BlogPost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * Author field in *BlogPost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  author: prismicT.KeyTextField;
+  /**
+   * PublicationDate field in *BlogPost*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.publicationdate
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/date
+   *
+   */
+  publicationdate: prismicT.DateField;
+  /**
+   * Description field in *BlogPost*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismicT.RichTextField;
+  /**
+   * Slice Zone field in *BlogPost*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<BlogpostDocumentDataSlicesSlice>;
 }
 /**
  * Slice for *BlogPost → Slice Zone*
  *
  */
-type BlogpostDocumentDataSlicesSlice = BlogImageSlice | TextBlockSlice | VideoBlockSlice;
+type BlogpostDocumentDataSlicesSlice =
+  | BlogImageSlice
+  | TextBlockSlice
+  | VideoBlockSlice;
 /**
  * BlogPost document from Prismic
  *
@@ -78,20 +81,25 @@ type BlogpostDocumentDataSlicesSlice = BlogImageSlice | TextBlockSlice | VideoBl
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type BlogpostDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BlogpostDocumentData>, "blogpost", Lang>;
+export type BlogpostDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithUID<
+    Simplify<BlogpostDocumentData>,
+    "blogpost",
+    Lang
+  >;
 /** Content for ContactPage documents */
 interface ContactpageDocumentData {
-    /**
-     * Description field in *ContactPage*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: contactpage.description
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
+  /**
+   * Description field in *ContactPage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contactpage.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismicT.RichTextField;
 }
 /**
  * ContactPage document from Prismic
@@ -102,140 +110,302 @@ interface ContactpageDocumentData {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ContactpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ContactpageDocumentData>, "contactpage", Lang>;
-export type AllDocumentTypes = BlogpostDocument | ContactpageDocument;
+export type ContactpageDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<ContactpageDocumentData>,
+    "contactpage",
+    Lang
+  >;
+/** Content for TakeActionPage documents */
+interface TakeactionpageDocumentData {
+  /**
+   * Introduction field in *TakeActionPage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: takeactionpage.introduction
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  introduction: prismicT.RichTextField;
+  /**
+   * Slice Zone field in *TakeActionPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: takeactionpage.slices1[]
+   * - **Tab**: Pressure
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices1: prismicT.SliceZone<TakeactionpageDocumentDataSlices1Slice>;
+  /**
+   * Slice Zone field in *TakeActionPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: takeactionpage.slices2[]
+   * - **Tab**: Switch
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices2: prismicT.SliceZone<TakeactionpageDocumentDataSlices2Slice>;
+  /**
+   * Slice Zone field in *TakeActionPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: takeactionpage.slices3[]
+   * - **Tab**: Share
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices3: prismicT.SliceZone<TakeactionpageDocumentDataSlices3Slice>;
+  /**
+   * Slice Zone field in *TakeActionPage*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: takeactionpage.slices4[]
+   * - **Tab**: Learn
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices4: prismicT.SliceZone<TakeactionpageDocumentDataSlices4Slice>;
+}
 /**
- * Primary content in EmbedBlock → Primary
+ * Slice for *TakeActionPage → Slice Zone*
+ *
+ */
+type TakeactionpageDocumentDataSlices1Slice =
+  | VideoBlockSlice
+  | BlogImageSlice
+  | TextBlockSlice;
+/**
+ * Slice for *TakeActionPage → Slice Zone*
+ *
+ */
+type TakeactionpageDocumentDataSlices2Slice =
+  | VideoBlockSlice
+  | BlogImageSlice
+  | TextBlockSlice;
+/**
+ * Slice for *TakeActionPage → Slice Zone*
+ *
+ */
+type TakeactionpageDocumentDataSlices3Slice =
+  | VideoBlockSlice
+  | BlogImageSlice
+  | TextBlockSlice;
+/**
+ * Slice for *TakeActionPage → Slice Zone*
+ *
+ */
+type TakeactionpageDocumentDataSlices4Slice =
+  | VideoBlockSlice
+  | BlogImageSlice
+  | TextBlockSlice;
+/**
+ * TakeActionPage document from Prismic
+ *
+ * - **API ID**: `takeactionpage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TakeactionpageDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<TakeactionpageDocumentData>,
+    "takeactionpage",
+    Lang
+  >;
+export type AllDocumentTypes =
+  | BlogpostDocument
+  | ContactpageDocument
+  | TakeactionpageDocument;
+/**
+ * Primary content in EmbedSlice → Primary
  *
  */
 interface VideoBlockSliceDefaultPrimary {
-    /**
-     * Target field in *EmbedBlock → Primary*
-     *
-     * - **Field Type**: Embed
-     * - **Placeholder**: *None*
-     * - **API ID Path**: video_block.primary.target
-     * - **Documentation**: https://prismic.io/docs/core-concepts/embed
-     *
-     */
-    target: prismicT.EmbedField;
+  /**
+   * Target field in *EmbedSlice → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_slice.primary.target
+   * - **Documentation**: https://prismic.io/docs/core-concepts/embed
+   *
+   */
+  target: prismicT.EmbedField;
 }
 /**
- * Default variation for EmbedBlock Slice
+ * Default variation for EmbedSlice Slice
  *
  * - **API ID**: `default`
  * - **Description**: `VideoBlock`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type VideoBlockSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<VideoBlockSliceDefaultPrimary>, never>;
+export type VideoBlockSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<VideoBlockSliceDefaultPrimary>,
+  never
+>;
 /**
- * Slice variation for *EmbedBlock*
+ * Slice variation for *EmbedSlice*
  *
  */
 type VideoBlockSliceVariation = VideoBlockSliceDefault;
 /**
- * EmbedBlock Shared Slice
+ * EmbedSlice Shared Slice
  *
- * - **API ID**: `video_block`
+ * - **API ID**: `embed_slice`
  * - **Description**: `VideoBlock`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type VideoBlockSlice = prismicT.SharedSlice<"video_block", VideoBlockSliceVariation>;
+export type VideoBlockSlice = prismicT.SharedSlice<
+  "embed_slice",
+  VideoBlockSliceVariation
+>;
 /**
- * Primary content in ImageBlock → Primary
+ * Primary content in ImageSlice → Primary
  *
  */
 interface BlogImageSliceDefaultPrimary {
-    /**
-     * Image field in *ImageBlock → Primary*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog_image.primary.image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    image: prismicT.ImageField<never>;
-    /**
-     * Caption field in *ImageBlock → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog_image.primary.caption
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    caption: prismicT.RichTextField;
+  /**
+   * Image field in *ImageSlice → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slice.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismicT.ImageField<never>;
+  /**
+   * Caption field in *ImageSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slice.primary.caption
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  caption: prismicT.RichTextField;
 }
 /**
- * Default variation for ImageBlock Slice
+ * Default variation for ImageSlice Slice
  *
  * - **API ID**: `default`
  * - **Description**: `BlogImage`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type BlogImageSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<BlogImageSliceDefaultPrimary>, never>;
+export type BlogImageSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<BlogImageSliceDefaultPrimary>,
+  never
+>;
 /**
- * Slice variation for *ImageBlock*
+ * Slice variation for *ImageSlice*
  *
  */
 type BlogImageSliceVariation = BlogImageSliceDefault;
 /**
- * ImageBlock Shared Slice
+ * ImageSlice Shared Slice
  *
- * - **API ID**: `blog_image`
+ * - **API ID**: `image_slice`
  * - **Description**: `BlogImage`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type BlogImageSlice = prismicT.SharedSlice<"blog_image", BlogImageSliceVariation>;
+export type BlogImageSlice = prismicT.SharedSlice<
+  "image_slice",
+  BlogImageSliceVariation
+>;
 /**
- * Primary content in TextBlock → Primary
+ * Primary content in TextSlice → Primary
  *
  */
 interface TextBlockSliceDefaultPrimary {
-    /**
-     * Text field in *TextBlock → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: text_block.primary.text
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    text: prismicT.RichTextField;
+  /**
+   * Text field in *TextSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_slice.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismicT.RichTextField;
 }
 /**
- * Default variation for TextBlock Slice
+ * Default variation for TextSlice Slice
  *
  * - **API ID**: `default`
- * - **Description**: `TextBlock`
+ * - **Description**: `TextSlice`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextBlockSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextBlockSliceDefaultPrimary>, never>;
+export type TextBlockSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<TextBlockSliceDefaultPrimary>,
+  never
+>;
 /**
- * Slice variation for *TextBlock*
+ * Slice variation for *TextSlice*
  *
  */
 type TextBlockSliceVariation = TextBlockSliceDefault;
 /**
- * TextBlock Shared Slice
+ * TextSlice Shared Slice
  *
- * - **API ID**: `text_block`
- * - **Description**: `TextBlock`
+ * - **API ID**: `text_slice`
+ * - **Description**: `TextSlice`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextBlockSlice = prismicT.SharedSlice<"text_block", TextBlockSliceVariation>;
+export type TextBlockSlice = prismicT.SharedSlice<
+  "text_slice",
+  TextBlockSliceVariation
+>;
 declare module "@prismicio/client" {
-    interface CreateClient {
-        (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
-    }
-    namespace Content {
-        export type { BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, ContactpageDocumentData, ContactpageDocument, AllDocumentTypes, VideoBlockSliceDefaultPrimary, VideoBlockSliceDefault, VideoBlockSliceVariation, VideoBlockSlice, BlogImageSliceDefaultPrimary, BlogImageSliceDefault, BlogImageSliceVariation, BlogImageSlice, TextBlockSliceDefaultPrimary, TextBlockSliceDefault, TextBlockSliceVariation, TextBlockSlice };
-    }
+  interface CreateClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options?: prismic.ClientConfig
+    ): prismic.Client<AllDocumentTypes>;
+  }
+  namespace Content {
+    export type {
+      BlogpostDocumentData,
+      BlogpostDocumentDataSlicesSlice,
+      BlogpostDocument,
+      ContactpageDocumentData,
+      ContactpageDocument,
+      TakeactionpageDocumentData,
+      TakeactionpageDocumentDataSlices1Slice,
+      TakeactionpageDocumentDataSlices2Slice,
+      TakeactionpageDocumentDataSlices3Slice,
+      TakeactionpageDocumentDataSlices4Slice,
+      TakeactionpageDocument,
+      AllDocumentTypes,
+      VideoBlockSliceDefaultPrimary,
+      VideoBlockSliceDefault,
+      VideoBlockSliceVariation,
+      VideoBlockSlice,
+      BlogImageSliceDefaultPrimary,
+      BlogImageSliceDefault,
+      BlogImageSliceVariation,
+      BlogImageSlice,
+      TextBlockSliceDefaultPrimary,
+      TextBlockSliceDefault,
+      TextBlockSliceVariation,
+      TextBlockSlice,
+    };
+  }
 }

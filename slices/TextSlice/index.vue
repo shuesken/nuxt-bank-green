@@ -6,7 +6,7 @@
 import { getSliceComponentProps } from "@prismicio/vue";
 
 export default {
-  name: "TextBlock",
+  name: "TextSlice",
   // The array passed to `getSliceComponentProps` is purely optional and acts as a visual hint for you
   props: getSliceComponentProps(["slice", "index", "slices", "context"]),
 }

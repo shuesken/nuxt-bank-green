@@ -1,5 +1,6 @@
 <template>
     <div class="page bg-sushi-50">
+
         <div v-if="data?.results">
             <div class="page-fade-in contain pt-28 pb-16">
                 <h1 class="text-2xl font-semibold whitespace-pre-line mb-4" v-t="'BLOG'" />
@@ -29,7 +30,7 @@ const { client, asText } = usePrismic()
 
 const { data } = await useAsyncData('blogposts', () => client.getByType('blogpost'))
 
-const getImageSrc = post => post?.data?.slices?.find(s => s.slice_type === "blog_image").primary.image.url ?? ""
+const getImageSrc = post => post.data.slices.find(s => s.slice_type === "image_slice").primary.image.url ?? ""
 
 useHead({ title: 'Blog' })
 </script>

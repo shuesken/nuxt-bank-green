@@ -1,7 +1,4 @@
 <template>
-    <!-- <pre>
-        {{ JSON.stringify(post, null, 2) }}
-    </pre> -->
     <div v-if="true">
         <div>
             <div class="page-fade-in contain pb-8 sm:pb-10 md:pb-12 pt-24 sm:pt-32">
@@ -54,7 +51,7 @@
 import { useI18n } from 'vue-i18n'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
-import { EmbedBlock, TextBlock, ImageBlock } from '~~/slices';
+import { EmbedSlice, TextSlice, ImageSlice } from '~~/slices';
 
 
 const route = useRoute()
@@ -66,9 +63,9 @@ const slug = route.path.split('/').at(-1)
 const { data: post } = await useAsyncData(slug, () => client.getByUID('blogpost', slug))
 
 const comps = ref(defineSliceZoneComponents({
-    blog_image: ImageBlock, // FIXME should be image_block
-    text_block: TextBlock,
-    video_block: EmbedBlock
+    image_slice: ImageSlice,
+    text_slice: TextSlice,
+    embed_slice: EmbedSlice
 }))
 
 useHeadHelper(post?.data?.title ?? "Blog Post", post?.data?.description)

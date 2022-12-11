@@ -1,7 +1,7 @@
 {
-  "id": "blog_image",
+  "id": "image_slice",
   "type": "SharedSlice",
-  "name": "ImageBlock",
+  "name": "ImageSlice",
   "description": "BlogImage",
   "variations": [
     {

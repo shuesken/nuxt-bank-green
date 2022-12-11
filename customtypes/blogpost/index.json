@@ -47,13 +47,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "blog_image": {
+            "image_slice": {
               "type": "SharedSlice"
             },
-            "text_block": {
+            "text_slice": {
               "type": "SharedSlice"
             },
-            "video_block": {
+            "embed_slice": {
               "type": "SharedSlice"
             }
           }

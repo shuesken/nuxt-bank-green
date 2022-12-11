@@ -20,6 +20,6 @@
         "version": "1.0"
       }
     },
-    "slice_type": "video_block"
+    "slice_type": "embed_slice"
   }
 ]

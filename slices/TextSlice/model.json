@@ -1,15 +1,15 @@
 {
-  "id": "text_block",
+  "id": "text_slice",
   "type": "SharedSlice",
-  "name": "TextBlock",
-  "description": "TextBlock",
+  "name": "TextSlice",
+  "description": "TextSlice",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "TextBlock",
+      "description": "TextSlice",
       "primary": {
         "text": {
           "type": "StructuredText",

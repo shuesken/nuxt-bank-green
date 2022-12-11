@@ -1,0 +1,95 @@
+{
+  "id": "takeactionpage",
+  "label": "TakeActionPage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "introduction": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Introduction",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      }
+    },
+    "Pressure": {
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "embed_slice": {
+              "type": "SharedSlice"
+            },
+            "image_slice": {
+              "type": "SharedSlice"
+            },
+            "text_slice": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Switch": {
+      "slices2": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "embed_slice": {
+              "type": "SharedSlice"
+            },
+            "image_slice": {
+              "type": "SharedSlice"
+            },
+            "text_slice": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Share": {
+      "slices3": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "embed_slice": {
+              "type": "SharedSlice"
+            },
+            "image_slice": {
+              "type": "SharedSlice"
+            },
+            "text_slice": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Learn": {
+      "slices4": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "embed_slice": {
+              "type": "SharedSlice"
+            },
+            "image_slice": {
+              "type": "SharedSlice"
+            },
+            "text_slice": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "id": "video_block",
+  "id": "embed_slice",
   "type": "SharedSlice",
-  "name": "EmbedBlock",
+  "name": "EmbedSlice",
   "description": "VideoBlock",
   "variations": [
     {

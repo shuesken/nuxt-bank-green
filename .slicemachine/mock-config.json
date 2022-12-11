@@ -15,11 +15,12 @@
           "blocks": 1
         }
       }
-    }
+    },
+    "takeactionpage": {}
   },
   "slices": {
     "BlogImage": {},
-    "TextBlock": {
+    "TextSlice": {
       "default": {
         "primary": {
           "text": {
@@ -32,12 +33,12 @@
       }
     },
     "VideoBlock": {},
-    "EmbedBlock": {
+    "EmbedSlice": {
       "default": {
         "primary": {}
       }
     },
-    "ImageBlock": {
+    "ImageSlice": {
       "default": {
         "primary": {
           "caption": {
