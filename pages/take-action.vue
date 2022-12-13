@@ -53,7 +53,7 @@ const { t } = useI18n()
 
 useHeadHelper('Take action')
 const { client } = usePrismic()
-const { data: action } = await useAsyncData('takeaction', () => client.getSingle('takeactionpage'))
+const { data: action } = await useAsyncData('takeaction', () => client.getSingle('takeactionpage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
 
 
 const tabs = ['Pressure', 'Switch', 'Share', 'Learn']

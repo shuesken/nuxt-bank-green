@@ -16,7 +16,15 @@
         }
       }
     },
-    "takeactionpage": {}
+    "takeactionpage": {
+      "introduction": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "accordionitem": {}
   },
   "slices": {
     "BlogImage": {},
@@ -48,6 +56,16 @@
             }
           }
         }
+      }
+    },
+    "ButtonSlice": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "AccordionSlice": {
+      "default": {
+        "primary": {}
       }
     }
   }

@@ -1,6 +1,127 @@
 {
   "slices": {
     "components": {
+      "accordion_slice": {
+        "library": "slices",
+        "id": "accordion_slice",
+        "name": "AccordionSlice",
+        "description": "AccordionSlice",
+        "model": {
+          "id": "accordion_slice",
+          "type": "SharedSlice",
+          "name": "AccordionSlice",
+          "description": "AccordionSlice",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "AccordionSlice",
+              "primary": {
+                "contentlink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "ContentLink",
+                    "select": "document"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "contentlink": {
+                "id": "mock_document_id",
+                "link_type": "Document",
+                "type": "mock",
+                "tags": [],
+                "lang": "en-us",
+                "slug": null,
+                "first_publication_date": "1970-01-01T00:00:01+0000",
+                "last_publication_date": "1970-01-01T01:00:00+0000"
+              }
+            },
+            "slice_type": "accordion_slice"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "vue"
+        },
+        "screenshotPaths": {}
+      },
+      "button_slice": {
+        "library": "slices",
+        "id": "button_slice",
+        "name": "ButtonSlice",
+        "description": "ButtonSlice",
+        "model": {
+          "id": "button_slice",
+          "type": "SharedSlice",
+          "name": "ButtonSlice",
+          "description": "ButtonSlice",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ButtonSlice",
+              "primary": {
+                "label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Label",
+                    "placeholder": ""
+                  }
+                },
+                "link": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Link",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "label": "sugar",
+              "link": {
+                "link_type": "Web",
+                "url": "http://twitter.com"
+              }
+            },
+            "slice_type": "button_slice"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "vue"
+        },
+        "screenshotPaths": {}
+      },
       "embed_slice": {
         "library": "slices",
         "id": "embed_slice",
