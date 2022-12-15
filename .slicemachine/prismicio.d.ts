@@ -210,17 +210,17 @@ type TakeactionpageDocumentDataSlices1Slice = EmbedSliceSlice | ImageSliceSlice 
  * Slice for *TakeActionPage → Slice Zone*
  *
  */
-type TakeactionpageDocumentDataSlices2Slice = EmbedSliceSlice | ImageSliceSlice | TextSliceSlice | ButtonSliceSlice;
+type TakeactionpageDocumentDataSlices2Slice = EmbedSliceSlice | ImageSliceSlice | TextSliceSlice | ButtonSliceSlice | AccordionSliceSlice;
 /**
  * Slice for *TakeActionPage → Slice Zone*
  *
  */
-type TakeactionpageDocumentDataSlices3Slice = EmbedSliceSlice | ImageSliceSlice | TextSliceSlice | ButtonSliceSlice;
+type TakeactionpageDocumentDataSlices3Slice = EmbedSliceSlice | ImageSliceSlice | TextSliceSlice | ButtonSliceSlice | AccordionSliceSlice | SocialSharerSliceSlice | SharePicGallerySliceSlice;
 /**
  * Slice for *TakeActionPage → Slice Zone*
  *
  */
-type TakeactionpageDocumentDataSlices4Slice = EmbedSliceSlice | ImageSliceSlice | TextSliceSlice | ButtonSliceSlice;
+type TakeactionpageDocumentDataSlices4Slice = EmbedSliceSlice | ImageSliceSlice | TextSliceSlice | ButtonSliceSlice | AccordionSliceSlice;
 /**
  * TakeActionPage document from Prismic
  *
@@ -232,6 +232,86 @@ type TakeactionpageDocumentDataSlices4Slice = EmbedSliceSlice | ImageSliceSlice 
  */
 export type TakeactionpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TakeactionpageDocumentData>, "takeactionpage", Lang>;
 export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | ContactpageDocument | TakeactionpageDocument;
+/**
+ * Primary content in AccordionSlice → Primary
+ *
+ */
+interface AccordionSliceSliceRichTextPrimary {
+    /**
+     * Title field in *AccordionSlice → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: accordion_slice.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Content field in *AccordionSlice → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: accordion_slice.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * Rich Text variation for AccordionSlice Slice
+ *
+ * - **API ID**: `richText`
+ * - **Description**: `AccordionSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type AccordionSliceSliceRichText = prismicT.SharedSliceVariation<"richText", Simplify<AccordionSliceSliceRichTextPrimary>, never>;
+/**
+ * Primary content in AccordionSlice → Primary
+ *
+ */
+interface AccordionSliceSliceRichTextWithStepPrimary {
+    /**
+     * Title field in *AccordionSlice → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: accordion_slice.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Content field in *AccordionSlice → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: accordion_slice.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+    /**
+     * Step field in *AccordionSlice → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: accordion_slice.primary.step
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    step: prismicT.KeyTextField;
+}
+/**
+ * Rich Text With Step variation for AccordionSlice Slice
+ *
+ * - **API ID**: `richTextWithStep`
+ * - **Description**: `AccordionSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type AccordionSliceSliceRichTextWithStep = prismicT.SharedSliceVariation<"richTextWithStep", Simplify<AccordionSliceSliceRichTextWithStepPrimary>, never>;
 /**
  * Primary content in AccordionSlice → Primary
  *
@@ -249,7 +329,7 @@ interface AccordionSliceSliceDefaultPrimary {
     contentlink: prismicT.RelationField;
 }
 /**
- * Default variation for AccordionSlice Slice
+ * Content Link variation for AccordionSlice Slice
  *
  * - **API ID**: `default`
  * - **Description**: `AccordionSlice`
@@ -261,7 +341,7 @@ export type AccordionSliceSliceDefault = prismicT.SharedSliceVariation<"default"
  * Slice variation for *AccordionSlice*
  *
  */
-type AccordionSliceSliceVariation = AccordionSliceSliceDefault;
+type AccordionSliceSliceVariation = AccordionSliceSliceRichText | AccordionSliceSliceRichTextWithStep | AccordionSliceSliceDefault;
 /**
  * AccordionSlice Shared Slice
  *
@@ -409,6 +489,52 @@ type ImageSliceSliceVariation = ImageSliceSliceDefault;
  */
 export type ImageSliceSlice = prismicT.SharedSlice<"image_slice", ImageSliceSliceVariation>;
 /**
+ * Default variation for SharePicGallerySlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `SharePicGallerySlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SharePicGallerySliceSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, never>;
+/**
+ * Slice variation for *SharePicGallerySlice*
+ *
+ */
+type SharePicGallerySliceSliceVariation = SharePicGallerySliceSliceDefault;
+/**
+ * SharePicGallerySlice Shared Slice
+ *
+ * - **API ID**: `share_pic_gallery_slice`
+ * - **Description**: `SharePicGallerySlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SharePicGallerySliceSlice = prismicT.SharedSlice<"share_pic_gallery_slice", SharePicGallerySliceSliceVariation>;
+/**
+ * Default variation for SocialSharerSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `SocialSharerSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SocialSharerSliceSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, never>;
+/**
+ * Slice variation for *SocialSharerSlice*
+ *
+ */
+type SocialSharerSliceSliceVariation = SocialSharerSliceSliceDefault;
+/**
+ * SocialSharerSlice Shared Slice
+ *
+ * - **API ID**: `social_sharer_slice`
+ * - **Description**: `SocialSharerSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SocialSharerSliceSlice = prismicT.SharedSlice<"social_sharer_slice", SocialSharerSliceSliceVariation>;
+/**
  * Primary content in TextSlice → Primary
  *
  */
@@ -452,6 +578,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, ContactpageDocumentData, ContactpageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, AllDocumentTypes, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
+        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, ContactpageDocumentData, ContactpageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
     }
 }

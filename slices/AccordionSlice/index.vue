@@ -1,19 +1,21 @@
 <template>
   <div>
     <!-- <pre>
-      {{ JSON.stringify(slice.primary.contentlink.data, null, 2) }}
+      {{ JSON.stringify(slice, null, 2) }}
     </pre> -->
     <div class="px-5 py-4 flex items-center justify-between cursor-pointer bg-white hover:bg-gray-50" :class="{
       'rounded-t-xl': isOpen,
       'rounded-xl': !isOpen,
-      'pointer-events-none bg-gray-50': !loaded,
-    }" @click="isOpen = !isOpen">
+    }" @click="() => isOpen = !isOpen">
       <transition enter-active-class="duration-200 transform-gpu origin-top ease-out"
         enter-from-class="opacity-0 scale-y-95" enter-to-class="opacity-100 scale-y-100"
         leave-active-class="duration-100 transform-gpu origin-top ease-in" leave-from-class="opacity-100 scale-y-100"
         leave-to-class="opacity-0 scale-y-95" mode="out-in">
         <h2 class="font-semibold md:!text-lg text-gray-700 mr-4">
-          {{ slice.primary.contentlink.data.title }}
+          <span v-if="slice.variation === 'default'">{{ slice.primary?.contentlink?.data.title }}</span>
+          <span v-else-if="slice.variation === 'richText'"> {{ slice.primary?.title }}</span>
+          <span v-else-if="slice.variation === 'richTextWithStep'"> {{ slice.primary?.step }}: {{ slice.primary?.title
+          }}</span>
         </h2>
       </transition>
 
@@ -32,7 +34,11 @@
       leave-to-class="opacity-0 scale-y-95">
       <div v-if="isOpen"
         class="max-w-full prose md:prose-lg border-t border-gray-200 px-5 py-4 text-gray-600 rounded-b-xl bg-white">
-        <SliceZone :slices="slice.primary.contentlink.data.slices" :components="sliceComps" />
+        <SliceZone v-if="slice.variation === 'default'" :slices="slice.primary?.contentlink?.data.slices ?? []"
+          :components="sliceComps" />
+        <div v-else>
+          <PrismicRichText :field="slice.primary.content" />
+        </div>
       </div>
     </transition>
   </div>
@@ -53,19 +59,10 @@ const props = defineProps({
 }
 )
 
-const isOpen = ref(true)
+const isOpen = ref(false)
 
 </script>
 
 <style scoped>
-.section {
-  background: #f7f7f7;
-  color: #111;
-  padding: 4em;
-  text-align: center;
-}
 
-.title {
-  margin-bottom: 2em;
-}
 </style>

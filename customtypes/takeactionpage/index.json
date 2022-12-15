@@ -57,6 +57,9 @@
             },
             "button_slice": {
               "type": "SharedSlice"
+            },
+            "accordion_slice": {
+              "type": "SharedSlice"
             }
           }
         }
@@ -79,6 +82,15 @@
             },
             "button_slice": {
               "type": "SharedSlice"
+            },
+            "accordion_slice": {
+              "type": "SharedSlice"
+            },
+            "social_sharer_slice": {
+              "type": "SharedSlice"
+            },
+            "share_pic_gallery_slice": {
+              "type": "SharedSlice"
             }
           }
         }
@@ -100,6 +112,9 @@
               "type": "SharedSlice"
             },
             "button_slice": {
+              "type": "SharedSlice"
+            },
+            "accordion_slice": {
               "type": "SharedSlice"
             }
           }

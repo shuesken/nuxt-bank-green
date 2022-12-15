@@ -66,6 +66,26 @@
     "AccordionSlice": {
       "default": {
         "primary": {}
+      },
+      "richText": {
+        "primary": {
+          "content": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "SocialSharerSlice": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "SharePicGallerySlice": {
+      "default": {
+        "primary": {}
       }
     }
   }
