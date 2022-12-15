@@ -34,5 +34,5 @@ const sliceComps = ref(defineSliceZoneComponents(components))
 
 
 const { client } = usePrismic()
-const { data: faq } = await useAsyncData('takeaction', () => client.getSingle('faqpage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
+const { data: faq } = await useAsyncData('takeaction', () => client.getSingle('faq', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
 </script>
