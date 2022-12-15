@@ -30,7 +30,33 @@
     "disclaimerpage": {},
     "privacypage": {},
     "teampage": {},
-    "presspost": {}
+    "presspost": {},
+    "homepage": {
+      "description1": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "description2": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "description3": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "description4": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
   },
   "slices": {
     "BlogImage": {},

@@ -64,12 +64,14 @@
             </div>
             <Swoosh />
         </div>
+        <!-- <pre>
+            {{ JSON.stringify(home, null, 2) }}
+        </pre> -->
         <div class="flex flex-col md:flex-row items-center justify-center py-16 contain">
             <div class="md:w-1/2 max-w-sm">
-                <p class="text-lg md:text-2xl tracking-wide mb-4" v-text="$t('FP_DESC_1')" />
-                <p class="md:text-xl tracking-wide whitespace-pre-line text-gray-600 mb-12 md:mb-0">
-                    {{ $t('FP_DESC_2') }}
-                </p>
+                <PrismicRichText class="text-lg md:text-2xl tracking-wide mb-4" :field="home.data.description1" />
+                <PrismicRichText class="md:text-xl tracking-wide whitespace-pre-line text-gray-600 mb-12 md:mb-0"
+                    :field="home.data.description2" />
             </div>
 
             <LottiePlayer :placeholderHeight="480" :placeholderWidth="426" class="md:w-2/5 max-w-full md:ml-24"
@@ -82,10 +84,11 @@
                 <div class="contain">
                     <div class="flex flex-col md:flex-row items-center justify-center pt-8 pb-4 md:pb-16">
                         <div class="md:w-1/2 max-w-sm">
-                            <p class="text-lg md:text-2xl tracking-wide mb-4" v-text="$t('FP_DESC_3')" />
-                            <p class="md:text-xl tracking-wide whitespace-pre-line text-gray-600 mb-12 md:mb-0">
-                                {{ $t('FP_DESC_4') }}
-                            </p>
+                            <PrismicRichText class="text-lg md:text-2xl tracking-wide mb-4"
+                                :field="home.data.description3" />
+                            <PrismicRichText
+                                class="md:text-xl tracking-wide whitespace-pre-line text-gray-600 mb-12 md:mb-0"
+                                :field="home.data.description4" />
                         </div>
                         <img class="md:order-first md:w-2/5 -mx-24 md:mx-0 md:mr-24" src="/img/illustrations/bank.svg"
                             alt="" width="450" height="450" />
@@ -119,7 +122,8 @@ const bank = ref(null)
 const { t } = useI18n({ useScope: 'global' })
 useHeadHelper(t('INDEX_TITLE'), t('INDEX_DESC'))
 
-
+const { client } = usePrismic()
+const { data: home } = await useAsyncData('home', () => client.getSingle('homepage'))
 // const gtm = useGtm()
 // const onCheckBankClick = () => {
 //     gtm.trackEvent({ event: 'onBankCheckClick' })
@@ -135,8 +139,6 @@ const checkList = [
 ]
 
 watch(location, loc => {
-    console.log('location changed', loc)
     bank.value = null
-
 })
 </script>
