@@ -26,7 +26,11 @@
     },
     "accordionitem": {},
     "faqpage": {},
-    "certificationpage": {}
+    "certificationpage": {},
+    "disclaimerpage": {},
+    "privacypage": {},
+    "teampage": {},
+    "presspost": {}
   },
   "slices": {
     "BlogImage": {},

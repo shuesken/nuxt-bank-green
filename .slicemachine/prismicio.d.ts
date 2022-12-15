@@ -108,7 +108,7 @@ interface BlogpostDocumentData {
  * Slice for *BlogPost → Slice Zone*
  *
  */
-type BlogpostDocumentDataSlicesSlice = ImageSliceSlice | TextSliceSlice | EmbedSliceSlice;
+type BlogpostDocumentDataSlicesSlice = TextSliceSlice | EmbedSliceSlice | ImageSliceSlice;
 /**
  * BlogPost document from Prismic
  *
@@ -172,6 +172,35 @@ interface ContactpageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type ContactpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ContactpageDocumentData>, "contactpage", Lang>;
+/** Content for DisclaimerPage documents */
+interface DisclaimerpageDocumentData {
+    /**
+     * Slice Zone field in *DisclaimerPage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: disclaimerpage.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<DisclaimerpageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *DisclaimerPage → Slice Zone*
+ *
+ */
+type DisclaimerpageDocumentDataSlicesSlice = TextSliceSlice;
+/**
+ * DisclaimerPage document from Prismic
+ *
+ * - **API ID**: `disclaimerpage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DisclaimerpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<DisclaimerpageDocumentData>, "disclaimerpage", Lang>;
 /** Content for FAQPage documents */
 interface FaqpageDocumentData {
     /**
@@ -212,6 +241,130 @@ type FaqpageDocumentDataSlicesSlice = AccordionSliceSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type FaqpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FaqpageDocumentData>, "faqpage", Lang>;
+/** Content for PressPost documents */
+interface PresspostDocumentData {
+    /**
+     * Title field in *PressPost*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Author field in *PressPost*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.author
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    author: prismicT.KeyTextField;
+    /**
+     * Email field in *PressPost*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.email
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    email: prismicT.KeyTextField;
+    /**
+     * Phone field in *PressPost*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.phone
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    phone: prismicT.KeyTextField;
+    /**
+     * ReleaseDate field in *PressPost*
+     *
+     * - **Field Type**: Date
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.releasedate
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/date
+     *
+     */
+    releasedate: prismicT.DateField;
+    /**
+     * Description field in *PressPost*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *PressPost*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: presspost.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<PresspostDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *PressPost → Slice Zone*
+ *
+ */
+type PresspostDocumentDataSlicesSlice = TextSliceSlice | ImageSliceSlice | EmbedSliceSlice;
+/**
+ * PressPost document from Prismic
+ *
+ * - **API ID**: `presspost`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PresspostDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PresspostDocumentData>, "presspost", Lang>;
+/** Content for PrivacyPage documents */
+interface PrivacypageDocumentData {
+    /**
+     * Slice Zone field in *PrivacyPage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: privacypage.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<PrivacypageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *PrivacyPage → Slice Zone*
+ *
+ */
+type PrivacypageDocumentDataSlicesSlice = TextSliceSlice;
+/**
+ * PrivacyPage document from Prismic
+ *
+ * - **API ID**: `privacypage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrivacypageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<PrivacypageDocumentData>, "privacypage", Lang>;
 /** Content for TakeActionPage documents */
 interface TakeactionpageDocumentData {
     /**
@@ -300,7 +453,36 @@ type TakeactionpageDocumentDataSlices4Slice = EmbedSliceSlice | ImageSliceSlice 
  * @typeParam Lang - Language API ID of the document.
  */
 export type TakeactionpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TakeactionpageDocumentData>, "takeactionpage", Lang>;
-export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | CertificationpageDocument | ContactpageDocument | FaqpageDocument | TakeactionpageDocument;
+/** Content for TeamPage documents */
+interface TeampageDocumentData {
+    /**
+     * Slice Zone field in *TeamPage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: teampage.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<TeampageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *TeamPage → Slice Zone*
+ *
+ */
+type TeampageDocumentDataSlicesSlice = TextSliceSlice;
+/**
+ * TeamPage document from Prismic
+ *
+ * - **API ID**: `teampage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TeampageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TeampageDocumentData>, "teampage", Lang>;
+export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | CertificationpageDocument | ContactpageDocument | DisclaimerpageDocument | FaqpageDocument | PresspostDocument | PrivacypageDocument | TakeactionpageDocument | TeampageDocument;
 /**
  * Primary content in AccordionSlice → Primary
  *
@@ -647,6 +829,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
+        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
     }
 }

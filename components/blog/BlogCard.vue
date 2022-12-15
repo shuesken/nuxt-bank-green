@@ -1,7 +1,7 @@
 <template>
     <NuxtLink
         class="bg-white rounded-xl shadow-soft border hover:bg-gray-50 transition duration-150 ease-in-out hover:border-sushi-500 overflow-hidden"
-        :to="`/blog/${slug}`">
+        :to="to">
         <div v-if="image" class="relative w-full minimal h-52 sm:h-64">
             <LazyImage :src="image" :useImageTag="true" imgClass="w-full h-full object-cover" />
         </div>
@@ -34,7 +34,7 @@ defineProps({
     title: String,
     description: String,
     image: String,
-    slug: String,
+    to: String,
 })
 
 </script>

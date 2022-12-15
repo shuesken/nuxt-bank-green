@@ -1,6 +1,6 @@
 {
-  "id": "blogpost",
-  "label": "BlogPost",
+  "id": "presspost",
+  "label": "PressPost",
   "repeatable": true,
   "status": true,
   "json": {
@@ -19,10 +19,24 @@
           "placeholder": ""
         }
       },
-      "publicationdate": {
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": ""
+        }
+      },
+      "phone": {
+        "type": "Text",
+        "config": {
+          "label": "Phone",
+          "placeholder": ""
+        }
+      },
+      "releasedate": {
         "type": "Date",
         "config": {
-          "label": "PublicationDate",
+          "label": "ReleaseDate",
           "placeholder": ""
         }
       },
@@ -32,7 +46,7 @@
           "label": "Description",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "strong,em,paragraph"
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
       "uid": {
@@ -50,10 +64,10 @@
             "text_slice": {
               "type": "SharedSlice"
             },
-            "embed_slice": {
+            "image_slice": {
               "type": "SharedSlice"
             },
-            "image_slice": {
+            "embed_slice": {
               "type": "SharedSlice"
             }
           }
