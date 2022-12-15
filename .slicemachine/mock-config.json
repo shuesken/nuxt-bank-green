@@ -24,7 +24,8 @@
         }
       }
     },
-    "accordionitem": {}
+    "accordionitem": {},
+    "faqpage": {}
   },
   "slices": {
     "BlogImage": {},

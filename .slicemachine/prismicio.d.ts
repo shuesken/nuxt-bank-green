@@ -143,6 +143,46 @@ interface ContactpageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type ContactpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ContactpageDocumentData>, "contactpage", Lang>;
+/** Content for FAQPage documents */
+interface FaqpageDocumentData {
+    /**
+     * Introduction field in *FAQPage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faqpage.introduction
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    introduction: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *FAQPage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faqpage.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<FaqpageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *FAQPage → Slice Zone*
+ *
+ */
+type FaqpageDocumentDataSlicesSlice = AccordionSliceSlice;
+/**
+ * FAQPage document from Prismic
+ *
+ * - **API ID**: `faqpage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FaqpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FaqpageDocumentData>, "faqpage", Lang>;
 /** Content for TakeActionPage documents */
 interface TakeactionpageDocumentData {
     /**
@@ -231,7 +271,7 @@ type TakeactionpageDocumentDataSlices4Slice = EmbedSliceSlice | ImageSliceSlice 
  * @typeParam Lang - Language API ID of the document.
  */
 export type TakeactionpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TakeactionpageDocumentData>, "takeactionpage", Lang>;
-export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | ContactpageDocument | TakeactionpageDocument;
+export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | ContactpageDocument | FaqpageDocument | TakeactionpageDocument;
 /**
  * Primary content in AccordionSlice → Primary
  *
@@ -578,6 +618,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, ContactpageDocumentData, ContactpageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
+        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, ContactpageDocumentData, ContactpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
     }
 }
