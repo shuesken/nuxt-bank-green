@@ -21,9 +21,7 @@
             <Swoosh :color="swooshColor" direction="down" />
             <div class="contain">
                 <div class="flex justify-center">
-                    <CallToAction class="max-w-5xl" :title="$t('TAKE_THE_BANK_GREEN_PLEDGE')"
-                        :paragraph="$t('BANKS_LIVE_AND_DIE_ON_REPUTATIONS')" :checkListItems="checkList"
-                        :buttonText="$t('TAKE_THE_PLEDGE')" :light="true" />
+                    <CallToAction class="max-w-5xl" :light="true" />
                 </div>
             </div>
             <div class="flex items-end justify-end pointer-events-none">

@@ -35,9 +35,7 @@
                     </div>
                 </div>
                 <div class="contain max-w-5xl pb-16">
-                    <CallToAction :title="$t('TAKE_THE_BANK_GREEN_PLEDGE')"
-                        :paragraph="$t('BANKS_LIVE_AND_DIE_ON_REPUTATIONS')" :checkListItems="checkList"
-                        :buttonText="$t('TAKE_THE_PLEDGE')" />
+                    <CallToAction />
                 </div>
             </div>
         </div>

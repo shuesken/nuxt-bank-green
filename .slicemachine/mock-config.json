@@ -56,7 +56,8 @@
           "blocks": 1
         }
       }
-    }
+    },
+    "calltoaction": {}
   },
   "slices": {
     "BlogImage": {},

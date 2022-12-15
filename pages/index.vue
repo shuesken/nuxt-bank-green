@@ -95,9 +95,7 @@
                     </div>
                 </div>
                 <div id="join" class="contain max-w-5xl">
-                    <CallToAction :title="$t('TAKE_THE_BANK_GREEN_PLEDGE')"
-                        :paragraph="$t('BANKS_LIVE_AND_DIE_ON_REPUTATIONS')" :checkListItems="checkList"
-                        :buttonText="$t('TAKE_THE_PLEDGE')" />
+                    <CallToAction />
                 </div>
             </div>
             <div class="flex flex-row items-center justify-center">
