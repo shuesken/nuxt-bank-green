@@ -1,11 +1,14 @@
 <template>
   <div>
-    <!-- <pre>
-      {{ JSON.stringify(slice, null, 2) }}
-    </pre> -->
     <div class="px-5 py-4 flex items-center justify-between cursor-pointer bg-white hover:bg-gray-50" :class="{
       'rounded-t-xl': isOpen,
       'rounded-xl': !isOpen,
+      'my-4': props.context?.takeaction,
+      'rounded-xl': props.context?.takeaction,
+      'ring-2': props.context?.takeaction,
+      'ring-ocean-100': props.context?.takeaction,
+      'shadow-md': props.context?.takeaction,
+    
     }" @click="() => isOpen = !isOpen">
       <transition enter-active-class="duration-200 transform-gpu origin-top ease-out"
         enter-from-class="opacity-0 scale-y-95" enter-to-class="opacity-100 scale-y-100"
@@ -64,5 +67,12 @@ const isOpen = ref(false)
 </script>
 
 <style scoped>
-
+/* Manually set style because prose cause h2 to be huge */
+h2 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
 </style>
