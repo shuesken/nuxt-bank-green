@@ -2,9 +2,9 @@
     <div class="page">
         <div class="bg-gradient-to-b from-sushi-50 to-sushi-100 pt-28">
             <div class="page-fade-in contain max-w-3xl pb-16">
-                <PrismicRichText :field="faq?.data.introduction" />
+                <PrismicRichText :field="faq?.data.introduction" class="prose" />
 
-                <div class="flex flex-col space-y-6">
+                <div class="flex flex-col space-y-6 mt-5">
                     <transition-group enter-active-class="transform-gpu ease-out duration-300 transition"
                         enter-from-class="-translate-y-2 opacity-0" enter-to-class="translate-y-0 opacity-100"
                         leave-active-class="transform-gpu transition ease-in duration-190"
@@ -34,5 +34,5 @@ const sliceComps = ref(defineSliceZoneComponents(components))
 
 
 const { client } = usePrismic()
-const { data: faq } = await useAsyncData('takeaction', () => client.getSingle('faq', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
+const { data: faq } = await useAsyncData('faq', () => client.getSingle('faqpage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
 </script>

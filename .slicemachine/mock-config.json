@@ -57,7 +57,8 @@
         }
       }
     },
-    "calltoaction": {}
+    "calltoaction": {},
+    "pledgepage": {}
   },
   "slices": {
     "BlogImage": {},

@@ -366,6 +366,41 @@ interface HomepageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomepageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
+/** Content for PledgePage documents */
+interface PledgepageDocumentData {
+    /**
+     * Introduction field in *PledgePage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: pledgepage.introduction
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    introduction: prismicT.KeyTextField;
+    /**
+     * Description1 field in *PledgePage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: pledgepage.description1
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description1: prismicT.RichTextField;
+}
+/**
+ * PledgePage document from Prismic
+ *
+ * - **API ID**: `pledgepage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PledgepageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<PledgepageDocumentData>, "pledgepage", Lang>;
 /** Content for PressPost documents */
 interface PresspostDocumentData {
     /**
@@ -607,7 +642,7 @@ type TeampageDocumentDataSlicesSlice = TextSliceSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type TeampageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TeampageDocumentData>, "teampage", Lang>;
-export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | CalltoactionDocument | CertificationpageDocument | ContactpageDocument | DisclaimerpageDocument | FaqpageDocument | HomepageDocument | PresspostDocument | PrivacypageDocument | TakeactionpageDocument | TeampageDocument;
+export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | CalltoactionDocument | CertificationpageDocument | ContactpageDocument | DisclaimerpageDocument | FaqpageDocument | HomepageDocument | PledgepageDocument | PresspostDocument | PrivacypageDocument | TakeactionpageDocument | TeampageDocument;
 /**
  * Primary content in AccordionSlice → Primary
  *
@@ -954,6 +989,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CalltoactionDocumentData, CalltoactionDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, HomepageDocumentData, HomepageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
+        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CalltoactionDocumentData, CalltoactionDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, HomepageDocumentData, HomepageDocument, PledgepageDocumentData, PledgepageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
     }
 }

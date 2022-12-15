@@ -3,14 +3,16 @@
         <div class="page-fade-in overflow-hidden max-w-screen">
             <div class="bg-gradient-to-b from-sushi-50 to-sushi-100 pt-28">
                 <div class="contain flex flex-col justify-center items-center pb-4 lg:pb-0 mb-4">
-                    <h1 class="max-w-3xl text-2xl font-semibold whitespace-pre-line mb-8 text-center"
-                        v-text="$t('PLEDGE_TITLE')" />
+                    <h1 class="max-w-3xl text-2xl font-semibold whitespace-pre-line mb-8 text-center">
+                        {{ pledge.data.introduction }}
+                    </h1>
                     <div class="max-w-6xl flex flex-col-reverse lg:flex-row items-center">
                         <div ref="signUpForm" class="w-full lg:w-3/5 relative z-10">
                             <PledgeSignup />
                         </div>
                         <div class="w-full lg:w-2/5  mt-8 lg:mt-0 lg:ml-8">
-                            <p class="prose md:text-lg whitespace-pre-wrap" v-text="$t('PLEDGE DESC_1')"></p>
+                            <PrismicRichText class="prose md:text-lg whitespace-pre-wrap"
+                                :field="pledge.data.description1" />
                             <CheckList class="my-6 md:text-lg" :list="checkList" />
                         </div>
                     </div>
@@ -33,7 +35,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import LazyImage from '../components/LazyImage.vue'
 import markup from '@/utils/directives/markup'
 import Swoosh from '@/components/Swoosh.vue'
@@ -42,41 +44,25 @@ import CheckList from '@/components/CheckList.vue'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-export default {
-    components: {
-        LazyImage,
-        Swoosh,
-        PledgeSignup,
-        CheckList,
-    },
-    directives: { markup },
+const { t } = useI18n({ useScope: 'global' })
+useHeadHelper(t('PLEDGE_SEO_TITLE'), t('PLEDGE_SEO_DESC'))
 
-    setup() {
-        const { t } = useI18n({ useScope: 'global' })
-        useHeadHelper(t('PLEDGE_SEO_TITLE'), t('PLEDGE_SEO_DESC'))
+const { client } = usePrismic()
+const { data: pledge } = await useAsyncData('pledge', () => client.getSingle('pledgepage'))
 
-        const signUpForm = ref()
-        const scrollToForm = () => {
-            if (!signUpForm.value) return
-            window.scrollTo({
-                top: signUpForm.value.offsetTop - 100,
-                behavior: 'smooth',
-            })
-        }
-
-        return {
-            signUpForm,
-            scrollToForm,
-        }
-    },
-    computed: {
-        checkList() {
-            return [
-                this.$t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-                this.$t('JOIN_A_FAST_GROWING_MOVEMENT'),
-                this.$t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-            ]
-        },
-    },
+const signUpForm = ref()
+const scrollToForm = () => {
+    if (!signUpForm.value) return
+    window.scrollTo({
+        top: signUpForm.value.offsetTop - 100,
+        behavior: 'smooth',
+    })
 }
+
+
+const checkList = [
+    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
+    t('JOIN_A_FAST_GROWING_MOVEMENT'),
+    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
+]
 </script>
