@@ -7,13 +7,7 @@
         </transition>
         <CookieBanner />
         <NavBar />
-        <RouterView v-slot="{ Component }">
-            <transition enter-active-class="route-enter-active-class" enter-from-class="route-enter-from-class"
-                enter-to-class="route-enter-to-class">
-                <!-- add .page-fade-in to elements you want to be transitioned -->
-                <component :is="Component" />
-            </transition>
-        </RouterView>
+        <NuxtPage />
         <NavFooter />
     </div>
     <Modal v-if="openModal" v-on:closeModal="openModal = false" class="z-50 text-white bg-primary-dark">
@@ -43,3 +37,45 @@ function onExitIntent() {
     storage.setItem('bg.seenExitIntent', true)
 }
 </script>
+<style>
+body {
+    background: #f9fafb;
+    overflow-y: scroll;
+    margin: 0;
+}
+
+.loading-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loading-app svg {
+    animation: ring 2s linear infinite;
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55,
+                0.055,
+                0.675,
+                0.19);
+    }
+
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215,
+                0.61,
+                0.355,
+                1);
+    }
+
+    100% {
+        transform: rotate(1800deg);
+    }
+}
+</style>

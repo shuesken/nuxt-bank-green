@@ -11,14 +11,6 @@
                 </div>
             </div>
         </div>
-        <div v-else class=" w-full h-screen flex items-center justify-center">
-            <span>
-                <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 553"
-                    style="animation: ring 2s linear infinite;">
-                    <path d="M478 0A481 481 0 0 0 0 485v76h75c264 0 478-217 478-485V0h-75z" fill="#6C9039" />
-                </svg>
-            </span>
-        </div>
     </div>
 </template>
 
