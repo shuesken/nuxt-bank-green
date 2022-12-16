@@ -4,7 +4,6 @@
       'rounded-t-xl': isOpen,
       'rounded-xl': !isOpen,
       'my-4': props.context?.takeaction,
-      'rounded-xl': props.context?.takeaction,
       'ring-2': props.context?.takeaction,
       'ring-ocean-100': props.context?.takeaction,
       'shadow-md': props.context?.takeaction,
