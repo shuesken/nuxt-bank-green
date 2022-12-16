@@ -3,7 +3,8 @@
         <div class="contain">
             <div class="flex flex-col md:flex-row items-center justify-center pt-8 pb-16">
                 <div class="md:w-1/2 max-w-sm">
-                    <p class="text-lg md:text-2xl tracking-wide mb-4" v-text="$t('NOT_LISTED_DESC_1')" />
+                    <PrismicRichText class="text-lg md:text-2xl tracking-wide mb-4"
+                        :field="greatbank.data.description2" />
                     <p class="md:text-xl tracking-wide whitespace-pre-line text-gray-600 mb-12 md:mb-0">
                         {{ $t('NOT_LISTED_DESC_2') }}
                     </p>
@@ -56,6 +57,10 @@ import Swoosh from '@/components/Swoosh.vue'
 import SignupBox from '@/components/forms/SignupBox.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import { useI18n } from 'vue-i18n'
+
+const { client } = usePrismic()
+const { data: greatbank } = await useAsyncData('greatbank', () => client.getByUID('bankpage', 'greatbank'))
+
 
 const { t } = useI18n()
 

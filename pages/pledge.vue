@@ -23,7 +23,7 @@
 
         <div class="contain max-w-6xl flex flex-col md:flex-row md:items-center mt-12 pb-16 ">
             <div class="md:max-w-lg prose md:text-lg whitespace-pre-wrap md:mr-8 mb-12 md:mt-0">
-                <p v-text="$t('PLEDGE DESC_2')"></p>
+                <PrismicRichText :field="pledge.data.description2" />
                 <div class="w-full flex justify-center mt-12">
                     <button @click="scrollToForm" class="button-green max-w-md md:w-max">
                         {{ $t('TAKE_THE_PLEDGE') }}

@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-
+import ThanksSection from '@/components/contact/ThanksSection'
 useHeadHelper("Thank you")
 </script>

@@ -46,6 +46,63 @@ type AccordionitemDocumentDataSlicesSlice = ButtonSliceSlice | EmbedSliceSlice |
  * @typeParam Lang - Language API ID of the document.
  */
 export type AccordionitemDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<AccordionitemDocumentData>, "accordionitem", Lang>;
+/** Content for BankPage documents */
+interface BankpageDocumentData {
+    /**
+     * Headline field in *BankPage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bankpage.headline
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    headline: prismicT.RichTextField;
+    /**
+     * Description1 field in *BankPage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bankpage.description1
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description1: prismicT.RichTextField;
+    /**
+     * Description2 field in *BankPage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bankpage.description2
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description2: prismicT.RichTextField;
+    /**
+     * Description3 field in *BankPage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bankpage.description3
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description3: prismicT.RichTextField;
+}
+/**
+ * BankPage document from Prismic
+ *
+ * - **API ID**: `bankpage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BankpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<BankpageDocumentData>, "bankpage", Lang>;
 /** Content for BlogPost documents */
 interface BlogpostDocumentData {
     /**
@@ -380,7 +437,7 @@ interface PledgepageDocumentData {
      */
     introduction: prismicT.KeyTextField;
     /**
-     * Description1 field in *PledgePage*
+     * Description 1 field in *PledgePage*
      *
      * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
@@ -390,6 +447,17 @@ interface PledgepageDocumentData {
      *
      */
     description1: prismicT.RichTextField;
+    /**
+     * Description 2 field in *PledgePage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: pledgepage.description2
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description2: prismicT.RichTextField;
 }
 /**
  * PledgePage document from Prismic
@@ -642,7 +710,7 @@ type TeampageDocumentDataSlicesSlice = TextSliceSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type TeampageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TeampageDocumentData>, "teampage", Lang>;
-export type AllDocumentTypes = AccordionitemDocument | BlogpostDocument | CalltoactionDocument | CertificationpageDocument | ContactpageDocument | DisclaimerpageDocument | FaqpageDocument | HomepageDocument | PledgepageDocument | PresspostDocument | PrivacypageDocument | TakeactionpageDocument | TeampageDocument;
+export type AllDocumentTypes = AccordionitemDocument | BankpageDocument | BlogpostDocument | CalltoactionDocument | CertificationpageDocument | ContactpageDocument | DisclaimerpageDocument | FaqpageDocument | HomepageDocument | PledgepageDocument | PresspostDocument | PrivacypageDocument | TakeactionpageDocument | TeampageDocument;
 /**
  * Primary content in AccordionSlice → Primary
  *
@@ -989,6 +1057,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CalltoactionDocumentData, CalltoactionDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, HomepageDocumentData, HomepageDocument, PledgepageDocumentData, PledgepageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
+        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BankpageDocumentData, BankpageDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CalltoactionDocumentData, CalltoactionDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, HomepageDocumentData, HomepageDocument, PledgepageDocumentData, PledgepageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
     }
 }

@@ -43,7 +43,7 @@
                         </template>
                         <template v-else-if="details.rating === 'ok'">
                             <span v-text="$t('BANK_RATING_OK_DESC')"></span></template>
-                        <span v-else-if="details.rating === 'great'" v-text="$t('BANK_RATING_GREAT_DESC')"></span>
+                        <PrismicRichText v-else-if="details.rating === 'great'" :field="greatbank.data.description1" />
                         <span v-else v-text="$t('BANK_RATING_UNK_DESC')"></span>
                         <a v-if="details.data_sources?.includes('bimpact')"
                             href="http://data.world/blab/b-corp-impact-data" class="block"><span class="text-xs"
@@ -73,6 +73,20 @@
         <Swoosh />
     </div>
 </template>
+<script setup>
+import fossilBanks from '/data/fossilbanks.json'
+import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
+const { client } = usePrismic()
+const { data: greatbank } = await useAsyncData('greatbank', () => client.getByUID('bankpage', 'greatbank'))
+
+
+
+const props = defineProps({
+    details: Object,
+})
+
+const isFossilBank = computed(() => fossilBanks.includes(this.details.tag))
+</script>
 
 <style>
 .footnote ol li p {
@@ -86,14 +100,4 @@
 }
 </style>
 
-<script setup>
-import fossilBanks from '/data/fossilbanks.json'
-import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 
-
-const props = defineProps({
-    details: Object,
-})
-
-const isFossilBank = computed(() => fossilBanks.includes(this.details.tag))
-</script>
