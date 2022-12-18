@@ -150,6 +150,17 @@ interface BlogpostDocumentData {
      */
     description: prismicT.RichTextField;
     /**
+     * CardImage (optional) field in *BlogPost*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: blogpost.cardimage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    cardimage: prismicT.ImageField<never>;
+    /**
      * Slice Zone field in *BlogPost*
      *
      * - **Field Type**: Slice Zone
@@ -165,7 +176,7 @@ interface BlogpostDocumentData {
  * Slice for *BlogPost → Slice Zone*
  *
  */
-type BlogpostDocumentDataSlicesSlice = TextSliceSlice | EmbedSliceSlice | ImageSliceSlice;
+type BlogpostDocumentDataSlicesSlice = TextSliceSlice | EmbedSliceSlice | ImageSliceSlice | AccordionSliceSlice;
 /**
  * BlogPost document from Prismic
  *

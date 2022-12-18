@@ -10,7 +10,7 @@
                     <a href="mailto:media@bank.green">media@bank.green</a>
                 </p>
                 <div class="-mx-4 mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-                    <BlogCard v-for="post in data?.results ?? []" :key="post.uid" :to="`/press/${post.uid}`"
+                    <BlogCard v-for="post in posts ?? []" :key="post.uid" :to="`/press/${post.uid}`"
                         :date="post.data.releasedate" :description="asText(post.data.description)"
                         :title="post.data.title" />
                 </div>
@@ -24,6 +24,6 @@ import BlogCard from '@/components/blog/BlogCard.vue'
 useHeadHelper('Press')
 
 const { client, asText } = usePrismic()
-const { data } = await useAsyncData('pressposts', () => client.getByType('presspost'))
+const { data: posts } = await useAsyncData('pressposts', () => client.getAllByType('presspost'))
 
 </script>
