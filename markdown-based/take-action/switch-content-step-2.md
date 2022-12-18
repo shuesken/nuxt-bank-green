@@ -1,2 +1,0 @@
--   First, identify the automatic deposits (such as your salary) and debits (such as monthly subscriptions) that are present on your existing account.
--   Many banks now perform these transfers for you, so ask your current and new banks whether they can help with them. If not, you will need to set these up again manually with your new bank.

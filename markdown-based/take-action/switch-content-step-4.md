@@ -1,2 +1,0 @@
--   Before doing this, make sure you have double-checked that all automatic payments have been transferred across and that you have no outstanding payments or checks that haven't cleared yet.
--   Once confirmed, you can transfer your funds over. Doing this electronically is fastest and usually preferable to doing it with a check.

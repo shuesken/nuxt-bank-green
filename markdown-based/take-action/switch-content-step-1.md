@@ -1,2 +1,0 @@
--   This process varies by bank, but a large proportion of banks now allow you to open an account from their website, often in as little as 10 minutes.
--   Whether you open an account online or by visiting a branch, you should have on hand two forms of identification.
