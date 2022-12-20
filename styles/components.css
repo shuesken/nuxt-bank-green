@@ -147,7 +147,7 @@ article img {
     max-height: 75vh;
 }
 
-@variants hover {
+@layer utilities {
     .filter-none {
         filter: none;
     }
