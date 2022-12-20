@@ -129,12 +129,6 @@ const { data: home } = await useAsyncData('home', () => client.getSingle('homepa
 
 const { location, locationPicker } = useCountryLocation()
 
-const checkList = [
-    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-    t('JOIN_A_FAST_GROWING_MOVEMENT'),
-    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-]
-
 watch(location, loc => {
     bank.value = null
 })
