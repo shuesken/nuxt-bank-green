@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="bg-blue-100 text-gray-800">
-            <Swoosh :color="swooshColor" direction="down" />
+            <Swoosh direction="down" />
             <div class="contain">
                 <div class="flex justify-center">
                     <CallToAction class="max-w-5xl" :light="true" />
@@ -49,7 +49,6 @@
 <script setup>
 import { components } from '~~/slices'
 
-import { useI18n } from 'vue-i18n'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
 const route = useRoute()
