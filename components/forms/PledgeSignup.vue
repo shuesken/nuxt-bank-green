@@ -71,7 +71,6 @@ import TextField from '@/components/forms/TextField.vue'
 import DateField from '@/components/forms/DateField.vue'
 import useContactForm from '@/services/contact/useContactForm'
 import { ref } from 'vue'
-import markup from '@/utils/directives/markup'
 
 export default {
     props: {
@@ -85,7 +84,6 @@ export default {
         LocationSearch,
         BankSearch,
     },
-    directives: { markup },
 
     setup() {
         const bank = ref(null)

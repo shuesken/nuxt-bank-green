@@ -74,7 +74,6 @@
     </div>
 </template>
 <script setup>
-import fossilBanks from '/data/fossilbanks.json'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 const { client } = usePrismic()
 const { data: greatbank } = await useAsyncData('greatbank', () => client.getByUID('bankpage', 'greatbank'))
@@ -85,7 +84,6 @@ const props = defineProps({
     details: Object,
 })
 
-const isFossilBank = computed(() => fossilBanks.includes(this.details.tag))
 </script>
 
 <style>

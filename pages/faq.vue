@@ -4,7 +4,7 @@
             <div class="page-fade-in contain max-w-3xl pb-16">
                 <PrismicRichText :field="faq?.data.introduction" class="prose" />
 
-                <div class="flex flex-col space-y-6 mt-5">
+                <div class="prose sm:prose-lg xl:prose-xl mx-auto max-w-4xl xl:max-w-5xl mb-10">
                     <transition-group enter-active-class="transform-gpu ease-out duration-300 transition"
                         enter-from-class="-translate-y-2 opacity-0" enter-to-class="translate-y-0 opacity-100"
                         leave-active-class="transform-gpu transition ease-in duration-190"

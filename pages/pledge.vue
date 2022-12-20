@@ -37,7 +37,6 @@
 
 <script setup>
 import LazyImage from '../components/LazyImage.vue'
-import markup from '@/utils/directives/markup'
 import Swoosh from '@/components/Swoosh.vue'
 import PledgeSignup from '@/components/forms/PledgeSignup.vue'
 import CheckList from '@/components/CheckList.vue'

@@ -25,7 +25,6 @@
 <script>
 import SignupBox from '@/components/forms/SignupBox.vue'
 import LazyImage from '@/components/LazyImage.vue'
-import markup from '@/utils/directives/markup'
 import { useI18n } from 'vue-i18n'
 
 

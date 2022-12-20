@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div class="px-5 py-4 flex items-center justify-between cursor-pointer bg-white hover:bg-gray-50" :class="{
+    <div class="px-5 py-4 flex items-center justify-between cursor-pointer bg-white hover:bg-gray-50 my-4" :class="{
       'rounded-t-xl': isOpen,
       'rounded-xl': !isOpen,
-      'my-4': props.context?.takeaction,
       'ring-2': props.context?.takeaction,
       'ring-ocean-100': props.context?.takeaction,
       'shadow-md': props.context?.takeaction,

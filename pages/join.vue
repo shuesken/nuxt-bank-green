@@ -31,13 +31,11 @@
 <script>
 import CheckList from '@/components/CheckList.vue'
 import SignupBox from '@/components/forms/SignupBox'
-import markup from '@/utils/directives/markup'
 import { useI18n } from 'vue-i18n'
 
 
 export default {
     components: { CheckList, SignupBox },
-    directives: { markup },
     setup() {
         const { t } = useI18n({ useScope: 'global' })
         useHeadHelper(t('JOIN_TITLE'), t('JOIN_DESCRIPTION'))
