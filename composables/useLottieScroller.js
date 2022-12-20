@@ -1,6 +1,6 @@
 import lottie from 'lottie-web/build/player/lottie_light'
 
-export default function useLottie({ path, actions }) {
+export default function useLottieScroller({ path, actions }) {
     const container = ref(null)
     const animData = ref(null)
     const totalFrames = ref(1)
@@ -53,7 +53,7 @@ export default function useLottie({ path, actions }) {
             loop: false,
             prerender: true,
             autoplay: false,
-            path, // the path to the animation json
+            path: path ?? '', // the path to the animation json
         })
 
         animData.value.addEventListener('DOMLoaded', onReady)

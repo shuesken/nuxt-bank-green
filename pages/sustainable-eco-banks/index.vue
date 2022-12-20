@@ -78,7 +78,7 @@
         <div class="flex items-end justify-end pointer-events-none">
             <div class="w-11/12">
 
-                <LottiePlayer path="/anim/wind_2_without_bg.json" />
+                <LottiePlayer path="'/anim/wind_2_without_bg.json'" />
 
             </div>
         </div>
@@ -87,7 +87,6 @@
 
 <script setup>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
-import { getBanksListWithFilter } from '@/api/banks'
 import EthicalBankCards from '@/components/bank/EthicalBankCards'
 import { useI18n } from 'vue-i18n'
 

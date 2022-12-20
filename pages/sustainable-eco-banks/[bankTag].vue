@@ -6,7 +6,6 @@
 </template>
 
 <script setup>
-import { getBankDetail } from '@/api/banks'
 import { useI18n } from 'vue-i18n'
 
 // const route = useRoute()

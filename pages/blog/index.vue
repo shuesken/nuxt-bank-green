@@ -15,7 +15,6 @@
 
 <script setup>
 import BlogCard from '@/components/blog/BlogCard.vue'
-// import { getBlogs } from '@/api/blog'
 
 const { client, asText } = usePrismic()
 

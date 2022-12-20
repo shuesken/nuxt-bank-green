@@ -2,19 +2,12 @@
     <div ref="container"></div>
 </template>
 
-<script>
-import { toRef } from '@vue/reactivity'
+<script setup>
+const props = defineProps({
+    path: String,
+})
+const path = toRef(props, 'path')
+const { container } = useLottieLooper({ path })
 
-export default {
-    props: {
-        path: String,
-    },
-    setup(props) {
-        const path = toRef(props, 'path')
-        const { container } = useLottie({ path })
-        return {
-            container,
-        }
-    },
-}
+
 </script>

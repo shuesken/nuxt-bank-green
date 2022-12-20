@@ -25,7 +25,6 @@ export default function useLottieToggle({ path, toggleState }) {
             animData.value.goToAndPlay(animData.value.getDuration(true), true)
             animData.value.play()
         }
-        console.log('toggle!', isToggled)
     })
 
     return {

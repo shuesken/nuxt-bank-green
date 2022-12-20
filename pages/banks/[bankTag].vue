@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import { getBankDetail } from '@/api/banks'
 import { computed, defineAsyncComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 

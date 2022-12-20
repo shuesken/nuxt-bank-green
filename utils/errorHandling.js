@@ -1,4 +1,4 @@
-const store = {
+const httpErrorHandling = {
 
     /**
      * Show toast with error message
@@ -52,4 +52,4 @@ const store = {
     },
 }
 
-export default store
+export default httpErrorHandling

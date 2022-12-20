@@ -1,5 +1,3 @@
-import { submitContact } from '@/api/contact'
-import { ref, computed } from 'vue'
 import { useGtm } from 'vue-gtm'
 import { useI18n } from 'vue-i18n'
 

@@ -1,6 +1,6 @@
 import lottie from 'lottie-web/build/player/lottie_light'
 
-export default function useLottie({ path }) {
+export default function useLottieLooper({ path }) {
     const container = ref(null)
     const animData = ref(null)
 

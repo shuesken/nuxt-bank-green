@@ -1,4 +1,4 @@
-import { get } from './index'
+import { get } from './backend'
 
 let gqlUrl = 'https://data.bank.green/graphql'
 let options = {}

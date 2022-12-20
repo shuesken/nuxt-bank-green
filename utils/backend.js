@@ -1,5 +1,5 @@
 import axios from 'axios'
-import httpErrorHandling from '@/utils/errorHandling'
+import httpErrorHandling from './errorHandling'
 
 
 // let baseURL = 'http://localhost:5001/bank-green-staging/europe-west1'
@@ -20,7 +20,6 @@ export const instance = axios.create({
     timeout: 120000, // timeout if no response in 2min
     withCredentials: true,
 })
-axiosProgress.setInterceptors(instance)
 httpErrorHandling.setInterceptors(instance)
 axios.defaults.headers.post['X-TLC'] = '1'
 

@@ -57,7 +57,6 @@
 import BankSearchItem from './BankSearchItem.vue'
 import BankIcon from './BankIcon.vue'
 import { findBanks } from './banks'
-import { getBanksList } from '@/api/banks'
 import LoadingJumper from '../../LoadingJumper.vue'
 import SearchInput from '@/components/forms/input/SearchInput'
 import ListPicker from '@/components/forms/ListPicker'

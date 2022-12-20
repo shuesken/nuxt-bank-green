@@ -1,4 +1,4 @@
-import { getCountry } from '@/api/banks'
+import { getCountry } from '~~/utils/banks'
 
 /**
  * Remembers the user's country and also prefills it from the API if not available

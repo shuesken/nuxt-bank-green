@@ -1,10 +1,11 @@
 <template>
     <div v-if="$route" @mouseleave="onExitIntent" class="min-h-screen flex flex-col">
-        <transition enter-from-class="opacity-0" enter-active-class="transition ease duration-300"
+        <!-- <transition enter-from-class="opacity-0" enter-active-class="transition ease duration-300"
             enter-to-class="opacity-100" leave-from-class="opacity-100"
             leave-active-class="transition ease duration-300" leave-to-class="opacity-0" appear>
             <LoadBar v-if="progressWidth" class="z-50 fixed top-0 inset-x-0 h-1.5" />
         </transition>
+        FIXME: add NuxtLoadingIndicator -->
         <CookieBanner />
         <NavBar />
         <NuxtPage />
@@ -21,8 +22,6 @@ import PledgeSignup from '@/components/forms/PledgeSignup.vue'
 
 const openModal = ref(false)
 const hasUserSeenExitIntentModal = ref(!!storage.getItem('bg.seenExitIntent'))
-
-const progressWidth = computed(() => axiosProgress?.state?.progress)
 
 const route = useRoute()
 
