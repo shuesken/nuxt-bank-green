@@ -25,7 +25,14 @@
       }
     },
     "accordionitem": {},
-    "faqpage": {},
+    "faqpage": {
+      "introduction": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
     "certificationpage": {},
     "disclaimerpage": {},
     "privacypage": {},
