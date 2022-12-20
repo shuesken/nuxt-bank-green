@@ -22,11 +22,11 @@
         <div class="contain text-gray-500 text-xs flex items-center justify-between">
             <div>Bank.Green is a project of Empowerment Works Inc. 501(c)(3)</div>
             <div class="space-x-4">
-                <NuxtLink to="/disclaimer" class="hover:underline" activeClass="text-gray-900">{{ $t('DISCLAIMER') }}
+                <NuxtLink to="/disclaimer" class="hover:underline" activeClass="text-gray-900">Disclaimer
                 </NuxtLink>
-                <NuxtLink to="/privacy" class="hover:underline" activeClass="text-gray-900">{{
-                        $t('IMPRINT_PRIVACY_SHORT')
-                }}</NuxtLink>
+                <NuxtLink to="/privacy" class="hover:underline" activeClass="text-gray-900">
+                    Privacy policy
+                </NuxtLink>
             </div>
         </div>
     </div>

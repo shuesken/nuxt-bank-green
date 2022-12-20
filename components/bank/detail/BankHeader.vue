@@ -52,15 +52,15 @@
                 </div>
                 <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-between items-center">
                     <div v-if="
-                        details.rating === 'worst' ||
-                        details.rating === 'bad'
+    details.rating === 'worst' ||
+    details.rating === 'bad'
                     " class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center mt-8">
-                        <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY') }}
+                        <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">Move Your Money
                         </NuxtLink>
                         <div class="text-xs text-gray-500 mx-4 uppercase">
-                            {{ $t('OR') }}
+                            Or
                         </div>
-                        <NuxtLink to="/pledge" class="underline">{{ $t('PLEDGE_TO_MOVE_IT') }}
+                        <NuxtLink to="/pledge" class="underline">Pledge to Move it
                         </NuxtLink>
                     </div>
                     <div v-else></div>

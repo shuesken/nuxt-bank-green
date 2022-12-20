@@ -2,7 +2,8 @@
     <div class="page">
         <div class="bg-white">
             <div class="page-fade-in pt-28">
-                <ThanksSection :title="$t('THANKS_FOR_JOINING')" :description="$t('THANKS_DESC')" />
+                <ThanksSection title="Thank you for joining Bank.Green!"
+                    description="We appreciate your support in defunding fossil banks." />
             </div>
         </div>
     </div>

@@ -12,7 +12,9 @@
         <NavFooter />
     </div>
     <Modal v-if="openModal" v-on:closeModal="openModal = false" class="z-50 text-white bg-primary-dark">
-        <PledgeSignup @success="openModal = false" :title="$t('PLEDGE_POPUP_TITLE')" tag="pledge popup" />
+        <PledgeSignup @success="openModal = false"
+            :title="'Not ready to switch banks today?\nTake our pledge to move your money when you’re ready.'"
+            tag="pledge popup" />
     </Modal>
     <NotificationPanel />
 </template>

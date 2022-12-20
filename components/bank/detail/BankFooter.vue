@@ -5,7 +5,7 @@
                 <h2 class="w-full text-center font-semibold text-2xl tracking-wider mb-4 text-gray-100">
                     Did we get something wrong?
                 </h2>
-                <NuxtLink to="/contact" class="button-green inline-block w-max">{{ $t('CONTACT') }}
+                <NuxtLink to="/contact" class="button-green inline-block w-max">Contact Us
                 </NuxtLink>
             </div>
 
@@ -16,7 +16,7 @@
                 <NuxtLink :to="{
                     path: '/faq',
                     hash: '#how-do-you-know-what-my-bank-funds',
-                }" class="button-green inline-block w-max">{{ $t('HOW_WE_DERIVE_THE_RESULTS') }}
+                }" class="button-green inline-block w-max">Find out more
                 </NuxtLink>
             </div>
         </div>

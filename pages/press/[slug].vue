@@ -59,11 +59,6 @@ useHeadHelper(post?.data?.title ?? "Press Post", post?.data?.description)
 
 // FIXME add image header and pull title properly
 
-const checkList = [
-    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-    t('JOIN_A_FAST_GROWING_MOVEMENT'),
-    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-]
 </script>
 
 <style>
