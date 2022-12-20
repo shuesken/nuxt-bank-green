@@ -46,7 +46,6 @@
 <script>
 import CheckboxSection from '@/components/forms/CheckboxSection.vue'
 import TextField from '@/components/forms/TextField.vue'
-import useContactForm from '@/services/contact/useContactForm'
 
 export default {
     emits: ['success'],

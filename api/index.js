@@ -1,6 +1,6 @@
 import axios from 'axios'
-import axiosProgress from '@/utils/http/axiosProgress'
-import httpErrorHandling from '@/utils/http/errorHandling'
+import httpErrorHandling from '@/utils/errorHandling'
+
 
 // let baseURL = 'http://localhost:5001/bank-green-staging/europe-west1'
 // let baseURL = 'https://europe-west1-bank-green-staging.cloudfunctions.net'

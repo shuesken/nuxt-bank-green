@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import storage from '@/utils/storage'
 
 export default {
     data() {

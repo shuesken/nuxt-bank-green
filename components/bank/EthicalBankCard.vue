@@ -52,7 +52,6 @@
 import ClearbitLogo from '@/components/icons/ClearbitLogo'
 import BankIcon from '@/components/forms/banks/BankIcon'
 import FeaturesList from './detail/features/FeaturesList.vue'
-import getFeatures from '@/services/ethical/getFeatures'
 
 export default {
     props: {

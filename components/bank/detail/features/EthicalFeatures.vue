@@ -12,7 +12,6 @@
 </template>
 
 <script setup>
-import getFeatures from '@/services/ethical/getFeatures'
 import FeaturesList from '@/components/bank/detail/features/FeaturesList.vue'
 
 const props = defineProps({

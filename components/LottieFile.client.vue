@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import useLottie from '@/services/anim/useLottieLooper'
 import { toRef } from '@vue/reactivity'
 
 export default {

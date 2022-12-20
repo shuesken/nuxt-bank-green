@@ -85,7 +85,6 @@
 <script>
 import CheckboxSection from '@/components/forms/CheckboxSection.vue'
 import RegionSearch from '@/components/forms/RegionSearch.vue'
-import useCountryLocation from '@/services/hooks/useCountryLocation'
 
 export default {
     components: {

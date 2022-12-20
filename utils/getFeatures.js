@@ -1,7 +1,4 @@
 // these functions transform the data from the backend into the format used by our frontend templates
-
-import useCountryLocation from '../hooks/useCountryLocation'
-
 export default function getFeatures(item) {
 
     if (!item) {

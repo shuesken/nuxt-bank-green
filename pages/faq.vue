@@ -25,7 +25,7 @@
 
 <script setup>
 import SignupBox from '@/components/forms/SignupBox.vue'
-import { components } from '~~/slices'
+// import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
 useHeadHelper("Frequently Asked Questions - Bank.Green", "Do you have questions about your bank's climate impacts, Bank.Green's mission or how to switch banks? Here's where you can find the answers.")

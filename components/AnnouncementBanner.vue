@@ -23,29 +23,13 @@
     </div>
 </template>
 
-<script>
-import storage from '@/utils/storage'
-import Countdown from '@/components/Countdown.vue'
+<script setup>
+const showBanner = false
+const bannerName = 'COP26-blog-july'
 
-export default {
-    components: { Countdown },
-    data() {
-        return {
-            showBanner: true,
-            bannerName: 'COP26-blog-july', // must be unique, update on content update
-        }
-    },
-    methods: {
-        close() {
-            storage.setItem(`bg.hide-announcement-${this.bannerName}`, 'yes')
-            this.showBanner = false
-        },
-    },
-    mounted() {
-        // this.showBanner = !storage.getItem(
-        //     `bg.hide-announcement-${this.bannerName}`
-        // )
-        this.showBanner = false
-    },
+// we're not reading storage atm so this doesn't do anything
+function close() {
+    storage.setItem(`bg.hide-announcement-${this.bannerName}`, 'yes')
+    this.showBanner = false
 }
 </script>

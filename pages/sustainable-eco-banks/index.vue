@@ -86,7 +86,6 @@
 </template>
 
 <script setup>
-import useCountryLocation from '@/services/hooks/useCountryLocation'
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import { getBanksListWithFilter } from '@/api/banks'
 import EthicalBankCards from '@/components/bank/EthicalBankCards'

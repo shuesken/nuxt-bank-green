@@ -1,8 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { resolve, dirname } from "node:path";
-import { fileURLToPath } from "url";
-import VueI18nVitePlugin from "@intlify/unplugin-vue-i18n/vite";
 import en from "./lang/en.json";
 
 export default defineNuxtConfig({
@@ -147,5 +144,8 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+  imports: {
+    dirs: ["slices"],
   },
 });

@@ -65,11 +65,9 @@
 <script>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
-import useCountryLocation from '@/services/hooks/useCountryLocation'
 import CheckboxSection from '@/components/forms/CheckboxSection.vue'
 import TextField from '@/components/forms/TextField.vue'
 import DateField from '@/components/forms/DateField.vue'
-import useContactForm from '@/services/contact/useContactForm'
 import { ref } from 'vue'
 
 export default {

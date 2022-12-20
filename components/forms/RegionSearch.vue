@@ -40,7 +40,6 @@ import SearchInput from '@/components/forms/input/SearchInput'
 import PinIcon from './location/PinIcon.vue'
 import ListPicker from '@/components/forms/ListPicker'
 import Geonames from 'geonames.js'
-import useCountryLocation from '@/services/hooks/useCountryLocation'
 import Fuse from 'fuse.js'
 
 export default {

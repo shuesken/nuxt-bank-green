@@ -1,5 +1,4 @@
 import { get } from './index'
-import storage from '@/utils/storage'
 
 let gqlUrl = 'https://data.bank.green/graphql'
 let options = {}

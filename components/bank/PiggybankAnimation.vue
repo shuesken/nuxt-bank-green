@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import useLottieScroller from '@/services/anim/useLottieScroller'
-
 export default {
     setup() {
         const { container } = useLottieScroller({

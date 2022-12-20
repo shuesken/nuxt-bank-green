@@ -52,7 +52,6 @@
 <script setup>
 import CheckboxSection from '../components/forms/CheckboxSection.vue'
 import TextField from '../components/forms/TextField.vue'
-import useContactForm from '@/services/contact/useContactForm'
 import { useI18n } from 'vue-i18n'
 
 import { ref } from 'vue'

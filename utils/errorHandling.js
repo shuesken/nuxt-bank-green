@@ -1,5 +1,3 @@
-import notifications from '@/services/notifications'
-
 const store = {
 
     /**

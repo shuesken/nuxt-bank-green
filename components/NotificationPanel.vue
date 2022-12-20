@@ -58,8 +58,6 @@
 </template>
 
 <script>
-import notifications from '@/services/notifications'
-
 export default {
     computed: {
         notifications: () => notifications.state.notifications,

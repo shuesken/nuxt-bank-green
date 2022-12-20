@@ -112,7 +112,6 @@
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
-import useCountryLocation from '@/services/hooks/useCountryLocation'
 import { useGtm } from 'vue-gtm'
 import { useI18n } from 'vue-i18n'
 

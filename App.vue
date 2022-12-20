@@ -17,8 +17,6 @@
 </template>
 
 <script setup>
-import axiosProgress from '@/utils/http/axiosProgress'
-import storage from '@/utils/storage'
 import PledgeSignup from '@/components/forms/PledgeSignup.vue'
 
 const openModal = ref(false)

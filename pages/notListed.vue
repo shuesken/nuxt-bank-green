@@ -59,14 +59,11 @@
 </template>
 <script>
 import SubmitBank from '@/components/forms/SubmitBank.vue'
-import markup from '@/utils/directives/markup'
 import CheckList from '@/components/CheckList.vue'
 import Swoosh from '@/components/Swoosh.vue'
 
 export default {
     components: { SubmitBank, CheckList, Swoosh },
-
-    directives: { markup },
 
     computed: {
         checkList() {

@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import useCountryLocation from '@/services/hooks/useCountryLocation'
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import { getBanksList } from '@/api/banks'
 import EthicalBankList from '@/components/bank/EthicalBankList'

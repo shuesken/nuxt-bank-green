@@ -79,8 +79,6 @@
 </template>
 
 <script setup>
-import useResize from '@/services/circle/useResize'
-
 const props = defineProps({
     rating: String,
 })

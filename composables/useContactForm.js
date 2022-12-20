@@ -1,9 +1,7 @@
 import { submitContact } from '@/api/contact'
-import storage from '@/utils/storage'
 import { ref, computed } from 'vue'
 import { useGtm } from 'vue-gtm'
 import { useI18n } from 'vue-i18n'
-import capitalizeString from '@/utils/text/capitalizeString'
 
 export default function useContactForm(
     tag = 'unknown',
