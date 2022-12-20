@@ -134,13 +134,13 @@ export async function getBanksListWithFilter({
     return banks
 }
 
-let cachedCountry = storage.getItem('bg.country.suggested') ?? ''
 export async function getCountry() {
-    if (!cachedCountry) {
+    const cachedCountry = useCookie('bg.country.suggested', { default: () => '' })
+
+    if (!cachedCountry.value) {
         const res = await get('/getCountry')
         if (res.country) {
-            cachedCountry = res.country
-            storage.setItem('bg.country.suggested', cachedCountry)
+            cachedCountry.value = res.country
         }
     }
     return cachedCountry

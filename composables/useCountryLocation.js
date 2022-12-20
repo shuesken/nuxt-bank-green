@@ -4,14 +4,14 @@ import { getCountry } from '~~/utils/banks'
  * Remembers the user's country and also prefills it from the API if not available
  */
 export default function useCountryLocation() {
-    const location = ref(storage.getItem('bg.country') ?? '')
+    const location = useCookie('bg.country', { default: () => '' })
     const country = useCountry()
     if (country.value && !location.value)
         location.value = country.value
     const locationPicker = ref(null)
 
     watch(location, (loc) => {
-        storage.setItem('bg.country', loc)
+        location.value = loc
     })
 
     onMounted(async () => {

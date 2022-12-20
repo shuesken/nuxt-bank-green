@@ -19,7 +19,7 @@ export default function useContactForm(
     const isAgreeTerms = ref(prefill.value.isAgreeTerms || false)
     const isAgreeMarketing = ref(prefill.value.isAgreeTerms || false)
     const busy = ref(false)
-    const isSent = ref(storage.getItem(`contact.${tag}.sent`) ? 1 : 0)
+    const isSent = useCookie(`contact.${tag}.sent`, { default: () => false })
     const showWarnings = ref(false)
 
     const warningsMap = computed(() => {
@@ -79,7 +79,7 @@ export default function useContactForm(
         }
         gtm.trackEvent({ event: gtmEvent })
 
-        storage.setItem(`contact.${tag}.sent`, 1)
+        isSent.value = true
 
         setTimeout(() => {
             // clear after some ms so that the view has been updated / we have paginated away

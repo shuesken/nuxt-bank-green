@@ -11,7 +11,7 @@
                         class="bg-red-500 hover:bg-red-400 rounded text-white cursor-pointer px-4 no-underline py-2 mr-2"
                         v-t="'NO_COOKIES'"></div>
 
-                    <div @click="showCookies"
+                    <div @click="yesCookies"
                         class="bg-sushi-500 hover:bg-sushi-400 rounded text-white cursor-pointer px-4 no-underline py-2"
                         v-t="'YES_COOKIES'"></div>
                 </div>
@@ -20,25 +20,16 @@
     </div>
 </template>
 
-<script>
+<script setup>
+const showBanner = useCookie('bg.showbanner', { default: () => true })
+const allowCookies = useCookie('bg.allowcookies', { default: () => false })
+function yesCookies() {
+    showBanner.value = false
+    allowCookies.value = true
+}
 
-export default {
-    data() {
-        return {
-            showBanner: storage.getItem('bg.hidebanner') ? false : true,
-        }
-    },
-    methods: {
-        showCookies() {
-            storage.setItem('bg.cookies', 'yes')
-            storage.setItem('bg.hidebanner', 'hide')
-            this.showBanner = false
-        },
-        noCookies() {
-            storage.setItem('bg.cookies', 'no')
-            storage.setItem('bg.hidebanner', 'hide')
-            this.showBanner = false
-        },
-    },
+function noCookies() {
+    showBanner.value = false
+    allowCookies.value = true
 }
 </script>

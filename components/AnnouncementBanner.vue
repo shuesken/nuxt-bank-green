@@ -24,12 +24,14 @@
 </template>
 
 <script setup>
-const showBanner = false
 const bannerName = 'COP26-blog-july'
 
+// if we use this component again, this will have to be adapted with useCookie
+
+
 // we're not reading storage atm so this doesn't do anything
-function close() {
-    storage.setItem(`bg.hide-announcement-${this.bannerName}`, 'yes')
-    this.showBanner = false
-}
+// function close() {
+//     storage.setItem(`bg.hide-announcement-${this.bannerName}`, 'yes')
+//     this.showBanner = false
+// }
 </script>

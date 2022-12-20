@@ -1,6 +1,6 @@
 <template>
     <div v-if="$route" @mouseleave="onExitIntent" class="min-h-screen flex flex-col">
-        <NuxtLoadingIndicator color="#7BB123" height="6" />
+        <NuxtLoadingIndicator :color="'#7BB123'" :height="6" />
         <CookieBanner />
         <NavBar />
         <NuxtPage />
@@ -16,7 +16,7 @@
 import PledgeSignup from '@/components/forms/PledgeSignup.vue'
 
 const openModal = ref(false)
-const hasUserSeenExitIntentModal = ref(!!storage.getItem('bg.seenExitIntent'))
+const hasUserSeenExitIntentModal = useCookie('bg.seenExitIntent', { default: () => false })
 
 const route = useRoute()
 
@@ -26,7 +26,6 @@ function onExitIntent() {
     if (route.path.includes('/sustainable-eco-banks')) return
     openModal.value = true
     hasUserSeenExitIntentModal.value = true
-    storage.setItem('bg.seenExitIntent', true)
 }
 </script>
 <style>
