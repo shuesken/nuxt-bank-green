@@ -52,13 +52,10 @@ import { components } from '~~/slices'
 import { useI18n } from 'vue-i18n'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
-
-
 const route = useRoute()
 const error = ref(false)
 
 const { client } = usePrismic()
-const { t } = useI18n({ useScope: 'global' })
 const slug = route.path.split('/').at(-1)
 const { data: post } = await useAsyncData(slug, () => client.getByUID('blogpost', slug))
 
@@ -68,42 +65,8 @@ useHeadHelper(post?.data?.title ?? "Blog Post", post?.data?.description)
 
 // FIXME add image header and pull title properly
 
-const checkList = [
-    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-    t('JOIN_A_FAST_GROWING_MOVEMENT'),
-    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-]
 </script>
 
-<style lang="postcss">
-.notion-image-inset {
-    margin: 0 !important;
-    @apply absolute inset-0;
-}
+<style>
 
-.notion-h2 span {
-    @apply font-bold;
-}
-
-.notion-toggle>div {
-    @apply ml-5;
-}
-
-.notion-asset-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.notion-asset-wrapper>div {
-    @apply w-full h-full;
-}
-
-.notion-asset-wrapper>div>iframe {
-    @apply w-full h-full;
-}
-
-.notion img {
-    @apply w-full;
-}
 </style>
