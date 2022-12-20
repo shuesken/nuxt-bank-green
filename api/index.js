@@ -24,14 +24,6 @@ axiosProgress.setInterceptors(instance)
 httpErrorHandling.setInterceptors(instance)
 axios.defaults.headers.post['X-TLC'] = '1'
 
-export async function setHeaders(accessToken) {
-    instance.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-}
-
-export async function clearHeaders() {
-    instance.defaults.headers.common['Authorization'] = ''
-}
-
 function parseError(e) {
     const errors = e?.response?.data?.errors
     if (!errors) {
