@@ -33,23 +33,6 @@
                             </h2>
                         </div>
                         <div v-else>
-                            <transition enter-from-class="opacity-0" enter-active-class="transition ease duration-300"
-                                enter-to-class="opacity-100" leave-from-class="opacity-100"
-                                leave-active-class="transition ease duration-300" leave-to-class="opacity-0" appear>
-                                <div v-if="loading" class="absolute left-1/2 top-20 z-10">
-                                    <span>
-                                        <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 561 553" style="
-                                                animation: ring 2s linear
-                                                    infinite;
-                                            ">
-                                            <path d="M478 0A481 481 0 0 0 0 485v76h75c264 0 478-217 478-485V0h-75z"
-                                                fill="#6C9039" />
-                                        </svg>
-                                    </span>
-                                </div>
-                            </transition>
-
                             <div v-if="banks.length" :class="[
                                 loading
                                     ? 'opacity-50 pointer-events-none'

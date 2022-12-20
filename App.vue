@@ -1,11 +1,6 @@
 <template>
     <div v-if="$route" @mouseleave="onExitIntent" class="min-h-screen flex flex-col">
-        <!-- <transition enter-from-class="opacity-0" enter-active-class="transition ease duration-300"
-            enter-to-class="opacity-100" leave-from-class="opacity-100"
-            leave-active-class="transition ease duration-300" leave-to-class="opacity-0" appear>
-            <LoadBar v-if="progressWidth" class="z-50 fixed top-0 inset-x-0 h-1.5" />
-        </transition>
-        FIXME: add NuxtLoadingIndicator -->
+        <NuxtLoadingIndicator color="#7BB123" height="6" />
         <CookieBanner />
         <NavBar />
         <NuxtPage />
