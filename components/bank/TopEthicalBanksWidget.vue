@@ -1,5 +1,5 @@
 <template>
-    <LocationSearch class="mb-8 md:max-w-sm md:mx-auto z-50" ref="locationPicker" v-model="location" />
+    <LocationSearch class="mb-8 md:max-w-sm md:mx-auto z-50" v-model="country" />
     <div v-if="banks.length" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
         <EthicalBankList :loaded="loaded" :list="banks" />
     </div>
@@ -9,31 +9,24 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import EthicalBankList from '@/components/bank/EthicalBankList'
 
-export default {
-    components: { LocationSearch, EthicalBankList },
+const { country } = useCountry()
 
-    setup() {
-        const { location, locationPicker } = useCountryLocation()
-
-        const banks = ref([])
-        const loaded = ref(false)
-        const loadBanks = async () => {
-            if (!location.value) {
-                return
-            }
-            banks.value = await getBanksList({
-                country: location.value,
-                topOnly: true,
-            })
-            loaded.value = true
-        }
-        onMounted(loadBanks)
-        watch(location, loadBanks)
-        return { banks, location, locationPicker, loaded }
-    },
+const banks = ref([])
+const loaded = ref(false)
+const loadBanks = async () => {
+    if (!country.value) {
+        return
+    }
+    banks.value = await getBanksList({
+        country: country.value,
+        topOnly: true,
+    })
+    loaded.value = true
 }
+onMounted(loadBanks)
+watch(country, loadBanks)
 </script>

@@ -45,29 +45,29 @@ const emit = defineEmits(['update:modelValue'])
 
 
 const isShowing = ref(false)
-const country = useCountry()
-const search = ref(t(`COUNTRY_${country.value}`))
+// const country = useCountry()
+const search = ref('')
 if (props.modelValue && te(`COUNTRY_${props.modelValue}`)) {
     search.value = t(`COUNTRY_${props.modelValue}`)
 }
 
 const filteredCountries = computed(() => findCountries(search.value))
 
-watch(search, () => {
-    if (props.modelValue && search.value !== t(`COUNTRY_${country.value}`)) {
-        emit('update:modelValue', '')
-    }
-})
-
 function showList() {
     isShowing.value = true
 }
 function hideList() {
     isShowing.value = false
+    // if clicking away, go back to originally selected country
+    if (search.value === '') {
+        emit('update:modelValue', '')
+    }
+    else if (props.modelValue && te(`COUNTRY_${props.modelValue}`)) {
+        search.value = t(`COUNTRY_${props.modelValue}`)
+    }
 }
 
 async function onSelectCountry(code) {
-    country.value = code
     search.value = t(`COUNTRY_${code}`)
     emit('update:modelValue', code)
     isShowing.value = false

@@ -12,9 +12,9 @@
                     <div
                         class="flex flex-col md:flex-row items-stretch md:items-center space-y-2 md:space-y-0 md:space-x-4 mt-8 md:mt-10 md:mb-10">
                         <ClientOnly>
-                            <LocationSearch class="md:w-1/2 flex-initial" ref="locationPicker" v-model="location" />
-                            <BankSearch class="md:w-1/2 flex-initial" ref="bankSearch" :disabled="!location"
-                                :country="location" v-model="bank" />
+                            <LocationSearch class="md:w-1/2 flex-initial" v-model="country" />
+                            <BankSearch class="md:w-1/2 flex-initial" ref="bankSearch" :disabled="!country"
+                                :country="country" v-model="bank" />
                         </ClientOnly>
                         <NuxtLink :to="`/banks/${bank?.tag}`" class="flex-initial md:w-48 button-green"
                             :class="{ disabled: !bank }" @click="onCheckBankClick">{{ $t('CHECK_MY_BANK')
@@ -127,9 +127,10 @@ const { data: home } = await useAsyncData('home', () => client.getSingle('homepa
 // }
 // FIXME enable gtm
 
-const { location, locationPicker } = useCountryLocation()
+const { country } = useCountry()
+console.log('index.vue', country.value)
 
-watch(location, loc => {
+watch(country, loc => {
     bank.value = null
 })
 </script>

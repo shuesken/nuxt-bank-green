@@ -34,7 +34,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { computed, ref, watch } from 'vue'
 import SearchInput from '@/components/forms/input/SearchInput'
 import PinIcon from './location/PinIcon.vue'
@@ -42,111 +42,87 @@ import ListPicker from '@/components/forms/ListPicker'
 import Geonames from 'geonames.js'
 import Fuse from 'fuse.js'
 
-export default {
-    props: {
-        modelValue: String,
+const props = definePrpos({
+    modelValue: String,
+})
+const listPicker = ref()
+const onKeyDown = (event) => {
+    listPicker.value.incrementFocus(event)
+}
+const onKeyUp = (event) => {
+    listPicker.value.decrementFocus(event)
+}
+const onKeyEnter = () => listPicker.value.selectCurrentItem()
+
+const search = ref('')
+const isShowing = ref(false)
+const isLoading = ref(false)
+
+const { country } = useCountry()
+
+const options = ref([])
+const geonames = Geonames({
+    username: 'myusername',
+    encoding: 'JSON',
+})
+
+const searchRegion = async () => {
+    isLoading.value = true
+    const data = await geonames.search({
+        country: country.value,
+        featureClass: 'A',
+        featureCode: ['ADM1', 'ADM2'],
+        maxRows: 1000,
+    })
+    options.value = data.geonames.sort((a, b) =>
+        a.toponymName.localeCompare(b.toponymName)
+    )
+    isLoading.value = false
+}
+
+const filteredOptions = computed(() => {
+    const fuse = new Fuse(options.value, {
+        includeScore: true,
+        keys: ['toponymName'],
+    })
+
+    if (!search.value.trim()) {
+        return options.value
+    }
+    const result = fuse.search(search.value)
+    return result.filter((x) => x.score < 0.3).map((x) => x.item)
+})
+
+watch(
+    country,
+    () => {
+        searchRegion()
     },
-    components: {
-        PinIcon,
-        SearchInput,
-        ListPicker,
-    },
-    setup() {
-        const listPicker = ref()
-        const onKeyDown = (event) => {
-            listPicker.value.incrementFocus(event)
-        }
-        const onKeyUp = (event) => {
-            listPicker.value.decrementFocus(event)
-        }
-        const onKeyEnter = () => listPicker.value.selectCurrentItem()
+    { immediate: true }
+)
 
-        const search = ref('')
-        const isShowing = ref(false)
-        const isLoading = ref(false)
 
-        const { location } = useCountryLocation()
+function showList() {
+    isShowing.value = true
+}
+function hideList() {
+    isShowing.value = false
+}
+async function onSelectLocation(item) {
+    emit('update:modelValue', '')
+    await nextTick()
+    search.value = item.toponymName
+    emit('update:modelValue', item.toponymName)
+    emit('select', {
+        type: item.fcode === 'ADM2' ? 'subregion' : 'region',
+        value: item.toponymName,
+    })
 
-        const options = ref([])
-        const geonames = Geonames({
-            username: 'myusername',
-            encoding: 'JSON',
-        })
-
-        const searchRegion = async () => {
-            isLoading.value = true
-            const data = await geonames.search({
-                country: location.value,
-                featureClass: 'A',
-                featureCode: ['ADM1', 'ADM2'],
-                maxRows: 1000,
-            })
-            options.value = data.geonames.sort((a, b) =>
-                a.toponymName.localeCompare(b.toponymName)
-            )
-            isLoading.value = false
-        }
-
-        const filteredOptions = computed(() => {
-            const fuse = new Fuse(options.value, {
-                includeScore: true,
-                keys: ['toponymName'],
-            })
-
-            if (!search.value.trim()) {
-                return options.value
-            }
-            const result = fuse.search(search.value)
-            return result.filter((x) => x.score < 0.3).map((x) => x.item)
-        })
-
-        watch(
-            location,
-            () => {
-                searchRegion()
-            },
-            { immediate: true }
-        )
-
-        return {
-            listPicker,
-            onKeyDown,
-            onKeyUp,
-            onKeyEnter,
-
-            search,
-            isShowing,
-            isLoading,
-
-            options,
-            filteredOptions,
-        }
-    },
-
-    methods: {
-        showList() {
-            this.isShowing = true
-        },
-        hideList() {
-            this.isShowing = false
-        },
-        async onSelectLocation(item) {
-            this.$emit('update:modelValue', '')
-            await this.$nextTick()
-            this.search = item.toponymName
-            this.$emit('update:modelValue', item.toponymName)
-            this.$emit('select', {
-                type: item.fcode === 'ADM2' ? 'subregion' : 'region',
-                value: item.toponymName,
-            })
-
-            this.isShowing = false
-        },
-        onCloseClick() {
-            this.search = ''
-            this.$emit('update:modelValue', '')
-            this.$emit('select', null)
-        },
-    },
+    isShowing.value = false
+}
+function onCloseClick() {
+    search.value = ''
+    emit('update:modelValue', '')
+    emit('select', null)
 }
 </script>

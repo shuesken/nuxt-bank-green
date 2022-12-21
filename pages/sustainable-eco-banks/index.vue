@@ -15,14 +15,14 @@
                 <div class="flex flex-col md:flex-row">
                     <div class="lg:w-80 md:sticky mb-4 md:mb-0 top-20 flex-shrink-0 rounded-2xl lg:px-10"
                         style="height: fit-content">
-                        <EthicalBankFilters v-if="location" :location="location" @filter="applyFilter">
+                        <EthicalBankFilters v-if="country" :location="country" @filter="applyFilter">
                         </EthicalBankFilters>
                     </div>
 
                     <div class="relative w-full md:ml-6">
-                        <LocationSearch class="z-30 mb-8" ref="locationPicker" v-model="location" />
+                        <LocationSearch class="z-30 mb-8" v-model="country" />
 
-                        <div v-if="!location">
+                        <div v-if="!country">
                             <h2 class="w-full px-5 py-4 bg-gray-100 border border-gray-300 rounded-2xl text-sm">
                                 <div class="font-medium text-gray-600">
                                     {{ $t('NO_COUNTRY_SELECTED') }}
@@ -84,7 +84,8 @@ const { client } = usePrismic()
 
 const { data: ecobanks } = await useAsyncData('ecobanks', () => client.getSingle('ecobankspage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
 
-const { location, locationPicker } = useCountryLocation()
+const { country } = useCountry()
+console.log('country', country)
 
 const banks = ref([])
 const loading = ref(false)
@@ -95,11 +96,11 @@ const loadBanks = async ({
     features,
 }) => {
     loading.value = true
-    if (!location.value) {
+    if (!country.value) {
         return
     }
     const result = await getBanksListWithFilter({
-        country: location.value,
+        country: country.value,
         regions,
         subregions,
         fossilFreeAlliance,
@@ -117,12 +118,12 @@ const loadBanks = async ({
         )
     loading.value = false
 }
-watch(location, () => {
+watch(country, () => {
     banks.value = []
 })
 
 const isNoCredit = computed(() => {
-    return location.value === 'FR' || location.value === 'DE'
+    return country.value === 'FR' || country.value === 'DE'
 })
 
 const applyFilter = (payload) => {

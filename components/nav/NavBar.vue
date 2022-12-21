@@ -62,28 +62,15 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import links from './links'
-import AnnouncementBanner from '@/components/AnnouncementBanner'
 
-export default {
-    components: {
-        AnnouncementBanner,
-    },
-    data() {
-        return {
-            isOpen: false,
-        }
-    },
-    computed: {
-        headerLinks() {
-            return links({ isHeader: true })
-        },
-    },
-    methods: {
-        closePopup() {
-            this.isOpen = false
-        },
-    },
+const isOpen = ref(false)
+const headerLinks = computed(() => {
+    return links({ isHeader: true })
+})
+
+function closePopup() {
+    isOpen.value = false
 }
 </script>

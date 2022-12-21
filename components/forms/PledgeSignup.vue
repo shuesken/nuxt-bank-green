@@ -18,13 +18,13 @@
                     <span class="block text-sm leading-5 text-blue-100 text-opacity-75 font-medium mb-2">{{
                             $t('CHOOSE_YOUR_COUNTRY')
                     }}</span>
-                    <LocationSearch class="w-full text-gray-700" ref="locationPicker" v-model="location" />
+                    <LocationSearch class="w-full text-gray-700" v-model="country" />
                 </div>
                 <div class="col-span-2">
                     <span class="block text-sm leading-5 text-blue-100 text-opacity-75 font-medium mb-2">{{
                             $t('CHOOSE_YOUR_CURRENT_BANK')
                     }}</span>
-                    <BankSearch class="w-full text-gray-700" ref="bankSearch" :disabled="!location" :country="location"
+                    <BankSearch class="w-full text-gray-700" ref="bankSearch" :disabled="!country" :country="country"
                         v-model="bank" @searchInputChange="searchValue = $event">
                         <template v-slot:not-listed>
                             <p class="text-gray-500 p-4 shadow-lg">
@@ -62,97 +62,63 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
 import CheckboxSection from '@/components/forms/CheckboxSection.vue'
 import TextField from '@/components/forms/TextField.vue'
 import DateField from '@/components/forms/DateField.vue'
-import { ref } from 'vue'
 
-export default {
-    props: {
-        title: String,
-        successRedirectURL: { type: String, default: '/thanks-pledge' },
-    },
-    components: {
-        CheckboxSection,
-        TextField,
-        DateField,
-        LocationSearch,
-        BankSearch,
-    },
+const props = defineProps({
+    title: String,
+    successRedirectURL: { type: String, default: '/thanks-pledge' },
+})
 
-    setup() {
-        const bank = ref(null)
-        const reminderDate = ref(null)
-        const searchValue = ref(null)
-        const reminderWarning = ref('')
+const bank = ref(null)
+const reminderDate = ref(null)
+const searchValue = ref(null)
+const reminderWarning = ref('')
 
-        const { location, locationPicker } = useCountryLocation()
+const { country } = useCountry()
 
-        const extras = computed(() => {
-            return {
-                reminder: reminderDate.value || '',
-                country: location.value || '',
-                bank: bank.value?.tag || '',
-                bankDisplayName: bank.value?.name || '',
-                rating: bank.value?.rating || '',
-                bankNameWhenNotFound: (!bank.value && searchValue.value) || '',
-            }
-        })
+const extras = computed(() => {
+    return {
+        reminder: reminderDate.value || '',
+        country: country.value || '',
+        bank: bank.value?.tag || '',
+        bankDisplayName: bank.value?.name || '',
+        rating: bank.value?.rating || '',
+        bankNameWhenNotFound: (!bank.value && searchValue.value) || '',
+    }
+})
 
-        const {
-            firstName,
-            lastName,
-            email,
-            isAgreeTerms,
-            isAgreeMarketing,
-            isSent,
-            showWarnings,
-            warningsMap,
-            hasWarnings,
-            send,
-            busy,
-        } = useContactForm(
-            'pledge',
-            ['firstName', 'lastName', 'email', 'isAgreeTerms'],
-            extras
-        )
+const {
+    firstName,
+    lastName,
+    email,
+    isAgreeTerms,
+    isAgreeMarketing,
+    isSent,
+    showWarnings,
+    warningsMap,
+    hasWarnings,
+    send,
+    busy,
+} = useContactForm(
+    'pledge',
+    ['firstName', 'lastName', 'email', 'isAgreeTerms'],
+    extras
+)
 
-        return {
-            firstName,
-            lastName,
-            email,
-            isAgreeTerms,
-            isAgreeMarketing,
-            isSent,
-            showWarnings,
-            warningsMap,
-            hasWarnings,
-            send,
-            busy,
-            extras,
-            reminderWarning,
-            location,
-            locationPicker,
-            bank,
-            reminderDate,
-            searchValue,
-        }
-    },
-    methods: {
-        async checkAndSend() {
-            if (!this.extras.reminder) {
-                this.reminderWarning = this.$t('PLEASE_ENTER_REMINDER')
-                return
-            }
-            this.reminderWarning = ''
-            if (await this.send()) {
-                this.$emit('success')
-                this.$router.push(this.successRedirectURL)
-            }
-        },
-    },
+async function checkAndSend() {
+    if (!this.extras.reminder) {
+        this.reminderWarning = this.$t('PLEASE_ENTER_REMINDER')
+        return
+    }
+    this.reminderWarning = ''
+    if (await this.send()) {
+        this.$emit('success')
+        this.$router.push(this.successRedirectURL)
+    }
 }
 </script>

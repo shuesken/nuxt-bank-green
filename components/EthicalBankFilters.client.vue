@@ -82,144 +82,123 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import CheckboxSection from '@/components/forms/CheckboxSection.vue'
 import RegionSearch from '@/components/forms/RegionSearch.vue'
 
-export default {
-    components: {
-        CheckboxSection,
-        RegionSearch,
+const { isBE } = useCountry()
+const emit = defineEmits(['filter'],)
+const props = defineProps({
+    location: String,
+})
+const searchByLocation = ref(false)
+const onSelectLocation = (payload) => {
+    if (!payload) {
+        filterPayload.value.region = null
+        filterPayload.value.subregion = null
+    } else if (payload.type === 'subregion') {
+        filterPayload.value.region = null
+        filterPayload.value.subregion = payload.value
+    } else {
+        filterPayload.value.region = payload.value
+        filterPayload.value.subregion = null
+    }
+}
+
+const getDefaultFilter = () => ({
+    region: null,
+    subregion: null,
+    location: {
+        online_only: false,
     },
-    emits: ['filter'],
-    props: {
-        location: String,
+    fossilFreeAlliance: false,
+    convenience: {
+        online_account_opening: false,
+        online_banking: false,
+        free_atm_withdrawal: false,
+        no_overdraft_fee: false,
+        no_account_maintenance_fee: false,
     },
-    setup(props, { emit }) {
-        const searchByLocation = ref(false)
-        const onSelectLocation = (payload) => {
-            if (!payload) {
-                filterPayload.value.region = null
-                filterPayload.value.subregion = null
-            } else if (payload.type === 'subregion') {
-                filterPayload.value.region = null
-                filterPayload.value.subregion = payload.value
-            } else {
-                filterPayload.value.region = payload.value
-                filterPayload.value.subregion = null
-            }
-        }
-
-        const getDefaultFilter = () => ({
-            region: null,
-            subregion: null,
-            location: {
-                online_only: false,
-            },
-            fossilFreeAlliance: false,
-            convenience: {
-                online_account_opening: false,
-                online_banking: false,
-                free_atm_withdrawal: false,
-                no_overdraft_fee: false,
-                no_account_maintenance_fee: false,
-            },
-            bankAccounts: {
-                checking: false,
-                saving: false,
-                interest_rates: false,
-                business_accounts: false,
-                small_business_lending: false,
-                credit_cards: false,
-                mortgage_or_loans: false,
-            },
-            security: {
-                deposit_protection: false,
-            },
-        })
-
-        const filterPayload = ref(getDefaultFilter())
-
-        const isFilterDirty = computed(
-            () =>
-                JSON.stringify(filterPayload.value) !==
-                JSON.stringify(getDefaultFilter())
-        )
-
-        const parsedFilterPayload = computed(() => {
-            return {
-                regions: filterPayload.value.region
-                    ? [filterPayload.value.region]
-                    : undefined,
-                subregions: filterPayload.value.subregion
-                    ? [filterPayload.value.subregion]
-                    : undefined,
-                fossilFreeAlliance: filterPayload.value.fossilFreeAlliance
-                    ? filterPayload.value.fossilFreeAlliance
-                    : undefined,
-                features: [
-                    ...Object.keys(filterPayload.value.location).filter(
-                        (key) => filterPayload.value.location[key]
-                    ),
-                    ...Object.keys(filterPayload.value.convenience).filter(
-                        (key) => filterPayload.value.convenience[key]
-                    ),
-                    ...Object.keys(filterPayload.value.bankAccounts).filter(
-                        (key) => filterPayload.value.bankAccounts[key]
-                    ),
-                    ...Object.keys(filterPayload.value.security).filter(
-                        (key) => filterPayload.value.security[key]
-                    ),
-                ],
-            }
-        })
-
-        watch(
-            filterPayload,
-            () => {
-                emit('filter', parsedFilterPayload.value)
-            },
-            { deep: true }
-        )
-
-        watch(searchByLocation, () => {
-            filterPayload.value.region = null
-            filterPayload.value.subregion = null
-        })
-
-        onMounted(() => emit('filter', parsedFilterPayload.value))
-
-        const setDefaultFilter = () => {
-            filterPayload.value = getDefaultFilter()
-        }
-        watch(
-            () => props.location,
-            () => {
-                setDefaultFilter()
-            }
-        )
-
-        const forceShowMobile = ref(false)
-        const showFilters = computed(() => {
-            return forceShowMobile.value || window.innerWidth >= 768
-        })
-        const toggleFilters = () => {
-            forceShowMobile.value = !forceShowMobile.value
-        }
-
-        return {
-            searchByLocation,
-            onSelectLocation,
-
-            isFilterDirty,
-            filterPayload,
-
-            forceShowMobile,
-            showFilters,
-            toggleFilters,
-
-            setDefaultFilter,
-        }
+    bankAccounts: {
+        checking: false,
+        saving: false,
+        interest_rates: false,
+        business_accounts: false,
+        small_business_lending: false,
+        credit_cards: false,
+        mortgage_or_loans: false,
     },
+    security: {
+        deposit_protection: false,
+    },
+})
+
+const filterPayload = ref(getDefaultFilter())
+
+const isFilterDirty = computed(
+    () =>
+        JSON.stringify(filterPayload.value) !==
+        JSON.stringify(getDefaultFilter())
+)
+
+const parsedFilterPayload = computed(() => {
+    return {
+        regions: filterPayload.value.region
+            ? [filterPayload.value.region]
+            : undefined,
+        subregions: filterPayload.value.subregion
+            ? [filterPayload.value.subregion]
+            : undefined,
+        fossilFreeAlliance: filterPayload.value.fossilFreeAlliance
+            ? filterPayload.value.fossilFreeAlliance
+            : undefined,
+        features: [
+            ...Object.keys(filterPayload.value.location).filter(
+                (key) => filterPayload.value.location[key]
+            ),
+            ...Object.keys(filterPayload.value.convenience).filter(
+                (key) => filterPayload.value.convenience[key]
+            ),
+            ...Object.keys(filterPayload.value.bankAccounts).filter(
+                (key) => filterPayload.value.bankAccounts[key]
+            ),
+            ...Object.keys(filterPayload.value.security).filter(
+                (key) => filterPayload.value.security[key]
+            ),
+        ],
+    }
+})
+
+watch(
+    filterPayload,
+    () => {
+        emit('filter', parsedFilterPayload.value)
+    },
+    { deep: true }
+)
+
+watch(searchByLocation, () => {
+    filterPayload.value.region = null
+    filterPayload.value.subregion = null
+})
+
+onMounted(() => emit('filter', parsedFilterPayload.value))
+
+const setDefaultFilter = () => {
+    filterPayload.value = getDefaultFilter()
+}
+watch(
+    () => props.location,
+    () => {
+        setDefaultFilter()
+    }
+)
+
+const forceShowMobile = ref(false)
+const showFilters = computed(() => {
+    return forceShowMobile.value || window.innerWidth >= 768
+})
+const toggleFilters = () => {
+    forceShowMobile.value = !forceShowMobile.value
 }
 </script>
