@@ -85,7 +85,6 @@ const { client } = usePrismic()
 const { data: ecobanks } = await useAsyncData('ecobanks', () => client.getSingle('ecobankspage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
 
 const { country } = useCountry()
-console.log('country', country)
 
 const banks = ref([])
 const loading = ref(false)

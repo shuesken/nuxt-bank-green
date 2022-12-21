@@ -9,15 +9,10 @@
     </transition-group>
 </template>
 
-<script>
+<script setup>
 import EthicalBankCard from "~~/components/bank/EthicalBankCard.vue"
-export default {
-    props: {
-        list: Array,
-        isNoCredit: Boolean,
-    },
-    components: {
-        EthicalBankCard,
-    },
-}
+const props = defineProps({
+    list: Array,
+    isNoCredit: Boolean,
+})
 </script>

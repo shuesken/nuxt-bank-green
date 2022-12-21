@@ -40,24 +40,15 @@
     </div>
 </template>
 
-<script>
+<script setup>
 
-export default {
-    props: {
-        title: String,
-        description: String,
-        loaded: { type: Boolean, default: true },
-        caratClass: String,
-    },
-    data() {
-        return {
-            isOpen: false,
-        }
-    },
-    setup() {
-        return { convertToSlug }
-    },
-}
+const props = defineProps({
+    title: String,
+    description: String,
+    loaded: { type: Boolean, default: true },
+    caratClass: String,
+})
+const isOpen = ref(false)
 </script>
 
 <style scoped>

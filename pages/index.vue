@@ -128,7 +128,6 @@ const { data: home } = await useAsyncData('home', () => client.getSingle('homepa
 // FIXME enable gtm
 
 const { country } = useCountry()
-console.log('index.vue', country.value)
 
 watch(country, loc => {
     bank.value = null

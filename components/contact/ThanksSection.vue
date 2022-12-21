@@ -32,18 +32,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import TopEthicalBanksWidget from '@/components/bank/TopEthicalBanksWidget'
-import Swoosh from '@/components/Swoosh.vue'
 
-export default {
-    components: {
-        TopEthicalBanksWidget,
-        Swoosh,
-    },
-    props: {
-        title: String,
-        description: String,
-    },
-}
+const props = defineProps({
+    title: String,
+    description: String,
+})
+
 </script>
