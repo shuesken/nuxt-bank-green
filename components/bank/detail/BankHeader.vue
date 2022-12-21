@@ -19,30 +19,36 @@
                 <div class="font-medium md:font-semibold text-gray-800 text-xl md:text-4xl tracking-wider mb-2 md:mb-6">
                     <div v-if="details.header" v-html="details.header"></div>
                     <div v-else>
-                        <span v-if="details.rating === 'worst'" v-text="$t('BANK_RATING_WORST_TITLE')"></span>
-                        <span v-else-if="details.rating === 'bad'" v-text="$t('BANK_RATING_BAD_TITLE')"></span>
+                        <span v-if="details.rating === 'worst'"
+                            v-text="'Your money is being used to fund the climate crisis at an alarming rate.'"></span>
+                        <span v-else-if="details.rating === 'bad'"
+                            v-text="'Your money is funding the climate crisis'"></span>
                         <span v-else-if="details.rating === 'ok'">
-                            <template>{{
-                                    $t('BANK_RATING_OK_TITLE')
-                            }}</template>
+                            <template>{
+                                Your bank is doing OK.
+                            </template>
                         </span>
-                        <span v-else-if="details.rating === 'great'">{{
-                                $t('BANK_RATING_GREAT_TITLE')
-                        }}</span>
-                        <span v-else>{{ $t('BANK_RATING_UNK_TITLE') }}</span>
+                        <span v-else-if="details.rating === 'great'">
+                            "Your bank is great.
+                        </span>
+                        <span v-else>Sorry, we don’t know enough about your bank yet.</span>
                     </div>
                 </div>
                 <div class="prose sm:prose-lg xl:prose-xl prose-blurb whitespace-pre-wrap">
                     <div v-if="details.summary" v-html="details.summary"></div>
                     <div v-else>
                         <template v-if="details.rating === 'worst'">
-                            <span v-text="$t('BANK_RATING_WORST_DESC')"></span>
+                            <span
+                                v-text="'Your bank is one of the 60 biggest funders of fossil fuels in the world\\*. In the 6 years since the Paris Agreement, the banks in this category have funneled $4.6 trillion into coal, oil, and gas, rapidly accelerating the climate crisis.'"></span>
                         </template>
                         <template v-else-if="details.rating === 'bad'">
-                            <span v-text="$t('BANK_RATING_BAD_DESC')"> </span>
+                            <span
+                                v-text="`Your bank doesn't top the charts, but it’s still using your money to lend to fossil fuel companies and projects that are rapidly accelerating the climate crisis.`">
+                            </span>
                         </template>
                         <template v-else-if="details.rating === 'ok'">
-                            <span v-text="$t('BANK_RATING_OK_DESC')"></span></template>
+                            <span
+                                v-text="`The good news is that your bank is not a leading fossil fuel funder and we have found positive evidence that they care about the environment. The bad news is that *we haven’t yet been able to confirm for certain that they do not fund fossil fuels.*\n\nSince your bank is showing themselves to be socially responsible, it’s time to make sure they know that fossil fuel funding is no longer socially acceptable. *To take positive action, keep on scrolling…*`"></span></template>
                         <PrismicRichText v-else-if="details.rating === 'great'" :field="greatbank.data.description1" />
                         <span v-else v-text="$t('BANK_RATING_UNK_DESC')"></span>
                         <a v-if="details.data_sources?.includes('bimpact')"

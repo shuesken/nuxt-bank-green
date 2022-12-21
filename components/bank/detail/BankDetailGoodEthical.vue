@@ -25,7 +25,7 @@
                     }}</a>
                     <NuxtLink to="/pledge"
                         class="block text-gray-200 hover:underline cursor-pointer font-bold mt-4 text-center">
-                        {{ $t('PLEDGE_TO_SWITCH_LATER') }}
+                        Pledge to Switch Later
                     </NuxtLink>
                 </div>
             </div>
