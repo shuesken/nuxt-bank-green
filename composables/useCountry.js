@@ -4,7 +4,7 @@ const isValidCode = code => !!(en)[`COUNTRY_${code}`]
 
 const defaultCountry = () => {
   if (process.server) {
-    // servers-side we try to read country from CF headers and locale headers
+    // server-side we try to read country from CF headers and locale headers
 
     const headers = useRequestHeaders()
     const reqCountry = headers["CF-IPCountry"]
