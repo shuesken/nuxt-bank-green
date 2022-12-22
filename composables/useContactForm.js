@@ -1,5 +1,4 @@
-import { useGtm } from 'vue-gtm'
-import { useI18n } from 'vue-i18n'
+// import { useGtm } from 'vue-gtm'
 
 export default function useContactForm(
     tag = 'unknown',

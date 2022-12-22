@@ -112,7 +112,7 @@
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
-import { useGtm } from 'vue-gtm'
+// import { useGtm } from 'vue-gtm'
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
