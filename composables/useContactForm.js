@@ -6,8 +6,7 @@ export default function useContactForm(
     extra,
     prefill = ref({})
 ) {
-    const gtm = useGtm()
-    const { t } = useI18n({ useScope: 'global' })
+    // const gtm = useGtm()
 
     const firstName = ref(prefill.value.firstName || '')
     const lastName = ref(prefill.value.lastName || '')
@@ -25,21 +24,18 @@ export default function useContactForm(
         if (!showWarnings.value) {
             return {}
         }
-        const { t } = useI18n({ useScope: 'global' })
         const warningsMap = {}
         if (!email.value && required.includes('email')) {
-            warningsMap['email'] = t('FIELD_IS_REQUIRED', {
-                field: t('YOUR_EMAIL'),
-            })
+            warningsMap['email'] = 'Your email is reauired.'
         }
         if (!isAgreeTerms.value && required.includes('isAgreeTerms')) {
-            warningsMap['isAgreeTerms'] = t('PLEASE_AGREE_TO_TERMS')
+            warningsMap['isAgreeTerms'] = 'You need to agree to the terms.'
         }
         if (!isAgreeMarketing.value && required.includes('isAgreeMarketing')) {
-            warningsMap['isAgreeMarketing'] = t('PLEASE_AGREE_TO_MARKETING')
+            warningsMap['isAgreeMarketing'] = 'You need to agree to receive marketing from Bank.Green'
         }
         if (!bank.value && required.includes('bank')) {
-            warningsMap['bank'] = t('PLEASE_GIVE_BANK_NAME')
+            warningsMap['bank'] = 'Please tell us the name of your bank'
         }
         return warningsMap
     })
@@ -72,11 +68,11 @@ export default function useContactForm(
         })
         isSent.value = true
 
-        let gtmEvent = 'emailform'
-        if (tag === 'contact page form') {
-            gtmEvent = 'contactpage'
-        }
-        gtm.trackEvent({ event: gtmEvent })
+        // let gtmEvent = 'emailform'
+        // if (tag === 'contact page form') {
+        //     gtmEvent = 'contactpage'
+        // }
+        // gtm.trackEvent({ event: gtmEvent })
 
         isSent.value = true
 
