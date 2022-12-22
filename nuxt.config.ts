@@ -21,17 +21,6 @@ export default defineNuxtConfig({
   routeRules: {
     "/sustainable-ethical-banks": { redirect: "/sustainable-eco-banks" },
   },
-  i18n: {
-    vueI18n: {
-      legacy: false,
-      globalInjection: true,
-      locale: "en",
-      messages: {
-        en,
-      },
-      fallbackLocale: "en",
-    },
-  },
   app: {
     head: {
       meta: [
