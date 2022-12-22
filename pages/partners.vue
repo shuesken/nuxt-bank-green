@@ -119,7 +119,6 @@ const partners = [
         img: 'thecarbonalmanac.png',
     },
 ]
-const { t } = useI18n({ useScope: 'global' })
 useHeadHelper('Our Partners - Bank.Green', 'Our amazing partners at Bank.Green, together with whom we are reshaping finance.')
 
 </script>
