@@ -282,6 +282,73 @@
         },
         "screenshotPaths": {}
       },
+      "featured_in_slice": {
+        "library": "slices",
+        "id": "featured_in_slice",
+        "name": "FeaturedInSlice",
+        "description": "FeaturedInSlice",
+        "model": {
+          "id": "featured_in_slice",
+          "type": "SharedSlice",
+          "name": "FeaturedInSlice",
+          "description": "FeaturedInSlice",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "FeaturedInSlice",
+              "primary": {
+                "logo": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Logo",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "class": {
+                  "type": "Text",
+                  "config": {
+                    "label": "class",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "logo": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+              },
+              "class": "best"
+            },
+            "slice_type": "featured_in_slice"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "vue"
+        },
+        "screenshotPaths": {}
+      },
       "image_slice": {
         "library": "slices",
         "id": "image_slice",

@@ -29,14 +29,15 @@
                         </h3>
                         <div
                             class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between items-center w-full filter-grayscale opacity-20">
-                            <img class="h-6 w-auto" src="/img/featured/forbes.png"
+                            <SliceZone :slices="home?.data.slices1 ?? []" :components="sliceComps" />
+                            <!-- <img class="h-6 w-auto" src="/img/featured/forbes.png"
                                 alt="Bank Green featured in Forbes" />
                             <img class="h-12 pb-2 w-auto" src="/img/featured/the-new-yorker.png"
                                 alt="Bank Green featured in The New Yorker" />
                             <img class="h-10 w-auto" src="/img/featured/independent.png"
                                 alt="Bank Green featured in Independent" />
                             <img class="h-12 w-auto" src="/img/featured/the-big-issue.png"
-                                alt="Bank Green featured in The Big Issue" />
+                                alt="Bank Green featured in The Big Issue" /> -->
                         </div>
                     </div>
                     <div class="hidden md:flex flex-col justify-center items-center">
@@ -114,6 +115,9 @@ import BankSearch from '@/components/forms/banks/BankSearch.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import { useGtm } from 'vue-gtm'
 import { useI18n } from 'vue-i18n'
+import { components } from '~~/slices'
+import { defineSliceZoneComponents } from '@prismicio/vue';
+const sliceComps = ref(defineSliceZoneComponents(components))
 
 const bank = ref(null)
 const { t } = useI18n({ useScope: 'global' })

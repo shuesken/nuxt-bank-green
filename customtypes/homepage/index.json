@@ -41,6 +41,19 @@
           "multi": "paragraph,strong,em,hyperlink,list-item"
         }
       }
+    },
+    "As Featured In": {
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "featured_in_slice": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
     }
   }
 }

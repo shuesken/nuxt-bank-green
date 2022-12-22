@@ -156,6 +156,11 @@
       "default": {
         "primary": {}
       }
+    },
+    "FeaturedInSlice": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }

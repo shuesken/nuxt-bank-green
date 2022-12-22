@@ -468,7 +468,23 @@ interface HomepageDocumentData {
      *
      */
     description4: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *HomePage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.slices1[]
+     * - **Tab**: As Featured In
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices1: prismicT.SliceZone<HomepageDocumentDataSlices1Slice>;
 }
+/**
+ * Slice for *HomePage → Slice Zone*
+ *
+ */
+type HomepageDocumentDataSlices1Slice = FeaturedInSliceSlice;
 /**
  * HomePage document from Prismic
  *
@@ -975,6 +991,55 @@ type EmbedSliceSliceVariation = EmbedSliceSliceDefault;
  */
 export type EmbedSliceSlice = prismicT.SharedSlice<"embed_slice", EmbedSliceSliceVariation>;
 /**
+ * Primary content in FeaturedInSlice → Primary
+ *
+ */
+interface FeaturedInSliceSliceDefaultPrimary {
+    /**
+     * Logo field in *FeaturedInSlice → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: featured_in_slice.primary.logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
+    /**
+     * class field in *FeaturedInSlice → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: featured_in_slice.primary.class
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    class: prismicT.KeyTextField;
+}
+/**
+ * Default variation for FeaturedInSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `FeaturedInSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturedInSliceSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FeaturedInSliceSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *FeaturedInSlice*
+ *
+ */
+type FeaturedInSliceSliceVariation = FeaturedInSliceSliceDefault;
+/**
+ * FeaturedInSlice Shared Slice
+ *
+ * - **API ID**: `featured_in_slice`
+ * - **Description**: `FeaturedInSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturedInSliceSlice = prismicT.SharedSlice<"featured_in_slice", FeaturedInSliceSliceVariation>;
+/**
  * Primary content in ImageSlice → Primary
  *
  */
@@ -1113,6 +1178,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BankpageDocumentData, BankpageDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CalltoactionDocumentData, CalltoactionDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, EcobankspageDocumentData, EcobankspageDocumentDataSlicesSlice, EcobankspageDocumentDataSlices1Slice, EcobankspageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, HomepageDocumentData, HomepageDocument, PledgepageDocumentData, PledgepageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
+        export type { AccordionitemDocumentData, AccordionitemDocumentDataSlicesSlice, AccordionitemDocument, BankpageDocumentData, BankpageDocument, BlogpostDocumentData, BlogpostDocumentDataSlicesSlice, BlogpostDocument, CalltoactionDocumentData, CalltoactionDocument, CertificationpageDocumentData, CertificationpageDocumentDataSlicesSlice, CertificationpageDocument, ContactpageDocumentData, ContactpageDocument, DisclaimerpageDocumentData, DisclaimerpageDocumentDataSlicesSlice, DisclaimerpageDocument, EcobankspageDocumentData, EcobankspageDocumentDataSlicesSlice, EcobankspageDocumentDataSlices1Slice, EcobankspageDocument, FaqpageDocumentData, FaqpageDocumentDataSlicesSlice, FaqpageDocument, HomepageDocumentData, HomepageDocumentDataSlices1Slice, HomepageDocument, PledgepageDocumentData, PledgepageDocument, PresspostDocumentData, PresspostDocumentDataSlicesSlice, PresspostDocument, PrivacypageDocumentData, PrivacypageDocumentDataSlicesSlice, PrivacypageDocument, TakeactionpageDocumentData, TakeactionpageDocumentDataSlices1Slice, TakeactionpageDocumentDataSlices2Slice, TakeactionpageDocumentDataSlices3Slice, TakeactionpageDocumentDataSlices4Slice, TakeactionpageDocument, TeampageDocumentData, TeampageDocumentDataSlicesSlice, TeampageDocument, AllDocumentTypes, AccordionSliceSliceRichTextPrimary, AccordionSliceSliceRichText, AccordionSliceSliceRichTextWithStepPrimary, AccordionSliceSliceRichTextWithStep, AccordionSliceSliceDefaultPrimary, AccordionSliceSliceDefault, AccordionSliceSliceVariation, AccordionSliceSlice, ButtonSliceSliceDefaultPrimary, ButtonSliceSliceDefault, ButtonSliceSliceVariation, ButtonSliceSlice, EmbedSliceSliceDefaultPrimary, EmbedSliceSliceDefault, EmbedSliceSliceVariation, EmbedSliceSlice, FeaturedInSliceSliceDefaultPrimary, FeaturedInSliceSliceDefault, FeaturedInSliceSliceVariation, FeaturedInSliceSlice, ImageSliceSliceDefaultPrimary, ImageSliceSliceDefault, ImageSliceSliceVariation, ImageSliceSlice, SharePicGallerySliceSliceDefault, SharePicGallerySliceSliceVariation, SharePicGallerySliceSlice, SocialSharerSliceSliceDefault, SocialSharerSliceSliceVariation, SocialSharerSliceSlice, TextSliceSliceDefaultPrimary, TextSliceSliceDefault, TextSliceSliceVariation, TextSliceSlice };
     }
 }
