@@ -49,15 +49,12 @@
 <script setup>
 import CheckboxSection from '../components/forms/CheckboxSection.vue'
 import TextField from '../components/forms/TextField.vue'
-import { useI18n } from 'vue-i18n'
+
 
 import { ref } from 'vue'
 import Swoosh from '@/components/Swoosh.vue'
 
-
-const { t } = useI18n({ useScope: 'global' })
-
-useHeadHelper(t('CONTACT_TITLE'), t('CONTACT_DESC'))
+useHeadHelper('Contact Us - Bank.Green', 'Unfortunately we are not currently accepting requests to research new banks, but we encourage you to reach out to your own bank to establish whether or not they are financing fossil fuels.')
 
 
 

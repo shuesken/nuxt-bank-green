@@ -5,13 +5,15 @@
 
                 <LottiePlayer class="w-20 h-20 mb-4 md:mb-6" :path="'/anim/emoji/Sad_Tear_Flat.json'" />
 
-                <h1 class="text-2xl md:text-4xl text-center text-gray-800 font-semibold whitespace-pre-line mb-8"
-                    v-t="'SORRY_NOT_LISTED'" />
-                <i18n-t keypath="NOT_LISTED" tag="p">
-                    <NuxtLink to="/contact" class="font-bold text-sushi-500 hover:underline">
-                        tell us your bank’s name
-                    </NuxtLink>
-                </i18n-t>
+                <h1 class="text-2xl md:text-4xl text-center text-gray-800 font-semibold whitespace-pre-line mb-8">Sorry,
+                    we haven’t listed your bank yet.</h1>
+                We’re working hard to increase the number of banks we provide data on. If you {0}, we’ll try to include
+                it as soon as possible. In the meantime, we encourage you to consider contacting your bank to ask them
+                whether they fund fossil fuels. But that’s not all you can do. To take further positive action, keep on
+                scrolling…
+                <NuxtLink to="/contact" class="font-bold text-sushi-500 hover:underline">
+                    tell us your bank’s name
+                </NuxtLink>
             </div>
             <Swoosh />
         </div>

@@ -13,7 +13,7 @@
             </div>
             <div class="col-span-2 md:col-span-1">
                 <div class="font-medium md:font-semibold text-gray-800 text-xl md:text-4xl tracking-wider mb-2 md:mb-6">
-                    {{ $t('OUR_TAKE_ON', { name: details.name }) }}
+                    {{ `Our take on ${details.name}` }}
                 </div>
                 <div class="text-lg md:text-xl text-gray-500">
                     <span v-if="details.ourTake" class="">{{

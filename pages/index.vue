@@ -53,9 +53,9 @@
                     </div>
                     <div class="mt-16">
                         <div class="mt-12 text-lg text-gray-700 text-center leading-4">
-                            <i18n-t keypath="WHY_BANK" scope="global">
-                                <img class="inline-block h-5 px-0.5" src="/img/trim-hor-light.svg" alt="Bank.Green" />
-                            </i18n-t>
+                            Why
+                            <img class="inline-block h-5 px-0.5" src="/img/trim-hor-light.svg" alt="Bank.Green" />
+                            ?
                         </div>
                         <ArrowDownBounce class="mx-auto mt-4 w-10" />
                     </div>
@@ -112,11 +112,10 @@ import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import { useGtm } from 'vue-gtm'
-import { useI18n } from 'vue-i18n'
+
 
 const bank = ref(null)
-const { t } = useI18n({ useScope: 'global' })
-useHeadHelper(t('INDEX_TITLE'), t('INDEX_DESC'))
+useHeadHelper('Find Ethical & Sustainable Banks In Your Area - Bank.Green', 'Bank.Green is sounding the alarm on the climate-destroying activities of banks while recommending sustainable alternatives and empowering consumer action.')
 
 const { client } = usePrismic()
 const { data: home } = await useAsyncData('home', () => client.getSingle('homepage'))

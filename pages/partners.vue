@@ -25,7 +25,7 @@
 <script>
 import SignupBox from '@/components/forms/SignupBox.vue'
 import LazyImage from '@/components/LazyImage.vue'
-import { useI18n } from 'vue-i18n'
+
 
 
 export default {
@@ -125,8 +125,7 @@ export default {
                 img: 'thecarbonalmanac.png',
             },
         ]
-        const { t } = useI18n({ useScope: 'global' })
-        useHeadHelper(t('PARTNERS_SEO_TITLE'), t('PARTNERS_DESC'))
+        useHeadHelper('Our Partners - Bank.Green', 'Our amazing partners at Bank.Green, together with whom we are reshaping finance.')
         return { partners }
     },
 }

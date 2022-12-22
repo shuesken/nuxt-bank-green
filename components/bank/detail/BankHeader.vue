@@ -29,7 +29,7 @@
                             </template>
                         </span>
                         <span v-else-if="details.rating === 'great'">
-                            "Your bank is great.
+                            Your bank is great.
                         </span>
                         <span v-else>Sorry, we don’t know enough about your bank yet.</span>
                     </div>

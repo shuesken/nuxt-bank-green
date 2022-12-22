@@ -89,14 +89,13 @@
 <script setup>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import EthicalBankCards from '@/components/bank/EthicalBankCards'
-import { useI18n } from 'vue-i18n'
+
 
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
 
-const { t } = useI18n({ useScope: 'global' })
-useHeadHelper(t('ETHICAL_BANKS_INDEX_TITLE'), t('ETHICAL_BANKS_INDEX_DESC'))
+useHeadHelper('Find Eco Banks & Sustainable Banks In Your Area - Bank.Green', 'Find and compare the service offerings of ethical and sustainable banks.')
 
 const { client } = usePrismic()
 

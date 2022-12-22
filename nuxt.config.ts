@@ -3,7 +3,7 @@
 import en from "./lang/en.json";
 
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/prismic", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/prismic"],
   prismic: {
     endpoint: "https://bankgreen.prismic.io/api/v2",
   },

@@ -65,14 +65,14 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+
 import RenderWhenVisibleInViewPort from '@/components/func/RenderWhenVisibleInViewPort.client.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import CallToAction from '@/components/CallToAction.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import PiggybankAnimation from '../PiggybankAnimation.vue'
 
-const { t } = useI18n()
+
 const props = defineProps({
     details: Object,
 })

@@ -34,9 +34,8 @@ import PinIcon from './PinIcon.vue'
 import { findCountries } from './countries'
 import SearchInput from '@/components/forms/input/SearchInput'
 import ListPicker from '@/components/forms/ListPicker'
-import { useI18n } from 'vue-i18n'
 
-const { t, te } = useI18n()
+
 const props = defineProps({
     modelValue: String,
 })

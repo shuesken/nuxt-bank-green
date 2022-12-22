@@ -41,14 +41,13 @@ import Swoosh from '@/components/Swoosh.vue'
 import PledgeSignup from '@/components/forms/PledgeSignup.vue'
 import CheckList from '@/components/CheckList.vue'
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+
 const checkList = [
     "Send a message to your bank that it must defund fossil fuels",
     "Join a fast-growing movement of consumers standing up for their future",
     "Take a critical climate action with profound effects"
 ]
-const { t } = useI18n({ useScope: 'global' })
-useHeadHelper(t('PLEDGE_SEO_TITLE'), t('PLEDGE_SEO_DESC'))
+useHeadHelper('Pledge to Switch Your Bank - Bank.Green', 'Are you ready to switch to a sustainable bank and stop financing fossil fuels? Pledge and set a reminder for yourself.')
 
 const { client } = usePrismic()
 const { data: pledge } = await useAsyncData('pledge', () => client.getSingle('pledgepage'))

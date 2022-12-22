@@ -60,22 +60,22 @@ import CheckList from '@/components/CheckList.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import SignupBox from '@/components/forms/SignupBox.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
-import { useI18n } from 'vue-i18n'
+
 
 const { client } = usePrismic()
 const { data: greatbank } = await useAsyncData('greatbank', () => client.getByUID('bankpage', 'greatbank'))
 
 
-const { t } = useI18n()
+
 
 defineProps({
     details: Object,
 })
 
 const checkList = [
-    t('LEARN_ABOUT_THE_ISSUES'),
-    t('JOIN_OUR_CAMPAIGNS_TAKE_ACTION'),
-    t('DISCOVER_WAYS_TO_DIVEST'),
+    'Learn about the issues via our blog updates',
+    'Join our campaigns to take action against fossil finance',
+    'Discover other ways to divest from fossil fuels',
 ]
 
 </script>

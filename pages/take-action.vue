@@ -52,11 +52,11 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
-const { t } = useI18n()
+
 
 useHeadHelper('Take action')
 const { client } = usePrismic()

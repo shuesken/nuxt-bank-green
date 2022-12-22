@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
 import { EmbedSlice, TextSlice, ImageSlice } from '~~/slices';
@@ -45,7 +45,6 @@ import { EmbedSlice, TextSlice, ImageSlice } from '~~/slices';
 const route = useRoute()
 
 const { client } = usePrismic()
-const { t } = useI18n({ useScope: 'global' })
 const slug = route.path.split('/').at(-1)
 const { data: post } = await useAsyncData(slug, () => client.getByUID('presspost', slug))
 

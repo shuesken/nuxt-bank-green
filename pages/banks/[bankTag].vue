@@ -9,7 +9,7 @@
 
 <script setup>
 import { computed, defineAsyncComponent, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+
 
 // const route = useRoute()
 // FIXME this is a workaround for an upstream Vue router bug; when seeing this the next time,
@@ -18,9 +18,8 @@ import { useI18n } from 'vue-i18n'
 const router = useRouter();
 const bankTag = router.currentRoute.value.params.bankTag;
 const details = ref(await getBankDetail(bankTag))
-const { t } = useI18n({ useScope: 'global' })
 
-useHeadHelper((details.value?.name ? t('BANK_DETAIL_TITLE', { name: details.value.name }) : ''), 'Find and compare the service offerings of ethical and sustainable banks.',
+useHeadHelper((details.value?.name ? `${details.value.name}'s Climate Score - Bank.Green` : ''), 'Find and compare the service offerings of ethical and sustainable banks.',
 )
 
 const { rating } = details.value

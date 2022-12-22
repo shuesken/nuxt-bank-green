@@ -34,14 +34,13 @@
 <script>
 import CheckList from '@/components/CheckList.vue'
 import SignupBox from '@/components/forms/SignupBox'
-import { useI18n } from 'vue-i18n'
+
 
 
 export default {
     components: { CheckList, SignupBox },
     setup() {
-        const { t } = useI18n({ useScope: 'global' })
-        useHeadHelper(t('JOIN_TITLE'), t('JOIN_DESCRIPTION'))
+        useHeadHelper('Join the Money Movement - Bank.Green', 'Join our consumer action community to attend our Zoom workshops to take on fossil funding banks and discover other ways to divest from fossil fuels.')
     },
     computed: {
         checkList() {
