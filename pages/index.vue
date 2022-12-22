@@ -5,7 +5,7 @@
                 <a id="top"></a>
                 <div class="max-w-4xl pt-28 lg:pt-12">
                     <h2 class="text-center text-2xl font-semibold text-gray-800 sm:text-5xl">
-                        {{ $t('MAIN_TITLE') }}
+                        Is your money being used to fund climate chaos?
                     </h2>
 
 
@@ -17,15 +17,14 @@
                                 :country="country" v-model="bank" />
                         </ClientOnly>
                         <NuxtLink :to="`/banks/${bank?.tag}`" class="flex-initial md:w-48 button-green"
-                            :class="{ disabled: !bank }" @click="onCheckBankClick">{{ $t('CHECK_MY_BANK')
-                            }}</NuxtLink>
+                            :class="{ disabled: !bank }" @click="onCheckBankClick">Check My Bank</NuxtLink>
                     </div>
 
 
                     <div class="flex flex-col items-center md:flex-row w-full pt-10 md:pt-8 md:pb-16">
                         <h3 class="text-center text-2xl md:text-xl font-semibold whitespace-nowrap mb-6 md:mb-0 md:mr-2 lg:mr-12"
                             style="font-family: serif">
-                            {{ $t('AS_FEATURED_IN') }}
+                            As featured in
                         </h3>
                         <div
                             class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between items-center w-full filter-grayscale opacity-20">
@@ -42,7 +41,7 @@
                     </div>
                     <div class="hidden md:flex flex-col justify-center items-center">
                         <p class="text-center text-lg font-medium text-gray-700 mb-2">
-                            {{ $t('IN_ASSOCIATION_WITH') }}
+                            In association with
                         </p>
                         <div class="flex flex-row justify-center items-center space-x-6">
                             <a href="https://www.banktrack.org/" rel="noopener" target="_blank">
@@ -51,13 +50,13 @@
                                 </div>
                             </a>
                         </div>
-                        <NuxtLink to="/partners" class="underline mt-2 text-sm">{{ $t('SEE_OUR_PARTNERS') }}</NuxtLink>
+                        <NuxtLink to="/partners" class="underline mt-2 text-sm">See our partners</NuxtLink>
                     </div>
                     <div class="mt-16">
                         <div class="mt-12 text-lg text-gray-700 text-center leading-4">
-                            <i18n-t keypath="WHY_BANK" scope="global">
-                                <img class="inline-block h-5 px-0.5" src="/img/trim-hor-light.svg" alt="Bank.Green" />
-                            </i18n-t>
+                            Why
+                            <img class="inline-block h-5 px-0.5" src="/img/trim-hor-light.svg" alt="Bank.Green" />
+                            ?
                         </div>
                         <ArrowDownBounce class="mx-auto mt-4 w-10" />
                     </div>
@@ -114,14 +113,12 @@ import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import BankSearch from '@/components/forms/banks/BankSearch.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import { useGtm } from 'vue-gtm'
-import { useI18n } from 'vue-i18n'
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
 
 const bank = ref(null)
-const { t } = useI18n({ useScope: 'global' })
-useHeadHelper(t('INDEX_TITLE'), t('INDEX_DESC'))
+useHeadHelper('Find Ethical & Sustainable Banks In Your Area - Bank.Green', 'Bank.Green is sounding the alarm on the climate-destroying activities of banks while recommending sustainable alternatives and empowering consumer action.')
 
 const { client } = usePrismic()
 const { data: home } = await useAsyncData('home', () => client.getSingle('homepage'))

@@ -25,10 +25,10 @@
                         <div v-if="!country">
                             <h2 class="w-full px-5 py-4 bg-gray-100 border border-gray-300 rounded-2xl text-sm">
                                 <div class="font-medium text-gray-600">
-                                    {{ $t('NO_COUNTRY_SELECTED') }}
+                                    No country selected
                                 </div>
                                 <div class="text-sm text-gray-500">
-                                    {{ $t('NO_COUNTRY_SELECTED_DESCRIPTION') }}
+                                    To continue, please select a country.
                                 </div>
                             </h2>
                         </div>
@@ -43,10 +43,11 @@
 
                             <div v-else-if="!loading" class="mt-20">
                                 <h2 class="text-xl font-semibold mb-4 md:text-center">
-                                    {{ $t('SORRY_NO_CRITERIA_MET') }}
+                                    Sorry, we don't have any banks that met the required filters
                                 </h2>
                                 <p class="text-gray-600 mb-8 md:text-center max-w-lg mx-auto">
-                                    {{ $t('SORRY_NO_CRITERIA_MET_DESC') }}
+                                    {We’re working hard to increase the number of banks we provide data on. If you tell
+                                    us your bank’s name, we’ll email you as soon as we have a score for it.
                                 </p>
                             </div>
                         </div>
@@ -71,14 +72,13 @@
 <script setup>
 import LocationSearch from '@/components/forms/location/LocationSearch.vue'
 import EthicalBankCards from '@/components/bank/EthicalBankCards'
-import { useI18n } from 'vue-i18n'
+
 
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
 
-const { t } = useI18n({ useScope: 'global' })
-useHeadHelper(t('ETHICAL_BANKS_INDEX_TITLE'), t('ETHICAL_BANKS_INDEX_DESC'))
+useHeadHelper('Find Eco Banks & Sustainable Banks In Your Area - Bank.Green', 'Find and compare the service offerings of ethical and sustainable banks.')
 
 const { client } = usePrismic()
 

@@ -26,7 +26,6 @@
     "fuse.js": "^6.6.2",
     "geonames.js": "^3.0.6",
     "lottie-web": "^5.10.0",
-    "vue-gtm": "^3.5.0",
-    "vue3-notion": "^0.1.38"
+    "vue-gtm": "^3.5.0"
   }
 }

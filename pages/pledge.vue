@@ -26,7 +26,7 @@
                 <PrismicRichText :field="pledge.data.description2" />
                 <div class="w-full flex justify-center mt-12">
                     <button @click="scrollToForm" class="button-green max-w-md md:w-max">
-                        {{ $t('TAKE_THE_PLEDGE') }}
+                        Take the Pledge
                     </button>
                 </div>
             </div>
@@ -41,10 +41,13 @@ import Swoosh from '@/components/Swoosh.vue'
 import PledgeSignup from '@/components/forms/PledgeSignup.vue'
 import CheckList from '@/components/CheckList.vue'
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n({ useScope: 'global' })
-useHeadHelper(t('PLEDGE_SEO_TITLE'), t('PLEDGE_SEO_DESC'))
+const checkList = [
+    "Send a message to your bank that it must defund fossil fuels",
+    "Join a fast-growing movement of consumers standing up for their future",
+    "Take a critical climate action with profound effects"
+]
+useHeadHelper('Pledge to Switch Your Bank - Bank.Green', 'Are you ready to switch to a sustainable bank and stop financing fossil fuels? Pledge and set a reminder for yourself.')
 
 const { client } = usePrismic()
 const { data: pledge } = await useAsyncData('pledge', () => client.getSingle('pledgepage'))
@@ -59,9 +62,4 @@ const scrollToForm = () => {
 }
 
 
-const checkList = [
-    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-    t('JOIN_A_FAST_GROWING_MOVEMENT'),
-    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-]
 </script>

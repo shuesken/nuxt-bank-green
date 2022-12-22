@@ -52,11 +52,11 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
-const { t } = useI18n()
+
 
 useHeadHelper('Take action')
 const { client } = usePrismic()
@@ -66,9 +66,4 @@ const { data: action } = await useAsyncData('takeaction', () => client.getSingle
 const tabs = ['Pressure', 'Switch', 'Share', 'Learn']
 const selectedTabIndex = ref(0)
 
-const checkList = [
-    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-    t('JOIN_A_FAST_GROWING_MOVEMENT'),
-    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-]
 </script>

@@ -1,34 +1,33 @@
 <template>
     <div v-if="isSent" class="bg-primary-dark rounded-2xl mt-8 px-6 py-12 text-gray-50 text-center font-semibold">
-        {{ $t('THANKS_FOR_TELLING_US') }}
+        Thanks, we'll let you know when we've added your bank.
     </div>
     <div v-else
         class="flex items-center justify-center bg-primary-dark rounded-2xl mt-8 px-6 py-12 text-gray-50 text-center font-semibold">
         <div class="max-w-xl">
             <form @submit.prevent.stop="send" class="flex flex-col justify-center items-center">
                 <div class="grid grid-cols-2 gap-6 text-left">
-                    <TextField class="col-span-2" v-model="bank" name="bank" type="bank" :title="$t('YOUR_BANK')"
-                        :placeholder="$t('YOUR_BANK')" :warning="warningsMap['bank']" :dark="true" />
+                    <TextField class="col-span-2" v-model="bank" name="bank" type="bank" :title="'Name of bank'"
+                        :placeholder="'Name of bank'" :warning="warningsMap['bank']" :dark="true" />
                     <TextField class="col-span-2" v-model="firstName" name="firstName" type="text"
-                        :title="$t('FIRST_NAME_OPTIONAL')" :placeholder="$t('FIRST_NAME_PLACEHOLDER')" :dark="true" />
-                    <TextField class="col-span-2" v-model="email" name="email" type="email" :title="$t('YOUR_EMAIL')"
-                        :placeholder="$t('PLACEHOLDER_EMAIL')" :warning="warningsMap['email']" :dark="true" />
+                        :title="'Your first name (optional)'" :placeholder="'First name, so we can say hi'"
+                        :dark="true" />
+                    <TextField class="col-span-2" v-model="email" name="email" type="email"
+                        :title="'Your email address'" :placeholder="'youremail@address.com'"
+                        :warning="warningsMap['email']" :dark="true" />
                     <CheckboxSection class="col-span-2" v-model="isAgreeMarketing" name="isAgreeMarketing"
                         :warning="warningsMap['isAgreeMarketing']" :dark="true">
-                        {{ $t('AGREE_MARKETING') }}</CheckboxSection>
+                        I wish to receive more information via email from Bank.Green.</CheckboxSection>
                     <CheckboxSection class="col-span-2" v-model="isAgreeTerms" name="isAgreeTerms" :dark="true"
                         :warning="warningsMap['isAgreeTerms']">
-                        <i18n-t keypath="AGREE_PRIVACY">
-                            <a href="/privacy" class="link" target="_blank">{{
-                                    $t('PRIVACY_POLICY')
-                            }}</a>
-                        </i18n-t>
+                        I have read and understood Bank.Green’s <NuxtLink to="/privacy" class="link">privacy policy
+                        </NuxtLink>.
                     </CheckboxSection>
                 </div>
                 <button type="submit" class="button-green w-full md:w-36 mt-6 md:text-lg flex justify-center" :class="{
                     'pointer-events-none opacity-75': busy,
                 }">
-                    <span v-if="!busy"> {{ $t('SUBMIT') }} </span>
+                    <span v-if="!busy">Submit</span>
                     <span v-else>
                         <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 553"
                             style="animation: ring 2s linear infinite;">

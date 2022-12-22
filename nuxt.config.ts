@@ -3,7 +3,7 @@
 import en from "./lang/en.json";
 
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/prismic", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/prismic"],
   prismic: {
     endpoint: "https://bankgreen.prismic.io/api/v2",
   },
@@ -20,17 +20,6 @@ export default defineNuxtConfig({
   css: ["@/styles/style.css"],
   routeRules: {
     "/sustainable-ethical-banks": { redirect: "/sustainable-eco-banks" },
-  },
-  i18n: {
-    vueI18n: {
-      legacy: false,
-      globalInjection: true,
-      locale: "en",
-      messages: {
-        en,
-      },
-      fallbackLocale: "en",
-    },
   },
   app: {
     head: {

@@ -14,12 +14,12 @@
                 :list="[asText(call.data.checklist1), asText(call.data.checklist2), asText(call.data.checklist3)]" />
         </div>
         <div class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center mt-8">
-            <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY_TODAY') }}
+            <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">Move Your Money Today
             </NuxtLink>
             <div class="text-xs text-gray-500 mx-4 uppercase">
-                {{ $t('OR') }}
+                Or
             </div>
-            <NuxtLink to="/pledge" class="underline text-white">{{ $t('PLEDGE_TO_MOVE_IT') }}
+            <NuxtLink to="/pledge" class="underline text-white">Pledge to Move It
             </NuxtLink>
         </div>
     </div>

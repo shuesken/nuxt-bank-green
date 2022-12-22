@@ -48,7 +48,6 @@
 
 <script setup>
 import { components } from '~~/slices'
-
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
 const route = useRoute()

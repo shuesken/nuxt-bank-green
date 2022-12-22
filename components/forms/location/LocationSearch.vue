@@ -1,6 +1,6 @@
 <template>
     <div class="relative" v-clickaway="hideList">
-        <SearchInput :aria-expanded="isShowing" v-model="search" :usePencil="true" :placeholder="$t('SEARCH_COUNTRY')"
+        <SearchInput :aria-expanded="isShowing" v-model="search" :usePencil="true" :placeholder="'Search country...'"
             @keydown.down="event => $refs['listPicker'].incrementFocus(event)"
             @keydown.up="event => $refs['listPicker'].decrementFocus(event)"
             @keydown.enter="event => $refs['listPicker'].selectCurrentItem()" @onFocus="showList" @onClick="showList"
@@ -17,7 +17,7 @@
                 'bg-gray-100': !filteredCountries.length,
             }">
                 <div v-if="filteredCountries.length === 0" class="text-gray-500 text-center p-4 shadow-lg">
-                    {{ $t('NO_COUNTRIES_FOUND') }}
+                    No countries found
                 </div>
                 <ListPicker ref="listPicker" v-else :items="filteredCountries" v-slot="{ item }"
                     @selectItem="onSelectCountry">
@@ -34,9 +34,8 @@ import PinIcon from './PinIcon.vue'
 import { findCountries } from './countries'
 import SearchInput from '@/components/forms/input/SearchInput'
 import ListPicker from '@/components/forms/ListPicker'
-import { useI18n } from 'vue-i18n'
 
-const { t, te } = useI18n()
+
 const props = defineProps({
     modelValue: String,
 })

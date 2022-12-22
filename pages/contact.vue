@@ -8,31 +8,28 @@
                 <form class=" flex flex-col justify-center items-center" @submit.prevent.stop="onSend">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                         <TextField class="col-span-1" v-model="firstName" name="firstName" type="text"
-                            :title="$t('FIRST_NAME_OPTIONAL')" :placeholder="$t('FIRST_NAME_PLACEHOLDER')" />
+                            :title="'Your first name (optional)'" :placeholder="'First name, so we can say hi'" />
                         <TextField class="col-span-1" v-model="email" type="email" name="email"
-                            :title="$t('YOUR_EMAIL')" :placeholder="$t('YOUR_EMAIL')" :warning="warningsMap['email']" />
-                        <TextField class="col-span-1 md:col-span-2" v-model="subject" name="subject"
-                            :title="$t('SUBJECT')" :placeholder="$t('SUBJECT')" :warning="warningsMap['subject']"
-                            :required="true" />
+                            :title="'Your email address'" :placeholder="'Your email address'"
+                            :warning="warningsMap['email']" />
+                        <TextField class="col-span-1 md:col-span-2" v-model="subject" name="subject" :title="'Subject'"
+                            :placeholder="'Subject'" :warning="warningsMap['subject']" :required="true" />
                         <TextField class="md:col-span-2" v-model="message" rows="3" name="message"
-                            :title="$t('YOUR_MESSAGE')" :placeholder="$t('YOUR_MESSAGE')"
-                            :warning="warningsMap['message']" :required="true" />
+                            :title="'Your message'" :placeholder="'Your message'" :warning="warningsMap['message']"
+                            :required="true" />
                         <CheckboxSection class="md:col-span-2" v-model="isAgreeMarketing" name="isAgreeMarketing">
-                            {{ $t('AGREE_MARKETING') }}</CheckboxSection>
+                            I wish to receive more information via email from Bank.Green.</CheckboxSection>
                         <CheckboxSection class="md:col-span-2" v-model="isAgreeTerms" name="isAgreeTerms"
                             :warning="warningsMap['isAgreeTerms']">
-                            <i18n-t keypath="AGREE_PRIVACY">
-                                <NuxtLink to="/privacy" class="link">{{
-                                        $t('PRIVACY_POLICY')
-                                }}</NuxtLink>
-                            </i18n-t>
+                            I have read and understood Bank.Green’s <NuxtLink to="/privacy" class="link">privacy policy
+                            </NuxtLink>.
                         </CheckboxSection>
                     </div>
                     <button type="submit" class="button-green mt-6 md:w-48 flex justify-center" :class="{
                         'pointer-events-none opacity-75': busy,
                     }">
                         <span v-if="!busy">
-                            {{ $t('SEND_MESSAGE') }}
+                            Send message
                         </span>
                         <span v-else>
                             <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 553"
@@ -52,15 +49,12 @@
 <script setup>
 import CheckboxSection from '../components/forms/CheckboxSection.vue'
 import TextField from '../components/forms/TextField.vue'
-import { useI18n } from 'vue-i18n'
+
 
 import { ref } from 'vue'
 import Swoosh from '@/components/Swoosh.vue'
 
-
-const { t } = useI18n({ useScope: 'global' })
-
-useHeadHelper(t('CONTACT_TITLE'), t('CONTACT_DESC'))
+useHeadHelper('Contact Us - Bank.Green', 'Unfortunately we are not currently accepting requests to research new banks, but we encourage you to reach out to your own bank to establish whether or not they are financing fossil fuels.')
 
 
 

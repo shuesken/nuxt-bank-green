@@ -12,17 +12,15 @@
                 <div v-if="
                     details.rating === 'worst' || details.rating === 'bad'
                 " class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center w-auto">
-                    <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">{{ $t('MOVE_YOUR_MONEY') }}
+                    <NuxtLink to="/sustainable-eco-banks" class="button-green w-auto">Move Your Money
                     </NuxtLink>
                     <div class="text-xs text-gray-500 mx-4 uppercase">
-                        {{ $t('OR') }}
+                        Or
                     </div>
-                    <NuxtLink to="/pledge" class="underline">{{ $t('PLEDGE_TO_MOVE_IT') }}
+                    <NuxtLink to="/pledge" class="underline">Pledge to Move it
                     </NuxtLink>
                 </div>
-                <NuxtLink v-else to="/pledge" class="button-green inline-block w-auto">{{
-                        $t('PLEDGE_TO_MOVE_YOUR_MONEY')
-                }}
+                <NuxtLink v-else to="/pledge" class="button-green inline-block w-auto">Pledge to Move Your Money
                 </NuxtLink>
                 <div class="flex md:hidden flex-grow justify-center">
                     <ArrowDownBounce class="inline-block w-10" />
@@ -39,11 +37,15 @@
         <div class="relative z-10 contain max-w-2xl">
             <h3 class="text-center text-blue-900 text-lg md:text-2xl tracking-wider font-semibold mb-4">
                 <template>
-                    {{ $t('BANK_EXPLAIN_2_TITLE') }}
+                    Your bank is ignoring the Paris Agreement.
                 </template>
             </h3>
             <p class="text-blue-900 leading-loose text-lg">
-                {{ $t('BANK_EXPLAIN_2_DESC') }}
+                The Paris Agreement set the goal to stay under 1.5°C of warming for very good reasons. According to the
+                Intergovernmental Panel on Climate Change, an increase of just a couple of degrees more could lead to
+                \"substantial species extinction, large risks to global and regional food security\", and an inability
+                to work outside — or even live — in some areas of the world. Our world will become unrecognizable as
+                ocean dead zones, floods, and extreme weather fuel social and economic disruption.
             </p>
         </div>
         <div class="w-full -mt-24 sm:-mt-16 lg:-mt-32 pointer-events-none overflow-hidden">
@@ -52,9 +54,7 @@
     </div>
     <div class="bg-blue-100 pb-8 pt-8">
         <div class="contain flex flex-col justify-center items-center">
-            <CallToAction :title="$t('WHAT_CAN_YOU_DO_TITLE', { name: details.name })"
-                :paragraph="$t('BANKS_REQUIRE_PROFIT')" :checkListItems="checkList" :buttonText="$t('TAKE_THE_PLEDGE')"
-                :light="true" :spaced="true" />
+            <CallToAction :light="true" :spaced="true" />
         </div>
     </div>
     <div class="bg-blue-100 overflow-hidden w-full pointer-events-none">
@@ -65,25 +65,19 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+
 import RenderWhenVisibleInViewPort from '@/components/func/RenderWhenVisibleInViewPort.client.vue'
 import Swoosh from '@/components/Swoosh.vue'
 import CallToAction from '@/components/CallToAction.vue'
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 import PiggybankAnimation from '../PiggybankAnimation.vue'
 
-const { t } = useI18n()
+
 const props = defineProps({
     details: Object,
 })
 
 const formattedTotal = computed(() => props?.details.amountFinancedSince2016 ?? 'large amounts')
-
-const checkList = [
-    t('SEND_A_MESSAGE_TO_YOUR_BANK'),
-    t('JOIN_A_FAST_GROWING_MOVEMENT'),
-    t('TAKE_A_CRITICAL_CLIMATE_ACTION'),
-]
 
 const piggyText = computed(() => {
     t(

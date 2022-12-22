@@ -4,32 +4,29 @@
         <div class="max-w-xl">
             <p v-if="title" class="text-xl md:text-3xl mb-6">{{ title }}</p>
             <p v-else class="text-xl md:text-3xl mb-6">
-                {{ $t('TAKE_ACTION_WITH') }}
+                Take action with Bank.Green
             </p>
 
             <form @submit.prevent.stop="submit" class="flex flex-col justify-center items-center text-left">
                 <div class="grid grid-cols-2 gap-6">
                     <TextField class="col-span-2 md:col-span-1" v-model="firstName" name="firstName" type="text"
-                        :placeholder="$t('FIRST_NAME_PLACEHOLDER')" :dark="true" />
+                        placeholder="First name, so we can say hi" :dark="true" />
                     <TextField class="col-span-2 md:col-span-1" v-model="email" name="email" type="email"
-                        :placeholder="$t('YOUR_EMAIL')" :warning="warningsMap['email']" :dark="true" />
+                        placeholder="Your email address" :warning="warningsMap['email']" :dark="true" />
                     <CheckboxSection class="col-span-2" v-model="isAgreeMarketing" name="isAgreeMarketing"
                         :warning="warningsMap['isAgreeMarketing']" :dark="true">
-                        {{ $t('AGREE_MARKETING') }}</CheckboxSection>
+                        I wish to receive more information via email from Bank.Green.</CheckboxSection>
                     <CheckboxSection class="col-span-2" v-model="isAgreeTerms" name="isAgreeTerms" :dark="true"
                         :warning="warningsMap['isAgreeTerms']">
-                        <i18n-t keypath="AGREE_PRIVACY">
-                            <a href="/privacy" class="link" target="_blank">{{
-                                    $t('PRIVACY_POLICY')
-                            }}</a>
-                        </i18n-t>
+                        I have read and understood Bank.Green’s <NuxtLink to="/privacy" class="link">privacy policy
+                        </NuxtLink>.
                     </CheckboxSection>
                 </div>
                 <button type="submit" class="button-green w-full md:w-72 mt-6 md:text-lg flex justify-center" :class="{
                     'pointer-events-none opacity-75': busy,
                 }">
                     <span v-if="!busy">
-                        {{ $t('JOIN_MONEY_MOVEMENT') }}
+                        Join the Money Movement
                     </span>
                     <span v-else>
                         <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 553"
