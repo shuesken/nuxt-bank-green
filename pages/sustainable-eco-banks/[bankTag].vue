@@ -18,5 +18,5 @@ if (!bankTag)
     throw new Error("no banktag supplied: " + JSON.stringify(router.currentRoute.value))
 const details = await getBankDetail(bankTag)
 
-useHeadHelper(`${details.value.name} Review and Service Offering - Bank.Green`)
+useHeadHelper(`${details.name} Review and Service Offering - Bank.Green`)
 </script>

@@ -2,8 +2,9 @@
     <div class="page">
         <div class="bg-sushi-50">
             <div class="page-fade-in contain pt-28 pb-12">
-                <h1 class="text-2xl font-semibold whitespace-pre-line mb-4 md:text-center" v-t="'PARTNERS_TITLE'" />
-                <h2 class="text-gray-600 md:text-center" v-t="'PARTNERS_SUBTITLE'"></h2>
+                <h1 class="text-2xl font-semibold whitespace-pre-line mb-4 md:text-center">Our Partners</h1>
+                <h2 class="text-gray-600 md:text-center">Below is a list of our amazing
+                    partners, together with whom we are reshaping finance.</h2>
                 <div class="max-w-4xl mx-auto py-16 grid grid-cols-6 gap-4 lg:gap-10">
                     <a v-for="partner in partners" :key="partner.name" :href="partner.url"
                         class="block col-span-6 sm:col-span-3 md:col-span-2 w-full h-40 bg-white rounded-3xl px-8 py-6 hover:shadow-xl transition-all duration-500 ease-in-out filter-grayscale hover:filter-none"

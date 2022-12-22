@@ -10,9 +10,6 @@
         </svg>
         <div class="flex-1">
             <span v-if="item.text" class="text-gray-900">{{ item.text }}</span>
-            <span v-else-if="$te(key)" class="text-gray-700">{{
-                    $t(key)
-            }}</span>
             <span v-else-if="item.isChecked" class="text-gray-700">{{
                     key
             }}</span>

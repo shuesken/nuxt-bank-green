@@ -7,47 +7,47 @@ export default function getLinks({ isHeader = false }) {
     const links = [
         {
             href: '/pledge',
-            title: get('PLEDGE'),
+            title: 'Pledge',
         },
         {
             href: '/sustainable-eco-banks',
-            title: get('SUSTAINABLE_BANKS'),
+            title: 'Sustainable banks',
         },
-        { href: '/blog', title: get('BLOG') },
+        { href: '/blog', title: 'Blog' },
         {
             href: '/faq',
-            title: get('FAQ'),
-            short_title: get('FAQ_SHORT'),
+            title: 'Frequently asked questions',
+            short_title: 'FAQ',
         },
-        { href: '/contact', title: get('CONTACT') },
+        { href: '/contact', title: 'Contact us' },
     ]
 
     if (!isHeader) {
         links.push({
             href: '/certification',
-            title: get('CERTIFICATION'),
+            title: 'Fossil Free Certification',
         })
         links.push({
             href: '/press',
-            title: get('PRESS'),
+            title: "Press",
         })
 
         links.push({
             href: '/partners',
-            title: get('OUR PARTNERS'),
-            short_title: get('PARTNERS'),
+            title: "Our Ppartners",
+            short_title: "Partners",
         })
 
         links.push({
             href: '/team',
-            title: get('WHO_WE_ARE'),
-            short_title: get('TEAM'),
+            title: "Who we are",
+            short_title: "Team",
         })
         return [
             {
                 href: '/take-action',
-                title: get('TAKE_ACTION'),
-                short_title: get('ACT'),
+                title: "Take action",
+                short_title: 'Act',
             },
             ...links,
         ]
