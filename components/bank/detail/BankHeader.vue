@@ -50,10 +50,14 @@
                             <span
                                 v-text="`The good news is that your bank is not a leading fossil fuel funder and we have found positive evidence that they care about the environment. The bad news is that *we haven’t yet been able to confirm for certain that they do not fund fossil fuels.*\n\nSince your bank is showing themselves to be socially responsible, it’s time to make sure they know that fossil fuel funding is no longer socially acceptable. *To take positive action, keep on scrolling…*`"></span></template>
                         <PrismicRichText v-else-if="details.rating === 'great'" :field="greatbank.data.description1" />
-                        <span v-else v-text="$t('BANK_RATING_UNK_DESC')"></span>
+                        <span v-else>Unfortunately, we don’t yet have enough information on your bank to know what it’s
+                            funding. What we do know however, is that contacting your bank to ask them yourself will
+                            send a powerful message – banks will have no choice but to reassess socially irresponsible
+                            funding activities if they realize their customers are concerned. *To take positive action,
+                            keep on scrolling…*</span>
                         <a v-if="details.data_sources?.includes('bimpact')"
                             href="http://data.world/blab/b-corp-impact-data" class="block"><span class="text-xs"
-                                v-text="$t('B_LAB_CITATION')"></span></a>
+                                v-text="'CC BY-SA data partially from B-Lab'"></span></a>
                     </div>
                 </div>
                 <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-between items-center">

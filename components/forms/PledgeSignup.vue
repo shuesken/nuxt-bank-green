@@ -39,10 +39,8 @@
                     I wish to receive more information via email from Bank.Green.</CheckboxSection>
                 <CheckboxSection class="col-span-full" v-model="isAgreeTerms" name="isAgreeTerms" :dark="true"
                     :warning="warningsMap['isAgreeTerms']">
-                    <i18n-t keypath="AGREE_PRIVACY" scope="global">
-                        <a href="/privacy" class="link" target="_blank">privacy policy</a>
-                    </i18n-t>
-                </CheckboxSection>
+                    I have read and understood Bank.Green’s <NuxtLink to="/privacy" class="link">privacy policy
+                    </NuxtLink>. </CheckboxSection>
             </div>
             <button type="submit" class="button-green w-full md:w-auto mt-6 flex justify-center" :class="{
                 'pointer-events-none opacity-75': busy,

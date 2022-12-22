@@ -9,7 +9,7 @@
                     v-t="'SORRY_NOT_LISTED'" />
                 <i18n-t keypath="NOT_LISTED" tag="p">
                     <NuxtLink to="/contact" class="font-bold text-sushi-500 hover:underline">
-                        {{ $t('NOT_LISTED_LINK') }}
+                        tell us your bank’s name
                     </NuxtLink>
                 </i18n-t>
             </div>
@@ -20,9 +20,15 @@
             <div class="contain">
                 <div class="flex flex-col md:flex-row items-center justify-center pt-8 pb-16">
                     <div class="md:w-1/2 max-w-sm">
-                        <p class="text-lg md:text-2xl tracking-wide mb-4" v-text="$t('NOT_LISTED_DESC_1')" />
+                        <p class="text-lg md:text-2xl tracking-wide mb-4">
+                            *Bank.Green was founded on the belief that banks have had an easy time from their customers
+                            for too long*. Mass movements will pull us out of the climate crisis – and they’ll pull your
+                            bank out, too.
+                        </p>
                         <p class="md:text-xl tracking-wide whitespace-pre-line text-gray-600 mb-12 md:mb-0">
-                            {{ $t('NOT_LISTED_DESC_2') }}
+                            Our mission is to encourage as many people as possible to take a stand - to refuse to let
+                            their money fuel environmental destruction any longer. Considering who you bank with, we
+                            think you probably agree. This is your chance to spread the word with us.
                         </p>
                     </div>
                     <img class="md:order-first md:w-2/5 -mx-24 md:mx-0 md:mr-24" src="/img/illustrations/dig.svg"
@@ -37,7 +43,11 @@
                 <div class="flex justify-center text-left">
                     <div class="max-w-4xl flex flex-col md:flex-row items-center justify-center md:space-x-8">
                         <div class="md:w-1/2 max-w-sm">
-                            <p class="text-lg md:text-2xl tracking-wide mb-4" v-text="$t('MONEY_IS_THE_OXYGEN')"></p>
+                            <p class="text-lg md:text-2xl tracking-wide mb-4">
+                                We can’t say it better than environmentalist Bill McKibben: “Money is the oxygen on
+                                which the fire of global warming burns.” But don’t wait for the fire department to turn
+                                up – join us!
+                            </p>
                         </div>
                         <CheckList class="md:w-1/2 my-8" :list="checkList" />
                     </div>
@@ -68,9 +78,9 @@ export default {
     computed: {
         checkList() {
             return [
-                this.$t('LEARN_ABOUT_THE_ISSUES'),
-                this.$t('JOIN_OUR_CAMPAIGNS_TAKE_ACTION'),
-                this.$t('DISCOVER_WAYS_TO_DIVEST'),
+                'Learn about the issues via our blog updates',
+                "Join our campaigns to take action against fossil finance",
+                "Discover other ways to divest from fossil fuels",
             ]
         },
     },
