@@ -1,6 +1,6 @@
 <template>
   <figure>
-    <img class="mx-auto" :alt="slice.primary.alt" :src="slice.primary.image.url" :style="{
+    <img class="mx-auto" :alt="slice.primary.image.alt" :src="slice.primary.image.url" :style="{
       'max-width': `100%`,
     }" />
     <figcaption>

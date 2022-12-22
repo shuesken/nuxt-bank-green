@@ -1,8 +1,8 @@
 <template>
-  <!-- <pre>
+  <pre>
     {{ JSON.stringify(slice.primary, null, 2) }}
-  </pre> -->
-  <img :src="slice.primary.logo.url" :alt="slice.primary.alt" :class="slice.primary.class ?? 'h-10 w-auto'" />
+  </pre>
+  <img :src="slice.primary.logo.url" :alt="slice.primary.logo.alt" :class="slice.primary.class ?? 'h-10 w-auto'" />
 </template>
 
 <script>
