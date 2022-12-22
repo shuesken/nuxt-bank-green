@@ -1,7 +1,7 @@
 <template>
     <div v-if="hasBanks && loaded && !disabled" v-clickaway="hideList">
         <div class="relative">
-            <SearchInput ref="input" :aria-expanded="isShowing" v-model="search" :placeholder="$t('SEARCH_BANK')"
+            <SearchInput ref="input" :aria-expanded="isShowing" v-model="search" :placeholder="'Search bank...'"
                 @keydown.down="
                     event => $refs['listPicker'].incrementFocus(event)
                 " @keydown.up="event => $refs['listPicker'].decrementFocus(event)" @keydown.enter="
@@ -21,7 +21,7 @@
                     <slot v-if="filteredBanks.length === 0" name="not-listed">
                         <NuxtLink to="/not-listed">
                             <div class="text-gray-500 text-center p-4 shadow-lg underline">
-                                {{ $t('NO_BANKS_FOUND') }}
+                                My bank isn't listed
                             </div>
                         </NuxtLink>
                     </slot>
@@ -38,13 +38,13 @@
         <div
             class="relative w-full border border-gray-50 text-gray-400 bg-gray-50 rounded-xl shadow-sm pl-12 pr-10 py-4 text-left cursor-default sm:text-sm truncate select-none">
             <span v-if="disabled">
-                {{ $t('SET_LOCATION_FIRST') }}
+                Set a country first
             </span>
             <span v-else-if="!loaded">
-                {{ $t('GETTING_BANKS') }}
+                Loading banks...
             </span>
             <span v-else-if="!hasBanks">
-                {{ $t('NO_BANKS_IN_COUNTRY') }}
+                No banks available in this country.
             </span>
         </div>
 

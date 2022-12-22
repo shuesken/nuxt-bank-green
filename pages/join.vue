@@ -9,14 +9,17 @@
                     </h2>
                     <div class="max-w-4xl flex flex-col md:flex-row items-center justify-center md:space-x-8">
                         <div class="md:w-1/2 max-w-sm">
-                            <p class="text-lg md:text-2xl tracking-wide mb-1 md:mb-4"
-                                v-text="$t('NOT_LISTED_DESC_1')" />
+                            <p class="text-lg md:text-2xl tracking-wide mb-1 md:mb-4">*Bank.Green was founded on the
+                                belief that banks have had an easy time from their customers for too long*. Mass
+                                movements will pull us out of the climate crisis – and they’ll pull your bank out, too.
+                            </p>
                         </div>
                         <CheckList class="md:w-1/2 my-8" :list="checkList" />
                     </div>
                 </div>
                 <div class="flex flex-row justify-center items-center">
-                    <SignupBox :title="$t('BANK_DETAIL_OK_SIGNUP')" tag="join form" class="max-w-4xl w-full mt-8" />
+                    <SignupBox :title="`Sign up to Bank.Green. We'll take the fight to the banks together.`"
+                        tag="join form" class="max-w-4xl w-full mt-8" />
                 </div>
             </div>
         </div>
@@ -43,9 +46,9 @@ export default {
     computed: {
         checkList() {
             return [
-                this.$t('LEARN_ABOUT_THE_ISSUES'),
-                this.$t('JOIN_OUR_CAMPAIGNS_TAKE_ACTION'),
-                this.$t('DISCOVER_WAYS_TO_DIVEST'),
+                "Learn about the issues via our blog updates",
+                "Join our campaigns to take action against fossil finance",
+                "Discover other ways to divest from fossil fuels",
             ]
         },
     },
