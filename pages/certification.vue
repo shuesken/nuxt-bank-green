@@ -15,11 +15,10 @@
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
-useHeadHelper('Fossil Free Certification - Bank.Green', 'Fossil Free Certification is the simplest, most straightforward way to signal to customers, professionals in the banking sector, and the general public that a sustainability-conscious financial institution is truly putting its money where its mouth is.')
-
 const sliceComps = ref(defineSliceZoneComponents(components))
-
 
 const { client } = usePrismic()
 const { data: certification } = await useAsyncData('certification', () => client.getSingle('certificationpage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
+usePrismicSEO(certification.value.data)
+
 </script>

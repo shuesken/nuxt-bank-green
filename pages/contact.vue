@@ -54,12 +54,10 @@ import TextField from '../components/forms/TextField.vue'
 import { ref } from 'vue'
 import Swoosh from '@/components/Swoosh.vue'
 
-useHeadHelper('Contact Us - Bank.Green', 'Unfortunately we are not currently accepting requests to research new banks, but we encourage you to reach out to your own bank to establish whether or not they are financing fossil fuels.')
-
-
 
 const p = usePrismic()
 const { data: contact } = await useAsyncData('contact', () => p.client.getSingle('contactpage'))
+usePrismicSEO(contact.value.data)
 
 let extras = ref({ isAgreeMarketing: false })
 

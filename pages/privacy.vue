@@ -14,11 +14,11 @@
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
-useHeadHelper('Privacy')
-
 const sliceComps = ref(defineSliceZoneComponents(components))
 
 
 const { client } = usePrismic()
 const { data: privacy } = await useAsyncData('privacy', () => client.getSingle('privacypage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
+usePrismicSEO(privacy.value.data)
+
 </script>

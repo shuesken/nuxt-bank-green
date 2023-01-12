@@ -28,11 +28,11 @@ import SignupBox from '@/components/forms/SignupBox.vue'
 // import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 
-useHeadHelper("Frequently Asked Questions - Bank.Green", "Do you have questions about your bank's climate impacts, Bank.Green's mission or how to switch banks? Here's where you can find the answers.")
-
 const sliceComps = ref(defineSliceZoneComponents(components))
 
 
 const { client } = usePrismic()
 const { data: faq } = await useAsyncData('faq', () => client.getSingle('faqpage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
+usePrismicSEO(certification.value.data)
+
 </script>

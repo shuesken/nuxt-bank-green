@@ -92,6 +92,28 @@ interface BankpageDocumentData {
      *
      */
     description3: prismicT.RichTextField;
+    /**
+     * SEO Title field in *BankPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bankpage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *BankPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: bankpage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
 }
 /**
  * BankPage document from Prismic
@@ -258,6 +280,28 @@ export type CalltoactionDocument<Lang extends string = string> = prismicT.Prismi
 /** Content for CertificationPage documents */
 interface CertificationpageDocumentData {
     /**
+     * SEO Title field in *CertificationPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: certificationpage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *CertificationPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: certificationpage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
+    /**
      * Slice Zone field in *CertificationPage*
      *
      * - **Field Type**: Slice Zone
@@ -297,6 +341,28 @@ interface ContactpageDocumentData {
      *
      */
     description: prismicT.RichTextField;
+    /**
+     * SEO Title field in *ContactPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: contactpage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *ContactPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: contactpage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
 }
 /**
  * ContactPage document from Prismic
@@ -310,6 +376,28 @@ interface ContactpageDocumentData {
 export type ContactpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ContactpageDocumentData>, "contactpage", Lang>;
 /** Content for DisclaimerPage documents */
 interface DisclaimerpageDocumentData {
+    /**
+     * SEO Title field in *DisclaimerPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: disclaimerpage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *DisclaimerPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: disclaimerpage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
     /**
      * Slice Zone field in *DisclaimerPage*
      *
@@ -339,6 +427,28 @@ type DisclaimerpageDocumentDataSlicesSlice = TextSliceSlice;
 export type DisclaimerpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<DisclaimerpageDocumentData>, "disclaimerpage", Lang>;
 /** Content for EcoBanksPage documents */
 interface EcobankspageDocumentData {
+    /**
+     * SEO Title field in *EcoBanksPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: ecobankspage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *EcoBanksPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: ecobankspage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
     /**
      * Slice Zone field in *EcoBanksPage*
      *
@@ -395,6 +505,28 @@ interface FaqpageDocumentData {
      *
      */
     introduction: prismicT.RichTextField;
+    /**
+     * SEO Title field in *FAQPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faqpage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *FAQPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: faqpage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
     /**
      * Slice Zone field in *FAQPage*
      *
@@ -469,6 +601,28 @@ interface HomepageDocumentData {
      */
     description4: prismicT.RichTextField;
     /**
+     * SEO Title field in *HomePage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *HomePage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
+    /**
      * Slice Zone field in *HomePage*
      *
      * - **Field Type**: Slice Zone
@@ -530,6 +684,28 @@ interface PledgepageDocumentData {
      *
      */
     description2: prismicT.RichTextField;
+    /**
+     * SEO Title field in *PledgePage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: pledgepage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *PledgePage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: pledgepage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
 }
 /**
  * PledgePage document from Prismic
@@ -639,6 +815,28 @@ export type PresspostDocument<Lang extends string = string> = prismicT.PrismicDo
 /** Content for PrivacyPage documents */
 interface PrivacypageDocumentData {
     /**
+     * SEO Title field in *PrivacyPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: privacypage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *PrivacyPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: privacypage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
+    /**
      * Slice Zone field in *PrivacyPage*
      *
      * - **Field Type**: Slice Zone
@@ -678,6 +876,28 @@ interface TakeactionpageDocumentData {
      *
      */
     introduction: prismicT.RichTextField;
+    /**
+     * SEO Title field in *TakeActionPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: takeactionpage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *TakeActionPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: takeactionpage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
     /**
      * Slice Zone field in *TakeActionPage*
      *
@@ -755,6 +975,28 @@ type TakeactionpageDocumentDataSlices4Slice = EmbedSliceSlice | ImageSliceSlice 
 export type TakeactionpageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TakeactionpageDocumentData>, "takeactionpage", Lang>;
 /** Content for TeamPage documents */
 interface TeampageDocumentData {
+    /**
+     * SEO Title field in *TeamPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: teampage.seo_title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_title: prismicT.KeyTextField;
+    /**
+     * SEO Description field in *TeamPage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: teampage.seo_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    seo_description: prismicT.KeyTextField;
     /**
      * Slice Zone field in *TeamPage*
      *

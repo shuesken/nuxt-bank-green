@@ -57,10 +57,9 @@ import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
 const sliceComps = ref(defineSliceZoneComponents(components))
 
-
-useHeadHelper('Take action')
 const { client } = usePrismic()
 const { data: action } = await useAsyncData('takeaction', () => client.getSingle('takeactionpage', { fetchLinks: ['accordionitem.title', 'accordionitem.slices'], }))
+usePrismicSEO(action.value.data)
 
 
 const tabs = ['Pressure', 'Switch', 'Share', 'Learn']

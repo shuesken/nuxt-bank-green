@@ -47,10 +47,10 @@ const checkList = [
     "Join a fast-growing movement of consumers standing up for their future",
     "Take a critical climate action with profound effects"
 ]
-useHeadHelper('Pledge to Switch Your Bank - Bank.Green', 'Are you ready to switch to a sustainable bank and stop financing fossil fuels? Pledge and set a reminder for yourself.')
-
 const { client } = usePrismic()
 const { data: pledge } = await useAsyncData('pledge', () => client.getSingle('pledgepage'))
+usePrismicSEO(pledge.value.data)
+
 
 const signUpForm = ref()
 const scrollToForm = () => {

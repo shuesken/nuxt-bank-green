@@ -40,6 +40,20 @@
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em,hyperlink,list-item"
         }
+      },
+      "seo_title": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Title",
+          "placeholder": ""
+        }
+      },
+      "seo_description": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Description",
+          "placeholder": ""
+        }
       }
     },
     "As Featured In": {

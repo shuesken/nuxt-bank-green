@@ -99,3 +99,10 @@ export const useHeadRating = (rating) => {
     ]
   })
 }
+
+export const usePrismicSEO = (data) => {
+  if (!data) return
+  useHeadHelper(data.seo_title, data.seo_description)
+}
+
+

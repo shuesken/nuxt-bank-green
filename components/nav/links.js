@@ -34,7 +34,7 @@ export default function getLinks({ isHeader = false }) {
 
         links.push({
             href: '/partners',
-            title: "Our Ppartners",
+            title: "Our Partners",
             short_title: "Partners",
         })
 

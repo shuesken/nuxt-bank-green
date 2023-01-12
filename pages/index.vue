@@ -115,13 +115,15 @@ import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 // import { useGtm } from 'vue-gtm'
 import { components } from '~~/slices'
 import { defineSliceZoneComponents } from '@prismicio/vue';
+import { usePrismicSEO } from '~~/composables/useHeadHelpers';
 const sliceComps = ref(defineSliceZoneComponents(components))
 
 const bank = ref(null)
-useHeadHelper('Find Ethical & Sustainable Banks In Your Area - Bank.Green', 'Bank.Green is sounding the alarm on the climate-destroying activities of banks while recommending sustainable alternatives and empowering consumer action.')
 
 const { client } = usePrismic()
 const { data: home } = await useAsyncData('home', () => client.getSingle('homepage'))
+
+usePrismicSEO(home.value.data)
 // const gtm = useGtm()
 // const onCheckBankClick = () => {
 //     gtm.trackEvent({ event: 'onBankCheckClick' })
