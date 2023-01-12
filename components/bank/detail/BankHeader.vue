@@ -46,15 +46,10 @@
                                 v-text="`Your bank doesn't top the charts, but it’s still using your money to lend to fossil fuel companies and projects that are rapidly accelerating the climate crisis.`">
                             </span>
                         </template>
-                        <template v-else-if="details.rating === 'ok'">
-                            <span
-                                v-text="`The good news is that your bank is not a leading fossil fuel funder and we have found positive evidence that they care about the environment. The bad news is that *we haven’t yet been able to confirm for certain that they do not fund fossil fuels.*\n\nSince your bank is showing themselves to be socially responsible, it’s time to make sure they know that fossil fuel funding is no longer socially acceptable. *To take positive action, keep on scrolling…*`"></span></template>
+                        <PrismicRichText v-else-if="details.rating === 'ok'" :field="okbank.data.description1" />
                         <PrismicRichText v-else-if="details.rating === 'great'" :field="greatbank.data.description1" />
-                        <span v-else>Unfortunately, we don’t yet have enough information on your bank to know what it’s
-                            funding. What we do know however, is that contacting your bank to ask them yourself will
-                            send a powerful message – banks will have no choice but to reassess socially irresponsible
-                            funding activities if they realize their customers are concerned. *To take positive action,
-                            keep on scrolling…*</span>
+                        <PrismicRichText v-else :field="unknownbank.data.description1" />
+
                         <a v-if="details.data_sources?.includes('bimpact')"
                             href="http://data.world/blab/b-corp-impact-data" class="block"><span class="text-xs"
                                 v-text="'CC BY-SA data partially from B-Lab'"></span></a>
@@ -87,6 +82,10 @@
 import ArrowDownBounce from '@/components/icons/ArrowDownBounce.vue'
 const { client } = usePrismic()
 const { data: greatbank } = await useAsyncData('greatbank', () => client.getByUID('bankpage', 'greatbank'))
+const { data: okbank } = await useAsyncData('okbank', () => client.getByUID('bankpage', 'okbank'))
+const { data: unkonwnbank } = await useAsyncData('unkonwnbank', () => client.getByUID('bankpage', 'unkonwnbank'))
+
+
 
 
 

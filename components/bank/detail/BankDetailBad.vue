@@ -79,12 +79,7 @@ const props = defineProps({
 
 const formattedTotal = computed(() => props?.details.amountFinancedSince2016 ?? 'large amounts')
 
-const piggyText = computed(() => {
-    `While you’ve been stashing away money for a car or a weekend get-away, ${props?.details.name} has been using your savings to lend to some very questionable fossil fuel friends.\n\nAnd it's not just a little here and there, we’re talking about ${formattedTotal.value || "a lot of money"} in the 6 years since 197 countries agreed to drastically reduce their greenhouse gas emissions in the Paris Agreement. `
-        +
-        (props?.details.uniqueStatement
-            ? `\n\n*${props?.details.uniqueStatement}*`
-            : '')
-})
+const piggyText =
+    `While you’ve been stashing away money for a car or a weekend get-away, ${props?.details.name} has been using your savings to lend to some very questionable fossil fuel friends.\n\nAnd it's not just a little here and there, we’re talking about ${formattedTotal.value || "a lot of money"} in the 6 years since 197 countries agreed to drastically reduce their greenhouse gas emissions in the Paris Agreement.`
 
 </script>
